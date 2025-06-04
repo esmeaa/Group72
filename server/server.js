@@ -170,8 +170,26 @@ app.post('/api/editprofile', async (req, res) => {
 });
 
 // Endpoint to receive user setup data and insert into DB
-// 
+app.post('/api/setUp', async (req, res) => {
+    try {
+        const { first_name, last_name, user_name, user_password, gender, age, height, weight, ethnicity } = req.body;
 
+        const query = `
+        INSERT INTO users (first_name, last_name, user_name, user_password, gender, age, height, weight, ethnicity)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+        RETURNING *;
+      `;
+
+        const values = [first_name, last_name, user_name, user_password, gender, age, height, weight, ethnicity];
+
+        const result = await pool.query(query, values);
+
+        res.status(200).json({ message: "User setup saved", user: result.rows[0] });
+    } catch (error) {
+        console.error("Error saving setup data:", error);
+        res.status(500).json({ message: "Failed to save setup data" });
+    }
+});
 
 
 // Get food list
@@ -190,168 +208,27 @@ app.post("/api/food-items", async (req, res) => {
     res.status(201).json(result.rows[0]);
 });
 
-
+// Save a diet log
 app.post("/api/diet-log", async (req, res) => {
     const { user_name, food_item_id, calories, meal_type } = req.body;
+    //     await db.query(
+    //         `INSERT INTO diet_logs (user_name, food_item_id, calories, meal_type, created_at)
+    //          VALUES ($1, $2, $3, $4, NOW())`,
+    //         [user_name, food_item_id, calories, meal_type]
+    //     );
+    //     res.status(200).json({ message: "Diet log saved" });
+    // });
 
     if (!user_name) {
         return res.status(400).json({ message: "User not logged in" });
     }
 
-    try {
-        // Insert and return the inserted row with food_name
-        const result = await db.query(
-            `INSERT INTO diet_logs (user_name, food_item_id, calories, meal_type, created_at)
-         VALUES ($1, $2, $3, $4, NOW())
-         RETURNING *`,
-            [user_name, food_item_id, calories, meal_type]
-        );
+    await db.query(
+        `INSERT INTO diet_logs (user_name, food_item_id, calories, meal_type, created_at)
+     VALUES ($1, $2, $3, $4, NOW())`,
+        [user_name, food_item_id, calories, meal_type]
+    );
 
-        const dietLog = result.rows[0];
-
-        // Fetch the food_name for the inserted food_item_id
-        const foodResult = await db.query(
-            `SELECT name FROM food_items WHERE id = $1`,
-            [dietLog.food_item_id]
-        );
-
-        const foodName = foodResult.rows[0]?.name || null;
-
-        res.status(200).json({
-            ...dietLog,
-            food_name: foodName,
-        });
-    } catch (error) {
-        console.error("Error saving diet log:", error);
-        res.status(500).json({ message: "Failed to save diet log" });
-    }
-});
-  
-
-app.post('/api/exercises', async (req, res) => {
-    const { exercise_type, duration, distance, exercise_date, user_name } = req.body;
-
-    if (!exercise_type || !duration || !distance || !exercise_date || !user_name) {
-        return res.status(400).json({ message: "All fields are required" });
-    }
-
-    try {
-        const result = await db.query(
-            `INSERT INTO exercises (exercise_type, duration, distance, exercise_date, user_name)
-             VALUES ($1, $2, $3, $4, $5)
-             RETURNING *`,
-            [exercise_type, duration, distance, exercise_date, user_name]
-        );
-
-        res.status(201).json(result.rows[0]);
-    } catch (err) {
-        console.error('Error saving exercise:', err);
-        res.status(500).json({ error: 'Internal server error' });
-    }
-});
-
-app.get("/api/food-items", async (req, res) => {
-    const result = await db.query("SELECT * FROM food_items");
-    res.json(result.rows);
-});
-
-app.get("/api/diet-log", async (req, res) => {
-    const { user_name } = req.query;
-    if (!user_name) {
-        return res.status(400).json({ message: "User not logged in" });
-    }
-    try {
-        const result = await db.query(
-            `SELECT dl.*, fi.name AS food_name
-         FROM diet_logs dl
-         JOIN food_items fi ON dl.food_item_id = fi.id
-         WHERE dl.user_name = $1
-         ORDER BY dl.created_at DESC`,
-            [user_name]
-        );
-        res.json(result.rows);
-    } catch (error) {
-        res.status(500).json({ message: "Error fetching diet logs" });
-    }
-});
-
-
-// BMI calculation helper
-function calculateBMI(weightKg, heightCm) {
-    const heightM = heightCm / 100;
-    return weightKg / (heightM * heightM);
-}
-
-// POST /api/bmi-feedback
-app.post('/api/bmi-feedback', async (req, res) => {
-    const { userId, gender, age, height, weight, ethnicity } = req.body;
-
-    if (!userId || !gender || !age || !height || !weight || !ethnicity) {
-        return res.status(400).json({ error: "Missing required fields" });
-    }
-
-    const bmi = calculateBMI(Number(weight), Number(height));
-
-    try {
-        const query = `
-        SELECT feedback FROM bmi_feedback
-        WHERE $1 BETWEEN min_bmi AND max_bmi
-        LIMIT 1;
-      `;
-        const result = await db.query(query, [bmi]);
-
-        if (result.rows.length === 0) {
-            return res.status(404).json({ error: "No feedback found for BMI" });
-        }
-
-        const feedback = result.rows[0].feedback;
-
-        res.json({
-            userId,
-            bmi: bmi.toFixed(2),
-            feedback,
-            receivedData: { gender, age, height, weight, ethnicity }
-        });
-    } catch (err) {
-        console.error("Database query error:", err);
-        res.status(500).json({ error: "Internal server error" });
-    }
-});
-
-
-app.post('/api/setUp', async (req, res) => {
-    try {
-        const { first_name, last_name, user_name, user_password, gender, age, height, weight, ethnicity } = req.body;
-
-        const query = `
-            INSERT INTO users (first_name, last_name, user_name, user_password, gender, age, height, weight, ethnicity)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
-            RETURNING *;
-        `;
-
-        const values = [first_name, last_name, user_name, user_password, gender, age, height, weight, ethnicity];
-
-        const result = await db.query(query, values);
-
-        res.status(200).json({ message: "User setup saved", user: result.rows[0] });
-    } catch (error) {
-        console.error("Error saving setup data:", error);
-        res.status(500).json({ message: "Failed to save setup data" });
-    }
-});
-
-app.get("/api/exerciseLog", async (req, res) => {
-    const user_name = decodeURIComponent(req.query.user_name);
-    console.log("Received user_name:", user_name);
-    try {
-        const result = await db.query(
-            "SELECT * FROM exercises WHERE user_name = $1 ORDER BY exercise_date DESC",
-            [user_name]
-        );
-        res.json(result.rows);
-    } catch (err) {
-        console.error("Error fetching exercise history:", err);
-        res.status(500).send("Server error");
-    }
+    res.status(200).json({ message: "Diet log saved" });
 });
 
