@@ -1,6 +1,7 @@
 
 import './App.css';
 import Launch from './pages/launch';
+import AdminDashboard from './pages/adminDashboard';
 import {Routes, Route} from "react-router-dom"; 
 
 
@@ -10,6 +11,7 @@ function App() {
       <header className="App-header">
         <Routes>
           <Route path="/launch" element={<Launch />}/>
+          <Route path="/adminDashboard" element={<AdminDashboard />}/>
         </Routes>
       
       </header>
