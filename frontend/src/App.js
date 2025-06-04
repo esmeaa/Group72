@@ -1,4 +1,9 @@
+<<<<<<< Updated upstream
 
+=======
+import React from 'react';
+import LoginPage from './LoginPage';
+>>>>>>> Stashed changes
 import './App.css';
 import Launch from './pages/launch';
 import AdminDashboard from './pages/adminDashboard';
