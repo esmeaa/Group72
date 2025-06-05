@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginPage.css";
-import houseLogo from "./images/house_1.png";
+import houseLogo from "../images/house_1.png"; 
 
-// const EXPRESS_SERVER_URL = "http://localhost:3000";
+// const EXPRESS_SERVER_URL = "http://localhost:3001";
 
 function LoginPage() {
   // const navigate = useNavigate();
@@ -136,4 +136,3 @@ function LoginPage() {
 }
 
 export default LoginPage;
-
