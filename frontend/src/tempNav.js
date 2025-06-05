@@ -10,7 +10,8 @@ const tempNav = () => {
             <li><NavLink to="/launch" className="nav-link"> Launch</NavLink></li>
             <li><NavLink to="/login" className="nav-link"> LoginPage</NavLink></li>
             <li><NavLink to="/HomeSeekerRegister" className="nav-link"> Home Seeker Register</NavLink></li>
-             <li><NavLink to="/BuilderRegister" className="nav-link"> Builder Register</NavLink></li>
+            <li><NavLink to="/BuilderRegister" className="nav-link"> Builder Register</NavLink></li>
+            <li><NavLink to="/AdminRegister" className="nav-link"> Admin Register</NavLink></li>
         </ul>
     </nav>
 
