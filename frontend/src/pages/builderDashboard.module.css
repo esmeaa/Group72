@@ -9,7 +9,7 @@ body, html {
   font-family: 'Segoe UI', sans-serif;
 }
 
-.builder-dash {
+.builder_dash {
   background-color: #dbe8ff;
   min-height: 100vh;
   padding: 2rem;
@@ -18,7 +18,7 @@ body, html {
   align-items: center;
 }
 
-.builder-inner {
+.builder_inner {
   padding: 2rem;
   max-width: 400px;
   width: 100%
