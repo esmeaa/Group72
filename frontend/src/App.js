@@ -6,6 +6,8 @@ import TempNav from './tempNav';
 import LoginPage from './pages/LoginPage';
 import Launch from './pages/launch';
 import Admin from './pages/adminDashboard';
+import HomeSeekerRegister from './pages/HomeSeekerRegister';
+import BuilderRegister from './pages/BuilderRegister';
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
       <Route path='/launch' element={<Launch/>}/>
       <Route path='/login' element={<LoginPage/>}/>
       <Route path='/admin' element={<Admin/>}/>
+      <Route path='/HomeSeekerRegister' element={<Admin/>}/>
+      <Route path='/BuilderRegister' element={<Admin/>}/>
       </Routes> 
 
       </header>
