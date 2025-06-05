@@ -23,6 +23,7 @@ function App() {
       <Route path='/admin' element={<Admin/>}/>
       <Route path='/HomeSeekerRegister' element={<HomeSeekerRegister/>}/>
       <Route path='/BuilderRegister' element={<BuilderRegister/>}/> 
+
       </Routes> 
 
       </header>
