@@ -21,8 +21,8 @@ function App() {
       <Route path='/launch' element={<Launch/>}/>
       <Route path='/login' element={<LoginPage/>}/>
       <Route path='/admin' element={<Admin/>}/>
-      <Route path='/HomeSeekerRegister' element={<Admin/>}/>
-      <Route path='/BuilderRegister' element={<Admin/>}/>
+      <Route path='/HomeSeekerRegister' element={<HomeSeekerRegister/>}/>
+      <Route path='/BuilderRegister' element={<BuilderRegister/>}/> 
       </Routes> 
 
       </header>
