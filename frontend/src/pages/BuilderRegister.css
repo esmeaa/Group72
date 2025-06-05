@@ -147,6 +147,12 @@ input {
   color: #4caf50;
 }
 
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  -webkit-text-fill-color: #000 !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
 .error-message {
   color: #f44336;
   font-size: 0.75rem;
@@ -170,6 +176,7 @@ input {
 .submit-btn:hover {
   background-color: #3c65d1;
 }
+
 
 @media (max-width: 480px) {
   .form-box {
