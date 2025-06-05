@@ -1,9 +1,10 @@
 
+import React from 'react';
 import './App.css';
 import {Routes, Route} from "react-router-dom"; 
-
-import React from 'react';
 import LoginPage from './pages/LoginPage';
+import Launch from './pages/launch';
+import Admin from './pages/adminDashboard';
 
 
 function App() {
@@ -12,10 +13,11 @@ function App() {
       <header className="App-header">
 
         
-      {/* <Routes>
-      <Route path="/Login" element={<LoginPage />} />
-
-      </Routes> */}
+       <Routes>
+      <Route path='/launch' element={<Launch/>}/>
+      <Route path='/login' element={<LoginPage/>}/>
+      <Route path='/admin' element={<Admin/>}/>
+      </Routes> 
 
       </header>
     </div>
