@@ -69,3 +69,20 @@ position: relative;
 top: -27px;
 animation: fadeUp 0.9s ease-in ;  
 }
+
+@media (max-width: 480px) {
+  #title {
+    width: 90%;
+    top: 80px;
+  }
+
+  #house {
+    width: 80%;
+    top: 100px;
+  }
+
+  #hands {
+    width: 85%;
+    top: 13px;
+  }
+}
