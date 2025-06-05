@@ -66,7 +66,7 @@ function HomeSeekerRegister() {
       <div className="form-box">
         <div className="logo"><img src={logo} alt="Logo" /></div>
         <h1 className="heading">Join <span>Ubuntu</span>Homes</h1>
-        <p className="subheading">Create your account and start looking for housing</p>
+        <p className="subheading">Create your account and start looking for homes</p>
 
         <div className="toggle-tabs">
           <button className="tab inactive" onClick={() => navigate("/builder-register")}>
