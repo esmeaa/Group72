@@ -25,12 +25,18 @@ const adminDashboard = () => {
             <span className="quick-label">Goals</span>
           </div>
         </section>
+        <div className='admin-buttons'>
         <button>Manage All Applications</button>
-        <button>Manage All Applications</button>
-        <div className="details">
-      
-            <h1 className="name">Hi John Doe!</h1>
-            <button className='editPf'>Edit Profile</button>
+        <button>Post a Project</button>
+        </div>
+        <div className="action">
+            <h1 className="name">Post a Project</h1>
+            <p id='caption'>Create job opportunities or list housing for the Makers Valley community</p>
+            <div className='dynamic-sec' id='job-sec'>
+            <h1 className='action-title'>Create a job listing</h1>
+
+            </div>
+
         </div>
         
       
