@@ -1,0 +1,256 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  padding: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.builder-dash {
+  background-color: #dbe8ff;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.builder-inner {
+  padding: 2rem;
+  max-width: 400px;
+  width: 100%
+}
+
+button:hover{
+  filter: brightness(0.8);
+}
+
+.welcome {
+  span {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  p {
+    display: inline;
+    padding: 0 0.2rem;
+  }
+}
+
+.value {
+  float: right;
+}
+
+#profile {
+  height: 6rem;
+}
+
+#profile div.icon {
+  height: 3rem;
+  width: 3rem;
+  background: black;
+  border-radius: 3rem;
+  float: left;
+  margin: auto 1rem auto auto;
+}
+
+#profile button {
+  color: #FFF;
+  background-color: #5271FF;
+  border: none;
+  border-radius: 0.3rem;
+  margin: 2em 1rem;
+  padding: 0.5rem;
+  float: right;
+}
+
+.grid_container {
+  display: grid;
+  grid-template-areas:
+    "active complete pay"
+    "switch switch pay"
+}
+
+.grid_container > div {
+  border-radius: 1.5rem;
+  height: 6rem;
+}
+
+.grid_container > div p {
+    font-weight: bold;
+}
+
+.grid_container > div p.value {
+    padding: 0.7rem;
+}
+
+.grid_container > div div.icon {
+  width: 3rem;
+  height: 3rem;
+  float: left;
+  border-radius: 0.7rem;
+}
+
+.grid_container > div.active {
+  grid-area: active;
+  background-color: #D8FFD5;
+  color: #214E1D;
+  div.icon {
+    background-color: #53FB44;
+  }
+}
+
+.grid_container > div.complete {
+  grid-area: complete;
+  background-color: #FFECEC;
+  color: #8F6363;
+  div.icon {
+    background-color: #FDB4B4;
+  }
+}
+
+.grid_container > div.pay {
+  grid-area: pay;
+  background-color: #F5E5FF;
+  height: auto;
+  color: #776384;
+  div.icon {
+    background-color: #E4BAFF;
+  }
+}
+
+.grid_container > div button {
+  border-radius: 0.5rem;
+  width: 100%;
+  font-size: 1.2Rem;
+}
+
+.grid_container > div.pay button {
+  background-color: #B854FF;
+  color: #FFF;
+  border: 0.2rem solid #9202FA;
+  padding: 0.5rem;
+  margin-top: 2.5rem;
+}
+
+.grid_container > div.switch {
+  grid-area: switch;
+  color: #002EFF;
+}
+
+.grid_container > div.switch button {
+  background-color: #5271FF;
+  color: #FFF;
+  border: 0.2rem solid #002EFF;
+  padding: 0.3rem;
+  margin: 0.6rem auto;
+}
+
+.flex_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.flex_item {
+  padding: 0.4rem;
+  width: 7.9rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+div.flex_item {
+  background: grey;
+  border-radius: 3rem;
+}
+
+button.flex_item {
+  background: white;
+  border: 0.2rem solid black;
+  border-radius: 3rem;
+}
+
+.inline {
+  display: inline;
+}
+
+.application_holder {
+  p {
+    display: inline;
+  }
+  button {
+    background: none;
+    border: none;
+    border-radius: 0.3rem;
+    color: #5271FF;
+    float: right;
+  }
+  button:hover {
+    background: #D9CECE;
+  }
+}
+
+.application {
+  width: 100%;
+  height: 4rem;
+  background: #fff;
+  border: 0.1rem solid grey;
+  border-radius: 0.3rem;
+  margin: 1rem 0;
+  padding: 0.2rem;
+}
+
+div scrollable {
+  overflow-y: auto;
+}
+
+.application scrollable {
+  width: 90%;
+}
+
+div > p.status {
+  float: right;
+  width: 10rem;
+  height: 2rem;
+  margin: 0 1rem;
+  text-align: center;
+  border-radius: 0.4rem;
+}
+
+div .approved {
+  filter: drop-shadow(0rem 0.4rem 0.3rem #30C74E);
+  p.status {
+    background: #DDFFDE;
+    color: #0A7A02;
+    border: 0.15rem solid #0A7A02;
+  }
+}
+
+.denied {
+  filter: drop-shadow(0rem 0.4rem 0.3rem #C73033);
+  p.status {
+    background: #FFD6D7;
+    color: #C70A0A;
+    border: 0.15rem solid #C70A0A;
+  }
+}
+
+.pending {
+  filter: drop-shadow(0rem 0.4rem 0.2rem #F3A463);
+  p.status {
+    background: #FFC18E;
+    color: #DC6606;
+    border: 0.15rem solid #DC6606;
+  }
+}
+
+.holder {
+  background: #fff;
+  padding: 0.6rem;
+  margin: 0.6rem;
+  border-radius: 0.6rem;
+  width: auto;
+  height: auto;
+}
