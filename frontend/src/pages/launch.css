@@ -83,6 +83,6 @@ animation: fadeUp 0.9s ease-in ;
 
   #hands {
     width: 85%;
-    top: -20px;
+    top: 13px;
   }
 }

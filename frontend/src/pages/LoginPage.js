@@ -1,135 +1,87 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./LoginPage.css";
-import houseLogo from "../images/house_1.png"; 
-
-// const EXPRESS_SERVER_URL = "http://localhost:3001";
+import logo from "../images/house_1.png";
 
 function LoginPage() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
-    rememberMe: false,
   });
   const [errors, setErrors] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? checked : value,
-    });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
 
     if (errors[name]) {
-      setErrors({
-        ...errors,
-        [name]: "",
-      });
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
   const validateForm = () => {
     const newErrors = {};
-
-    if (!formData.username) {
-      newErrors.username = "Username is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.username)) {
-      newErrors.username = "Username is invalid";
-    }
-
-    if (!formData.password) {
-      newErrors.password = "Password is required";
-    } else if (formData.password.length < 4) {
-      newErrors.password = "Password must be at least 4 characters";
-    }
+    if (!formData.username) newErrors.username = "Username is required";
+    if (!formData.password) newErrors.password = "Password is required";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  // const handleLogin = async (e) => {
-  //   e.preventDefault();
-  //   if (!validateForm()) return;
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
 
-  //   try {
-  //     const res = await fetch(EXPRESS_SERVER_URL + "/api/login", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         user_name: formData.username,
-  //         user_password: formData.password,
-  //       }),
-  //     });
-
-  //     if (!res.ok) {
-  //       const errorText = await res.text();
-  //       alert("Login failed: " + errorText);
-  //       return;
-  //     }
-
-  //     const data = await res.json();
-  //     if (data.login === "success") {
-  //       localStorage.setItem("user_name", formData.username);
-  //       navigate("/ProfilePage");
-  //     }
-  //   } catch (error) {
-  //     alert("An error occurred during login.");
-  //     console.error("Login error:", error);
-  //   }
-  // };
+    // Login logic here...
+    console.log("Logging in with:", formData);
+    navigate("/dashboard");
+  };
 
   return (
     <div className="login-page">
-      <div className="login-box">
-        <div className="logo">
-          <img src={houseLogo} alt="House logo" />
-        </div>
-        <h1 className="welcome-heading">Welcome Back</h1>
-        <p className="subtitle">Sign in to your UbuntuHomes account</p>
+      <div className="login-card">
+        <img src={logo} alt="logo" className="login-logo" />
+        <h2 className="login-heading">Welcome Back</h2>
+        <p className="login-subheading">Sign in to your UbuntuHomes account</p>
 
-        <form >
-          <label htmlFor="username">Username</label>
-          <input
-            type="email"
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            placeholder="Enter your username"
-            className={errors.username ? "error" : ""}
-          />
-          {errors.username && (
-            <p className="error-message">{errors.username}</p>
-          )}
+        <form className="login-form" onSubmit={handleLogin}>
+          <div className="form-group">
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              placeholder="Enter your username"
+              value={formData.username}
+              onChange={handleChange}
+              className={errors.username ? "error" : ""}
+              autoComplete="username"
+            />
+            {errors.username && <span className="error-message">{errors.username}</span>}
+          </div>
 
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Enter your password"
-            className={errors.password ? "error" : ""}
-          />
-          {errors.password && (
-            <p className="error-message">{errors.password}</p>
-          )}
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Enter your password"
+              value={formData.password}
+              onChange={handleChange}
+              className={errors.password ? "error" : ""}
+              autoComplete="current-password"
+            />
+            {errors.password && <span className="error-message">{errors.password}</span>}
+          </div>
 
-          <button type="submit" className="submit-button">
-            Sign In
-          </button>
+          <button type="submit" className="submit-button">Sign In</button>
         </form>
 
-        <p className="signup-text">
+        <div className="register-redirect">
           Don’t have an account?{" "}
-          <button className="link-btn" onClick={() => alert("Sign up coming soon!")}>
-            Sign up here
-          </button>
-        </p>
+          <Link to="/builder-register" className="link">Sign up here</Link>
+        </div>
       </div>
     </div>
   );

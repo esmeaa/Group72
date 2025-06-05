@@ -8,6 +8,7 @@ import Launch from './pages/launch';
 import Admin from './pages/adminDashboard';
 import HomeSeekerRegister from './pages/HomeSeekerRegister';
 import BuilderRegister from './pages/BuilderRegister';
+import AdminRegister from './pages/AdminRegister';
 
 
 function App() {
@@ -22,8 +23,8 @@ function App() {
       <Route path='/login' element={<LoginPage/>}/>
       <Route path='/admin' element={<Admin/>}/>
       <Route path='/HomeSeekerRegister' element={<HomeSeekerRegister/>}/>
-      <Route path='/BuilderRegister' element={<BuilderRegister/>}/> 
-
+      <Route path='/BuilderRegister' element={<BuilderRegister/>}/>
+      <Route path='/AdminRegister' element={<AdminRegister/>}/> 
       </Routes> 
 
       </header>
