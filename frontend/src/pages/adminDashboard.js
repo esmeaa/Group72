@@ -1,8 +1,8 @@
 import React from 'react'
 import "./adminDashboard.css";
 import { Link } from 'react-router-dom'
-import profileIcon from "../images/icons/profile.svg";
 
+import { Hammer } from 'lucide-react';
 const adminDashboard = () => {
   return (
     <div className="dashboard">
@@ -33,7 +33,9 @@ const adminDashboard = () => {
             <h1 className="name">Post a Project</h1>
             <p id='caption'>Create job opportunities or list housing for the Makers Valley community</p>
             <div className='dynamic-sec' id='job-sec'>
+            <Hammer size={36}/>
             <h1 className='action-title'>Create a job listing</h1>
+            
 
             </div>
 
