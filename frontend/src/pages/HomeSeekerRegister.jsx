@@ -43,10 +43,44 @@ function HomeSeekerRegister() {
     });
   };
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log({ ...formData, role: "homeSeeker" });
+  // };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ ...formData, role: "homeSeeker" });
+
+    // Optionally: validate here before submitting, return if errors
+
+    console.log("Submitting form data:", { ...formData, role: "homeSeeker" });
+
+    try {
+      const response = await fetch("http://localhost:3001/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...formData, role: "homeSeeker" }),
+      });
+
+      const data = await response.json();
+
+      console.log("Response from server:", data);
+
+      if (response.ok) {
+        alert("Account created successfully!");
+        navigate("/LoginPage"); // or wherever you want to redirect
+      } else {
+        alert(data.message || "Home Seeker Registration failed");
+      }
+    } catch (error) {
+      console.error("Error submitting registration:", error);
+      alert("An error occurred. Please try again.");
+    }
   };
+
+
 
   const getPasswordStrength = (password) => {
     let strength = 0;

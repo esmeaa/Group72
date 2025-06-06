@@ -43,11 +43,45 @@ function BuilderRegister() {
     });
   };
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // Handle form submit
+  //   console.log({ ...formData, role: "builder" });
+  // };
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submit
-    console.log({ ...formData, role: "builder" });
+
+    // Optionally: validate here before submitting, return if errors
+
+    console.log("Submitting form data:", { ...formData, role: "builder" });
+
+    try {
+      const response = await fetch("http://localhost:3001/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...formData, role: "builder" }),
+      });
+
+      const data = await response.json();
+
+      console.log("Response from server:", data);
+
+      if (response.ok) {
+        alert("Account created successfully!");
+        navigate("/LoginPage"); // or wherever you want to redirect
+      } else {
+        alert(data.message || "Builder Registration failed");
+      }
+    } catch (error) {
+      console.error("Error submitting registration:", error);
+      alert("An error occurred. Please try again.");
+    }
   };
+
 
   const getPasswordStrength = (password) => {
     let strength = 0;
