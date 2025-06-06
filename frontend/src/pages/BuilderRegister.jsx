@@ -74,7 +74,7 @@ function BuilderRegister() {
             <Hammer size={16} />
             <span>Builder</span>
           </button>
-          <button className={`${styles.tab} ${styles.inactive}`} onClick={() => navigate("/home-seeker-register")}>
+          <button className={`${styles.tab} ${styles.inactive}`} onClick={() => navigate("/HomeSeekerRegister")}>
             <Home size={16} />
             <span>Home Seeker</span>
           </button>

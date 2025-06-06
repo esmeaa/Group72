@@ -69,7 +69,7 @@ function HomeSeekerRegister() {
         <p className={styles.subheading}>Create your account and start looking for homes</p>
 
         <div className={styles.toggle_tabs}>
-          <button className={`${styles.tab} ${styles.inactive}`} onClick={() => navigate("/builder-register")}>
+          <button className={`${styles.tab} ${styles.inactive}`} onClick={() => navigate("/BuilderRegister")}>
             <Hammer size={16} />
             <span>Builder</span>
           </button>

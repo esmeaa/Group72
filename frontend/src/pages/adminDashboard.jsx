@@ -13,7 +13,7 @@ const adminDashboard = () => {
         </div>
         <div className={styles.action}>
           <h1 className={styles.name}>Post a Project</h1>
-          <p id='caption'>Create job opportunities or list housing for the Makers Valley community</p>
+          <p id={styles.caption}>Create job opportunities or list housing for the Makers Valley community</p>
           <div className={styles.toggle_tabs}>
             <button className={`${styles.tab} ${styles.inactive}`}>
               <Hammer size={16} />
@@ -24,7 +24,7 @@ const adminDashboard = () => {
               <span>Home Seeker</span>
             </button>
           </div>
-          <div className={styles.dynamic_sec} id='job-sec'>
+          <div className={styles.dynamic_sec} id={styles.job_sec}>
             <Hammer size={36}/>
             <h1 className={styles.action_title}>Create a job listing</h1>
             <form>

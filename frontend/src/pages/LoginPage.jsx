@@ -80,7 +80,7 @@ function LoginPage() {
 
         <div className={styles.register_redirect}>
           Don’t have an account?{" "}
-          <Link to="/builder-register" className={styles.link}>Sign up here</Link>
+          <Link to="/BuilderRegister" className={styles.link}>Sign up here</Link>
         </div>
       </div>
     </div>

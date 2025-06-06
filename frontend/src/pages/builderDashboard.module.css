@@ -19,9 +19,12 @@ body, html {
 }
 
 .builder_inner {
+  background-color: #5271ff;
   padding: 2rem;
-  max-width: 400px;
-  width: 100%
+  border-radius: 16px;
+  max-width: 630px;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 button:hover{
@@ -248,7 +251,6 @@ div .approved {
 
 .holder {
   background: #fff;
-  padding: 0.6rem;
   margin: 0.6rem;
   border-radius: 0.6rem;
   width: auto;

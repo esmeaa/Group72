@@ -25,7 +25,7 @@ function BuilderDash() {
   return (
     <div className={styles.builder_dash}>
       <div className={styles.builder_inner}>
-        <article id="profile" className={styles.holder}>
+        <article id={styles.profile} className={styles.holder}>
           <button>Edit Details</button>
           <div className={styles.icon}>
           

@@ -74,6 +74,12 @@
   transition: background-color 0.3s ease;
 }
 
+.admin_buttons > button:hover {
+  transform: translateY(-5px);
+  background-color: #7ED957;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
 .toggle_tabs > button {
   background-color: #5271FF;
   color: white;
@@ -88,7 +94,7 @@
   transition: background-color 0.3s ease;
 }
 
-button:hover{
+.toggle_tabs > button:hover {
   transform: translateY(-5px);
   background-color: #7ED957;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
