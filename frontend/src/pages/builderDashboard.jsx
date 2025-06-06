@@ -1,9 +1,11 @@
 import { React, useState } from 'react'
 import styles from "./builderDashboard.module.css";
 import { Hammer, Check, Wallet } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 // Create an Action bar to use for all pages
 
 function BuilderDash() {
+  const navigate = useNavigate;
   const [count, setCount] = useState(0);
   const [active, setActive] = useState(0);
   const [completed, setCompleted] = useState(0);
@@ -89,7 +91,7 @@ function BuilderDash() {
           </div>
           <div className={`${styles.holder} ${styles.switch}`}>
             <p>Browse housing & apply your rent credit</p>
-            <button onClick="">Switch to Housing View</button>
+            <button onClick={() => navigate("/HomeSeekerDashboard")}>Switch to Housing View</button>
           </div>
         </div>
 
