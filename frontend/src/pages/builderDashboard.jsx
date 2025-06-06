@@ -16,7 +16,7 @@ function BuilderDash() {
 
   const user = {
     name: "John Doe",
-    type: "Builer",
+    type: "Builder",
     email: "johndoe@doe.com",
     phone: "+27-0000-000000",
   }
