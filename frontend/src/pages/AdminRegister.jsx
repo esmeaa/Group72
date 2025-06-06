@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./AdminRegister.css";
+import styles from "./AdminRegister.module.css";
 import logo from "../images/logo_1.png";
 import { Eye, EyeOff } from "lucide-react";
 
@@ -52,35 +52,35 @@ function AdminRegister() {
   };
 
   return (
-    <div className="admin-page">
-      <div className="form-box">
-        <div className="logo"><img src={logo} alt="Logo" /></div>
-        <h1 className="heading">Admin <span>Registration</span></h1>
-        <p className="subheading">Create an administrator account</p>
+    <div className={styles.admin_page}>
+      <div className={styles.form_box}>
+        <div className={styles.logo}><img src={logo} alt="Logo" /></div>
+        <h1 className={styles.heading}>Admin <span>Registration</span></h1>
+        <p className={styles.subheading}>Create an administrator account</p>
 
-        <form onSubmit={handleSubmit} className="form">
-          <div className="row">
-            <div className="form-group">
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.row}>
+            <div className={styles.form_group}>
               <label>First Name</label>
               <input type="text" name="firstName" onChange={handleChange} value={formData.firstName} />
-              {errors.firstName && <p className="error-message">{errors.firstName}</p>}
+              {errors.firstName && <p className={styles.error_message}>{errors.firstName}</p>}
             </div>
-            <div className="form-group">
+            <div className={styles.form_group}>
               <label>Last Name</label>
               <input type="text" name="lastName" onChange={handleChange} value={formData.lastName} />
-              {errors.lastName && <p className="error-message">{errors.lastName}</p>}
+              {errors.lastName && <p className={styles.error_message}>{errors.lastName}</p>}
             </div>
           </div>
 
-          <div className="form-group">
+          <div className={styles.form_group}>
             <label>Username</label>
             <input type="text" name="username" onChange={handleChange} value={formData.username} />
-            {errors.username && <p className="error-message">{errors.username}</p>}
+            {errors.username && <p className={styles.error_message}>{errors.username}</p>}
           </div>
 
-          <div className="form-group">
+          <div className={styles.form_group}>
             <label>Password</label>
-            <div className="password-wrapper">
+            <div className={styles.password_wrapper}>
               <input
                 type={showPassword ? "text" : "password"}
                 name="password"
@@ -89,7 +89,7 @@ function AdminRegister() {
               />
               <button
                 type="button"
-                className="toggle-password"
+                className={styles.toggle_password}
                 onClick={() => setShowPassword((p) => !p)}
               >
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
@@ -100,10 +100,10 @@ function AdminRegister() {
                 Strength: {getPasswordStrength(formData.password)}
               </div>
             )}
-            {errors.password && <p className="error-message">{errors.password}</p>}
+            {errors.password && <p className={styles.error_message}>{errors.password}</p>}
           </div>
 
-          <button type="submit" className="submit-btn">Create Admin</button>
+          <button type="submit" className={styles.submit_btn}>Create Admin</button>
         </form>
       </div>
     </div>

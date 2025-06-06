@@ -8,7 +8,7 @@ body, html {
   font-family: 'Segoe UI', sans-serif;
 }
 
-.login-page {
+.admin_page {
   background-color: #dbe8ff;
   min-height: 100vh;
   display: flex;
@@ -17,8 +17,8 @@ body, html {
   padding: 2rem;
 }
 
-.login-card {
-  background: #fff;
+.form_box {
+  background-color: #ffffff;
   padding: 2rem;
   border-radius: 16px;
   max-width: 400px;
@@ -27,28 +27,33 @@ body, html {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-.login-logo {
+.logo img {
   width: 48px;
   margin-bottom: 1rem;
 }
 
-.login-heading {
+.heading {
   font-size: 1.5rem;
   font-weight: 700;
   color: black;
 }
 
-.login-subheading {
+.heading span {
+  font-weight: 800;
+}
+
+.subheading {
   font-size: 0.9rem;
   color: #555;
   margin-bottom: 1.5rem;
 }
 
-.login-form {
+/* Form Layout */
+.form {
   text-align: left;
 }
 
-.form-group {
+.form_group {
   margin-bottom: 1rem;
 }
 
@@ -68,25 +73,64 @@ input {
   font-size: 0.95rem;
 }
 
+.row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.row .form_group {
+  flex: 1;
+}
+
+/* Password Strength */
+.password_wrapper {
+  position: relative;
+}
+
+.toggle_password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.password_strength {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.password_strength.weak {
+  color: #f44336;
+}
+
+.password_strength.moderate {
+  color: #ffa500;
+}
+
+.password_strength.strong {
+  color: #4caf50;
+}
+
 input:-webkit-autofill {
   box-shadow: 0 0 0px 1000px #ffffff inset !important;
   -webkit-text-fill-color: #000 !important;
   transition: background-color 9999s ease-in-out 0s;
 }
 
-.error-message {
+.error_message {
   color: #f44336;
   font-size: 0.75rem;
   margin-top: 0.3rem;
 }
 
-input.error {
-  border: 1px solid #f44336;
-}
-
-.submit-button {
-  display: block;
+.submit_btn {
   margin: 1.2rem auto 0 auto;
+  display: block;
   width: 100%;
   padding: 0.8rem;
   background-color: #4e7fff;
@@ -99,42 +143,40 @@ input.error {
   transition: background-color 0.2s ease-in-out;
 }
 
-.submit-button:hover {
+.submit_btn:hover {
   background-color: #3c65d1;
 }
 
-.register-redirect {
-  margin-top: 1.5rem;
-  font-size: 0.9rem;
-  color: #444;
-}
-
-.link {
-  color: #4e7fff;
-  text-decoration: underline;
-  font-weight: 600;
-  cursor: pointer;
-}
-
 @media (max-width: 480px) {
-  .login-card {
-    padding: 1.5rem;
+  .form_box {
+    padding: 1.2rem;
+    border-radius: 12px;
   }
 
-  .login-heading {
+  .heading {
     font-size: 1.3rem;
   }
 
-  .login-subheading {
-    font-size: 0.85rem;
+  .submit_btn {
+    font-size: 0.95rem;
+    padding: 0.7rem;
   }
 
-  .submit-button {
-    font-size: 0.95rem;
+  .subheading {
+    font-size: 0.85rem;
   }
 
   input {
     font-size: 0.9rem;
     padding: 0.55rem;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .logo img {
+    width: 40px;
   }
 }

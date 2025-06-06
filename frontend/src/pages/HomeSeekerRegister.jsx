@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./HomeSeekerRegister.css";
+import styles from "./HomeSeekerRegister.module.css";
 import logo from "../images/logo_1.png";
 import { Hammer, Home, Eye, EyeOff } from "lucide-react";
 
@@ -62,46 +62,46 @@ function HomeSeekerRegister() {
   };
 
   return (
-    <div className="seeker-page">
-      <div className="form-box">
-        <div className="logo"><img src={logo} alt="Logo" /></div>
-        <h1 className="heading">Join <span>Ubuntu</span>Homes</h1>
-        <p className="subheading">Create your account and start looking for homes</p>
+    <div className={styles.seeker_page}>
+      <div className={styles.form_box}>
+        <div className={styles.logo}><img src={logo} alt="Logo" /></div>
+        <h1 className={styles.heading}>Join <span>Ubuntu</span>Homes</h1>
+        <p className={styles.subheading}>Create your account and start looking for homes</p>
 
-        <div className="toggle-tabs">
-          <button className="tab inactive" onClick={() => navigate("/builder-register")}>
+        <div className={styles.toggle_tabs}>
+          <button className={`${styles.tab} ${styles.inactive}`} onClick={() => navigate("/builder-register")}>
             <Hammer size={16} />
             <span>Builder</span>
           </button>
-          <button className="tab active">
+          <button className={`${styles.tab} ${styles.active}`}>
             <Home size={16} />
             <span>Home Seeker</span>
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="form">
-          <div className="row">
-            <div className="form-group">
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.row}>
+            <div className={styles.form_group}>
               <label>First Name</label>
               <input type="text" name="firstName" onChange={handleChange} value={formData.firstName} />
-              {errors.firstName && <p className="error-message">{errors.firstName}</p>}
+              {errors.firstName && <p className={styles.error_message}>{errors.firstName}</p>}
             </div>
-            <div className="form-group">
+            <div className={styles.form_group}>
               <label>Last Name</label>
               <input type="text" name="lastName" onChange={handleChange} value={formData.lastName} />
-              {errors.lastName && <p className="error-message">{errors.lastName}</p>}
+              {errors.lastName && <p className={styles.error_message}>{errors.lastName}</p>}
             </div>
           </div>
 
-          <div className="form-group">
+          <div className={styles.form_group}>
             <label>Username</label>
             <input type="text" name="username" onChange={handleChange} value={formData.username} />
-            {errors.username && <p className="error-message">{errors.username}</p>}
+            {errors.username && <p className={styles.error_message}>{errors.username}</p>}
           </div>
 
-          <div className="form-group">
+          <div className={styles.form_group}>
             <label>Password</label>
-            <div className="password-wrapper">
+            <div className={styles.password_wrapper}>
               <input
                 type={showPassword ? "text" : "password"}
                 name="password"
@@ -110,21 +110,21 @@ function HomeSeekerRegister() {
               />
               <button
                 type="button"
-                className="toggle-password"
+                className={styles.toggle_password}
                 onClick={() => setShowPassword((p) => !p)}
               >
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
             </div>
             {formData.password && (
-              <div className={`password-strength ${getPasswordStrength(formData.password).toLowerCase()}`}>
+              <div className={`password-strength ${styles.getPasswordStrength(formData.password).toLowerCase()}`}>
                 Strength: {getPasswordStrength(formData.password)}
               </div>
             )}
-            {errors.password && <p className="error-message">{errors.password}</p>}
+            {errors.password && <p className={styles.error_message}>{errors.password}</p>}
           </div>
 
-          <button type="submit" className="submit-btn">Create Account</button>
+          <button type="submit" className={styles.submit_btn}>Create Account</button>
         </form>
       </div>
     </div>

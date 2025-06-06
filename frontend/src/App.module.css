@@ -5,12 +5,12 @@
 
 
 /* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
+  .App_logo {
     animation: App-logo-spin infinite 20s linear;
   }
 } */
 
-.App-header {
+.App_header {
   background-color: #5271FF21; ;
   display: flex;
   flex-direction: column;

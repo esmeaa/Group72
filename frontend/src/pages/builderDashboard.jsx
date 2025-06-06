@@ -2,7 +2,7 @@ import { React, useState } from 'react'
 import styles from "./builderDashboard.module.css";
 // Create an Action bar to use for all pages
 
-export function BuilderDash() {
+function BuilderDash() {
   const [count, setCount] = useState(0)
   const [active, setActive] = useState(0)
   const [completed, setCompleted] = useState(0)
@@ -24,7 +24,7 @@ export function BuilderDash() {
   
   return (
     <div className={styles.builder_dash}>
-      <div className={styles.builder_linner}>
+      <div className={styles.builder_inner}>
         <article id="profile" className={styles.holder}>
           <button>Edit Details</button>
           <div className={styles.icon}>
@@ -99,3 +99,5 @@ export function BuilderDash() {
     </div>
   )
 }
+
+export default BuilderDash;

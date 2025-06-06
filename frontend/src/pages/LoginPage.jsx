@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import "./LoginPage.css";
+import styles from "./LoginPage.module.css";
 import logo from "../images/house_1.png";
 
 function LoginPage() {
@@ -40,14 +40,14 @@ function LoginPage() {
   };
 
   return (
-    <div className="login-page">
-      <div className="login-card">
-        <img src={logo} alt="logo" className="login-logo" />
-        <h2 className="login-heading">Welcome Back</h2>
-        <p className="login-subheading">Sign in to your UbuntuHomes account</p>
+    <div className={styles.login_page}>
+      <div className={styles.login_card}>
+        <img src={logo} alt="logo" className={styles.login_logo} />
+        <h2 className={styles.login_heading}>Welcome Back</h2>
+        <p className={styles.login_subheading}>Sign in to your UbuntuHomes account</p>
 
-        <form className="login-form" onSubmit={handleLogin}>
-          <div className="form-group">
+        <form className={styles.login_form} onSubmit={handleLogin}>
+          <div className={styles.form_group}>
             <label htmlFor="username">Username</label>
             <input
               type="text"
@@ -55,13 +55,13 @@ function LoginPage() {
               placeholder="Enter your username"
               value={formData.username}
               onChange={handleChange}
-              className={errors.username ? "error" : ""}
+              className={errors.username ? "error" : null}
               autoComplete="username"
             />
-            {errors.username && <span className="error-message">{errors.username}</span>}
+            {errors.username && <span className={styles.error_message}>{errors.username}</span>}
           </div>
 
-          <div className="form-group">
+          <div className={styles.form_group}>
             <label htmlFor="password">Password</label>
             <input
               type={showPassword ? "text" : "password"}
@@ -69,18 +69,18 @@ function LoginPage() {
               placeholder="Enter your password"
               value={formData.password}
               onChange={handleChange}
-              className={errors.password ? "error" : ""}
+              className={errors.password ? `${styles.error}` : null}
               autoComplete="current-password"
             />
-            {errors.password && <span className="error-message">{errors.password}</span>}
+            {errors.password && <span className={styles.error_message}>{errors.password}</span>}
           </div>
 
-          <button type="submit" className="submit-button">Sign In</button>
+          <button type="submit" className={styles.submit_button}>Sign In</button>
         </form>
 
-        <div className="register-redirect">
+        <div className={styles.register_redirect}>
           Don’t have an account?{" "}
-          <Link to="/builder-register" className="link">Sign up here</Link>
+          <Link to="/builder-register" className={styles.link}>Sign up here</Link>
         </div>
       </div>
     </div>

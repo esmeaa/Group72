@@ -8,7 +8,7 @@ body, html {
   font-family: 'Segoe UI', sans-serif;
 }
 
-.admin-page {
+.login_page {
   background-color: #dbe8ff;
   min-height: 100vh;
   display: flex;
@@ -17,8 +17,8 @@ body, html {
   padding: 2rem;
 }
 
-.form-box {
-  background-color: #ffffff;
+.login_card {
+  background: #fff;
   padding: 2rem;
   border-radius: 16px;
   max-width: 400px;
@@ -27,33 +27,28 @@ body, html {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-.logo img {
+.login_logo {
   width: 48px;
   margin-bottom: 1rem;
 }
 
-.heading {
+.login_heading {
   font-size: 1.5rem;
   font-weight: 700;
   color: black;
 }
 
-.heading span {
-  font-weight: 800;
-}
-
-.subheading {
+.login_subheading {
   font-size: 0.9rem;
   color: #555;
   margin-bottom: 1.5rem;
 }
 
-/* Form Layout */
-.form {
+.login_form {
   text-align: left;
 }
 
-.form-group {
+.form_group {
   margin-bottom: 1rem;
 }
 
@@ -73,64 +68,25 @@ input {
   font-size: 0.95rem;
 }
 
-.row {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.row .form-group {
-  flex: 1;
-}
-
-/* Password Strength */
-.password-wrapper {
-  position: relative;
-}
-
-.toggle-password {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.password-strength {
-  margin-top: 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.password-strength.weak {
-  color: #f44336;
-}
-
-.password-strength.moderate {
-  color: #ffa500;
-}
-
-.password-strength.strong {
-  color: #4caf50;
-}
-
 input:-webkit-autofill {
   box-shadow: 0 0 0px 1000px #ffffff inset !important;
   -webkit-text-fill-color: #000 !important;
   transition: background-color 9999s ease-in-out 0s;
 }
 
-.error-message {
+.error_message {
   color: #f44336;
   font-size: 0.75rem;
   margin-top: 0.3rem;
 }
 
-.submit-btn {
-  margin: 1.2rem auto 0 auto;
+input.error {
+  border: 1px solid #f44336;
+}
+
+.submit_button {
   display: block;
+  margin: 1.2rem auto 0 auto;
   width: 100%;
   padding: 0.8rem;
   background-color: #4e7fff;
@@ -143,40 +99,42 @@ input:-webkit-autofill {
   transition: background-color 0.2s ease-in-out;
 }
 
-.submit-btn:hover {
+.submit_button:hover {
   background-color: #3c65d1;
 }
 
+.register_redirect {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.link {
+  color: #4e7fff;
+  text-decoration: underline;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 @media (max-width: 480px) {
-  .form-box {
-    padding: 1.2rem;
-    border-radius: 12px;
+  .login_card {
+    padding: 1.5rem;
   }
 
-  .heading {
+  .login_heading {
     font-size: 1.3rem;
   }
 
-  .submit-btn {
-    font-size: 0.95rem;
-    padding: 0.7rem;
+  .login_subheading {
+    font-size: 0.85rem;
   }
 
-  .subheading {
-    font-size: 0.85rem;
+  .submit_button {
+    font-size: 0.95rem;
   }
 
   input {
     font-size: 0.9rem;
     padding: 0.55rem;
-  }
-
-  .row {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .logo img {
-    width: 40px;
   }
 }
