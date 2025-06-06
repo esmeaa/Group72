@@ -30,14 +30,61 @@ function LoginPage() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleLogin = (e) => {
+  // const handleLogin = (e) => {
+  //   e.preventDefault();
+  //   if (!validateForm()) return;
+
+  //   // Login logic here...
+  //   console.log("Logging in with:", formData);
+  //   navigate("/launch");
+  // };
+
+  const handleLogin = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
-    // Login logic here...
-    console.log("Logging in with:", formData);
-    navigate("/dashboard");
+    try {
+      const response = await fetch("http://localhost:3001/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: formData.username,
+          password: formData.password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.user) {
+        const { id, username, role } = data.user;
+
+        // alert(`Login successful as ${role}!`);
+
+        // Save to localStorage
+        localStorage.setItem("user", JSON.stringify({ id, username, role }));
+        localStorage.setItem("role", role);
+
+        // Redirect by role
+        if (role === "admin") {
+          navigate("/admin-dashboard");
+        } else if (role === "builder") {
+          navigate("/builder-dashboard");
+        } else if (role === "homeSeeker") {
+          navigate("/home-dashboard");
+        } else {
+          navigate("/login"); 
+        }
+      } else {
+        alert(data.message || "Invalid username or password");
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      alert("Something went wrong. Please try again later.");
+    }
   };
+
 
   return (
     <div className="login-page">
