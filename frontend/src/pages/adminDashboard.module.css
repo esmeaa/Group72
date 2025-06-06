@@ -1,16 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
-:root {
-
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-
-}
-
 .action{
   background-color:white;
   padding: 24px;
@@ -183,6 +172,7 @@
   width:10px;
   height:10px;
 }
+
 .profile_info h2 {
   font-size: 18px;
   margin: 0 0 5px 0;
@@ -196,8 +186,6 @@
   opacity: 0.9;
   font-weight: 500;
 }
-
-
 
 .main {
   flex: 1;
@@ -293,7 +281,6 @@
   position: relative;
   overflow: hidden;
 }
-
 
 .quick_item:hover {
   transform: translateY(-5px);
