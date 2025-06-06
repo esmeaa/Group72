@@ -118,28 +118,28 @@ function BuilderDash() {
           <div className={`${styles.holder} ${styles.active}`}>
             <p>Active Projects</p>
             <div className={styles.icon}>
-              <Hammer size={40}/>
+              <Hammer size={30}/>
             </div>
             <p className={styles.value}>{active}</p>
           </div>
           <div className={`${styles.holder} ${styles.complete}`}>
             <p>Jobs Completed</p>
             <div className={styles.icon}>
-              <Check size={40}/>
+              <Check size={30}/>
             </div>
             <p className={styles.value}>{completed}</p>
           </div>
           <div className={`${styles.holder} ${styles.pay}`}>
             <p>Total Earnings</p>
             <div className={styles.icon}>
-              <Wallet size={40}/>
+              <Wallet size={30}/>
             </div>
             <p className={styles.value}>R {earnings}</p>
             <button onClick={() => {setShowPay(true)}}>View Playslip</button>
           </div>
           <div className={`${styles.holder} ${styles.switch}`}>
             <p>Browse housing & apply your rent credit</p>
-            <button onClick={() => navigate("/HomeSeekerDashboard")}>Switch to Housing View</button>
+            <button onClick={() => navigate("/HomeSeekerDashboard")}>Housing View</button>
           </div>
         </div>
 
