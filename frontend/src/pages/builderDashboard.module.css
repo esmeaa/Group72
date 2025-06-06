@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: initial;
 }
 
 .builder_inner {
@@ -83,6 +84,7 @@ button:hover{
   height: 3rem;
   float: left;
   border-radius: 0.7rem;
+  text-align: center;
 }
 
 .grid_container > div.active {
@@ -116,7 +118,7 @@ button:hover{
 .grid_container > div button {
   border-radius: 0.5rem;
   width: 100%;
-  font-size: 1.2Rem;
+  font-size: 1.2rem;
 }
 
 .grid_container > div.pay button {
@@ -220,7 +222,7 @@ div .approved {
   }
 }
 
-.denied {
+div .denied {
   filter: drop-shadow(0rem 0.4rem 0.3rem #C73033);
   p.status {
     background: #FFD6D7;
@@ -229,7 +231,7 @@ div .approved {
   }
 }
 
-.pending {
+div .pending {
   filter: drop-shadow(0rem 0.4rem 0.2rem #F3A463);
   p.status {
     background: #FFC18E;
@@ -241,6 +243,7 @@ div .approved {
 .holder {
   background: #fff;
   margin: 0.6rem;
+  padding: 0.6rem;
   border-radius: 0.6rem;
   width: auto;
   height: auto;
