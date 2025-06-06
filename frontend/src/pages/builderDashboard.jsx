@@ -14,9 +14,12 @@ function BuilderDash() {
   const [showPay, setShowPay] = useState(false);
   const [showAll, setShowAll] = useState(false);
 
-  const type = "builder";
-  const email = "johndoe@doe.com";
-  const phone = "+27-0000-000000";
+  const user = {
+    name: "John Doe",
+    type: "Builer",
+    email: "johndoe@doe.com",
+    phone: "+27-0000-000000",
+  }
 
   const application1 = {
     title: "Screaming",
@@ -38,9 +41,54 @@ function BuilderDash() {
     status: "approved",
   }
 
+  const payment = {
+    id: "41ds1231d",
+    info: "Kitchen Remodel",
+    type: "remodel",
+    payment: "24000",
+  }
+
   const addSkill = (skill) => {
     return;
   };
+
+  const getPayments = () => {
+    var payments = [payment];
+    return payments;
+  }
+
+  const getPaymentsContent = () => {
+    const payments = getPayments();
+    if(!payments.length) {
+      return (<p>No Due Payments!</p>)
+    }
+    return (
+      <div>
+        <p>My Due Payments {payments.length}</p>
+        {payments.map((payment) => {
+          return (
+            <div className={`${styles.holder} ${styles.payment}`}>
+              <div className={styles.payment_item}>
+                <div className={styles.text}>
+                  <p className={styles.subtle}>Job ID: {payment.id}</p>
+                  <p>{payment.info}</p>
+                  <p>{payment.type}</p>
+                </div>
+                <div className={styles.text}>
+                  <p className={styles.subtle}>PAY:</p>
+                  <p>{payment.payment}</p>
+                </div>
+              </div>
+              <div className={`${styles.button} ${styles.payment_item}`}>
+                <button>Cash Out</button>
+                <button>Add to Rent Credit</button>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    )
+  }
 
   const getApplications = () => {
     var apps = [application1, application2, application3, application4];
@@ -53,16 +101,16 @@ function BuilderDash() {
   return (
     <div className={styles.builder_dash}>
       <div className={styles.builder_inner}>
-        <article id={styles.profile} className={styles.holder}>
+        <article className={`${styles.holder} ${styles.profile}`}>
           <button>Edit Details</button>
           <div className={styles.icon}>
             
           </div>
           <span className={styles.welcome}>
-            <span>Welcome back, John Doe!</span>
-            <p>{type}</p>
-            <p>{email}</p>
-            <p>{phone}</p>
+            <span>Welcome back, {user.name}!</span>
+            <p>{user.type}</p>
+            <p>{user.email}</p>
+            <p>{user.phone}</p>
           </span>
         </article>
 
@@ -87,7 +135,7 @@ function BuilderDash() {
               <Wallet size={40}/>
             </div>
             <p className={styles.value}>R {earnings}</p>
-            <button onClick=""> View Playslip</button>
+            <button onClick={() => {setShowPay(true)}}>View Playslip</button>
           </div>
           <div className={`${styles.holder} ${styles.switch}`}>
             <p>Browse housing & apply your rent credit</p>
@@ -121,6 +169,24 @@ function BuilderDash() {
             })}
         </div>
       </div>
+      {showPay === true ? 
+        <div className={styles.modal}>
+          <div className={styles.modal_content}> 
+            <div>
+              <article className={styles.profile}>
+                <div className={styles.icon}>
+            
+                </div>
+                <p>{user.name}</p>
+                <p>Total PayoutL: R 0</p>
+                <p>Current Rent Credit: R 0</p>
+              </article>
+              {getPaymentsContent()}
+            </div>
+            <button onClick={() => {setShowPay(false)}}>Close</button>
+          </div>
+        </div>
+      : null }
     </div>
   )
 }

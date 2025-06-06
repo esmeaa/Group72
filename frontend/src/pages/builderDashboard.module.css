@@ -36,11 +36,11 @@ button:hover{
   float: right;
 }
 
-#profile {
+.profile {
   height: 6rem;
 }
 
-#profile div.icon {
+.profile div.icon {
   height: 3rem;
   width: 3rem;
   background: black;
@@ -49,7 +49,7 @@ button:hover{
   margin: auto 1rem auto auto;
 }
 
-#profile button {
+.profile button {
   color: #FFF;
   background-color: #5271FF;
   border: none;
@@ -247,4 +247,61 @@ div .pending {
   border-radius: 0.6rem;
   width: auto;
   height: auto;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.28);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_content {
+  background-color: #5271ff;
+  color: white;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 630px;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.modal_content button {
+  color: #FFF;
+  background-color: #5271FF;
+  border: none;
+  border-radius: 0.3rem;
+  margin: 1em 1rem;
+  padding: 0.5rem;
+}
+
+.payment_item {
+  display: flex;
+  flex-direction: column;
+}
+
+.payment {
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.payment .text {
+  margin-bottom: 1.4rem;
+  width: 60%;
+}
+
+.payment .button > * {
+  min-width: 9rem;
+}
+
+.subtle {
+  color: darkgray;
 }
