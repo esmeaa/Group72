@@ -6,11 +6,12 @@ import TempNav from './tempNav';
 import LoginPage from './pages/LoginPage';
 import Launch from './pages/launch';
 import Admin from './pages/adminDashboard';
+import BuilderDash from './pages/builderDashboard';
+import BuilderMarket from './pages/BuilderMarket';
+import HomeMarket from './pages/HomeMarket';
 import HomeSeekerRegister from './pages/HomeSeekerRegister';
 import BuilderRegister from './pages/BuilderRegister';
 import AdminRegister from './pages/AdminRegister';
-import BuilderDash from './pages/builderDashboard';
-
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/admin' element={<Admin/>}/>
         <Route path='/builderDashboard' element={<BuilderDash/>}/>
+        <Route path='/BuilderMarket' element={<BuilderMarket/>}/>
+        <Route path='/HomeMarket' element={<HomeMarket/>}/>
         <Route path='/HomeSeekerRegister' element={<HomeSeekerRegister/>}/>
         <Route path='/BuilderRegister' element={<BuilderRegister/>}/>
         <Route path='/AdminRegister' element={<AdminRegister/>}/> 
