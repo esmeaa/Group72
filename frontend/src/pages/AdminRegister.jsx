@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 import styles from "./AdminRegister.module.css";
 import { useNavigate } from "react-router-dom";
-import "./AdminRegister.css";
 
 import logo from "../images/logo_1.png";
 import { Eye, EyeOff } from "lucide-react";
@@ -128,13 +127,13 @@ function AdminRegister() {
               <button
                 type="button"
                 className={styles.toggle_password}
-                onClick={() => setShowPassword((p) => !p)}
+                onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
             </div>
             {formData.password && (
-              <div className={`password-strength ${getPasswordStrength(formData.password).toLowerCase()}`}>
+              <div className={`${styles.password_strength} ${styles[getPasswordStrength(formData.password).toLowerCase()]}`}>
                 Strength: {getPasswordStrength(formData.password)}
               </div>
             )}

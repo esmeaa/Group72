@@ -145,13 +145,13 @@ function HomeSeekerRegister() {
               <button
                 type="button"
                 className={styles.toggle_password}
-                onClick={() => setShowPassword((p) => !p)}
+                onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
             </div>
             {formData.password && (
-              <div className={`password-strength ${styles.getPasswordStrength(formData.password).toLowerCase()}`}>
+              <div className={`${styles.password_strength} ${styles[getPasswordStrength(formData.password).toLowerCase()]}`}>
                 Strength: {getPasswordStrength(formData.password)}
               </div>
             )}
