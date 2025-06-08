@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./BuilderRegister.css";
+import styles from "./BuilderRegister.module.css";
 import logo from "../images/logo_1.png";
 import { Hammer, Home, Eye, EyeOff } from "lucide-react";
 
@@ -43,11 +43,45 @@ function BuilderRegister() {
     });
   };
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // Handle form submit
+  //   console.log({ ...formData, role: "builder" });
+  // };
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submit
-    console.log({ ...formData, role: "builder" });
+
+    // Optionally: validate here before submitting, return if errors
+
+    console.log("Submitting form data:", { ...formData, role: "builder" });
+
+    try {
+      const response = await fetch("http://localhost:3001/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...formData, role: "builder" }),
+      });
+
+      const data = await response.json();
+
+      console.log("Response from server:", data);
+
+      if (response.ok) {
+        alert("Account created successfully!");
+        navigate("/LoginPage"); // or wherever you want to redirect
+      } else {
+        alert(data.message || "Builder Registration failed");
+      }
+    } catch (error) {
+      console.error("Error submitting registration:", error);
+      alert("An error occurred. Please try again.");
+    }
   };
+
 
   const getPasswordStrength = (password) => {
     let strength = 0;
@@ -63,46 +97,46 @@ function BuilderRegister() {
   };
 
   return (
-    <div className="builder-page">
-      <div className="form-box">
-        <div className="logo"><img src={logo} alt="Logo" /></div>
-        <h1 className="heading">Join <span>Ubuntu</span>Homes</h1>
-        <p className="subheading">Create your account and start building opportunities</p>
+    <div className={styles.builder_page}>
+      <div className={styles.form_box}>
+        <div className={styles.logo}><img src={logo} alt="Logo" /></div>
+        <h1 className={styles.heading}>Join <span>Ubuntu</span>Homes</h1>
+        <p className={styles.subheading}>Create your account and start building opportunities</p>
 
-        <div className="toggle-tabs">
-          <button className="tab active">
+        <div className={styles.toggle_tabs}>
+          <button className={`${styles.tab} ${styles.active}`}>
             <Hammer size={16} />
             <span>Builder</span>
           </button>
-          <button className="tab inactive" onClick={() => navigate("/home-seeker-register")}>
+          <button className={`${styles.tab} ${styles.inactive}`} onClick={() => navigate("/HomeSeekerRegister")}>
             <Home size={16} />
             <span>Home Seeker</span>
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="form">
-          <div className="row">
-            <div className="form-group">
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.row}>
+            <div className={styles.form_group}>
               <label>First Name</label>
               <input type="text" name="firstName" onChange={handleChange} value={formData.firstName} />
-              {errors.firstName && <p className="error-message">{errors.firstName}</p>}
+              {errors.firstName && <p className={styles.error_message}>{errors.firstName}</p>}
             </div>
-            <div className="form-group">
+            <div className={styles.form_group}>
               <label>Last Name</label>
               <input type="text" name="lastName" onChange={handleChange} value={formData.lastName} />
-              {errors.lastName && <p className="error-message">{errors.lastName}</p>}
+              {errors.lastName && <p className={styles.error_message}>{errors.lastName}</p>}
             </div>
           </div>
 
-          <div className="form-group">
+          <div className={styles.form_group}>
             <label>Username</label>
             <input type="text" name="username" onChange={handleChange} value={formData.username} />
-            {errors.username && <p className="error-message">{errors.username}</p>}
+            {errors.username && <p className={styles.error_message}>{errors.username}</p>}
           </div>
 
-          <div className="form-group">
+          <div className={styles.form_group}>
             <label>Password</label>
-            <div className="password-wrapper">
+            <div className={styles.password_wrapper}>
               <input
                 type={showPassword ? "text" : "password"}
                 name="password"
@@ -111,21 +145,21 @@ function BuilderRegister() {
               />
               <button
                 type="button"
-                className="toggle-password"
-                onClick={() => setShowPassword((p) => !p)}
+                className={styles.toggle_password}
+                onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
             </div>
             {formData.password && (
-              <div className={`password-strength ${getPasswordStrength(formData.password).toLowerCase()}`}>
+              <div className={`${styles.password_strength} ${styles[getPasswordStrength(formData.password).toLowerCase()]}`}>
                 Strength: {getPasswordStrength(formData.password)}
               </div>
             )}
-            {errors.password && <p className="error-message">{errors.password}</p>}
+            {errors.password && <p className={styles.error_message}>{errors.password}</p>}
           </div>
 
-          <button type="submit" className="submit-btn">Create Account</button>
+          <button type="submit" className={styles.submit_btn}>Create Account</button>
         </form>
       </div>
     </div>

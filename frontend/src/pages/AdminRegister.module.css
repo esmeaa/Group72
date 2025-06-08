@@ -1,14 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body, html {
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.builder-page {
+.admin_page {
   background-color: #dbe8ff;
   min-height: 100vh;
   display: flex;
@@ -17,7 +7,7 @@ body, html {
   padding: 2rem;
 }
 
-.form-box {
+.form_box {
   background-color: #ffffff;
   padding: 2rem;
   border-radius: 16px;
@@ -48,44 +38,12 @@ body, html {
   margin-bottom: 1.5rem;
 }
 
-.toggle-tabs {
-  display: flex;
-  justify-content: space-between;
-  background-color: #f1f5ff;
-  border-radius: 12px;
-  padding: 0.25rem;
-  margin-bottom: 1.5rem;
-}
-
-.tab {
-  flex: 1;
-  border: none;
-  background: none;
-  padding: 0.5rem;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
-.tab.active {
-  background-color: #4e7fff;
-  color: white;
-}
-
-.tab.inactive {
-  color: #999;
-}
-
+/* Form Layout */
 .form {
   text-align: left;
 }
 
-.form-group {
+.form_group {
   margin-bottom: 1rem;
 }
 
@@ -97,7 +55,7 @@ label {
   color: #333;
 }
 
-input {
+.form_group input {
   width: 100%;
   padding: 0.6rem;
   border-radius: 8px;
@@ -111,15 +69,16 @@ input {
   flex-wrap: wrap;
 }
 
-.row .form-group {
+.row .form_group {
   flex: 1;
 }
 
-.password-wrapper {
+/* Password Strength */
+.password_wrapper {
   position: relative;
 }
 
-.toggle-password {
+.toggle_password {
   position: absolute;
   right: 10px;
   top: 50%;
@@ -129,21 +88,21 @@ input {
   cursor: pointer;
 }
 
-.password-strength {
+.password_strength {
   margin-top: 4px;
   font-size: 0.75rem;
   font-weight: 600;
 }
 
-.password-strength.weak {
+.password_strength.weak {
   color: #f44336;
 }
 
-.password-strength.moderate {
+.password_strength.moderate {
   color: #ffa500;
 }
 
-.password-strength.strong {
+.password_strength.strong {
   color: #4caf50;
 }
 
@@ -153,14 +112,15 @@ input:-webkit-autofill {
   transition: background-color 9999s ease-in-out 0s;
 }
 
-.error-message {
+.error_message {
   color: #f44336;
   font-size: 0.75rem;
   margin-top: 0.3rem;
 }
 
-.submit-btn {
-  margin-top: 1.2rem;
+.submit_btn {
+  margin: 1.2rem auto 0 auto;
+  display: block;
   width: 100%;
   padding: 0.8rem;
   background-color: #4e7fff;
@@ -173,13 +133,12 @@ input:-webkit-autofill {
   transition: background-color 0.2s ease-in-out;
 }
 
-.submit-btn:hover {
+.submit_btn:hover {
   background-color: #3c65d1;
 }
 
-
 @media (max-width: 480px) {
-  .form-box {
+  .form_box {
     padding: 1.2rem;
     border-radius: 12px;
   }
@@ -188,13 +147,7 @@ input:-webkit-autofill {
     font-size: 1.3rem;
   }
 
-  .tab {
-    font-size: 0.75rem;
-    padding: 0.4rem;
-    gap: 4px;
-  }
-
-  .submit-btn {
+  .submit_btn {
     font-size: 0.95rem;
     padding: 0.7rem;
   }
@@ -203,7 +156,7 @@ input:-webkit-autofill {
     font-size: 0.85rem;
   }
 
-  input {
+  .form_group input {
     font-size: 0.9rem;
     padding: 0.55rem;
   }
