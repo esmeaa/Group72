@@ -10,6 +10,7 @@ import HomeSeekerRegister from './pages/HomeSeekerRegister';
 import BuilderRegister from './pages/BuilderRegister';
 import AdminRegister from './pages/AdminRegister';
 import { BuilderDash } from './pages/builderDashboard';
+import HomeSeekerDashboard from './pages/HomeSeekerDashboard';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path='/BuilderRegister' element={<BuilderRegister/>}/>
         <Route path='/AdminRegister' element={<AdminRegister/>}/> 
         <Route path='/builderDashboard' element={<BuilderDash/>}/>
+        <Route path='/HomeSeekerDashboard' element={<HomeSeekerDashboard/>}/>
       </Routes> 
     </div>
   );
