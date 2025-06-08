@@ -11,6 +11,7 @@ const tempNav = () => {
             <li><NavLink to="/login" className={styles.nav_link}>Login</NavLink></li>
             <li><NavLink to="/admin" className={styles.nav_link}>Admin Dashboard</NavLink></li>
             <li><NavLink to="/builderDashboard" className={styles.nav_link}>Builder Dashboard</NavLink></li>
+            <li><NavLink to="/HomeSeekerDashboard" className={styles.nav_link}> Home Seeker Dashboard</NavLink></li>
             <li><NavLink to="/BuilderMarket" className={styles.nav_link}>Builder Market</NavLink></li>
             <li><NavLink to="/HomeMarket" className={styles.nav_link}>Home Market</NavLink></li>
             <li><NavLink to="/HomeSeekerRegister" className={styles.nav_link}>Home Seeker Register</NavLink></li>
