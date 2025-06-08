@@ -1,0 +1,36 @@
+I updated the pages to use css modules because they are conflicting and ruining eachothers
+styles.
+
+This doesn't mean much, all you need to do is change import 'css' to import styles from 'css'
+Then instead of using className="style" you use className={stlyes.style} or className={`${stlyes.style1} {styles.style2}`}
+
+Styles are still strings can you can still use the css directly but this assures that each page's css
+only effects THAT page. this won't effect global changes like :root, button or body so try to limit usage of those.
+
+The only thing that needs to be changed is that the styles variable doesn't like dashes so turn them into underscores.
+
+Sorry for any inconvience this causes.
+
+To update you can use this regex to start
+
+ONE
+FIND dashed class names in js files
+className="([a-z]+)-([a-z]+)"
+REPLACE with underscores
+className="$1_$2"
+FIND dashed class names in css files
+\.([a-z]+)-([a-z]+)
+REPLACE with underscores
+.$1_$2
+
+TWO
+FIND regular string class names
+className="([a-z_]+)"
+REPLACE string from styles
+className={styles.$1}
+
+THREE
+FIND two regular strings class names
+className="([a-z]+) ([a-z]+)"
+REPLACE strings from styles
+className={`${styles.$1} ${styles.$2}`}
