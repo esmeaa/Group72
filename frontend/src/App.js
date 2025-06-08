@@ -5,7 +5,7 @@ import {Routes, Route} from "react-router-dom";
 import TempNav from './tempNav';
 import LoginPage from './pages/LoginPage';
 import Launch from './pages/launch';
-import Admin from './pages/adminDashboard';
+import Admin from './pages/AdminDashboard';
 import HomeSeekerRegister from './pages/HomeSeekerRegister';
 import BuilderRegister from './pages/BuilderRegister';
 import AdminRegister from './pages/AdminRegister';

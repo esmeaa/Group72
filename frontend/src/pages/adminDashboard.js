@@ -1,11 +1,12 @@
-import React, {useState} from 'react'
-import "./adminDashboard.css";
-import { Link } from 'react-router-dom'
+import React from 'react';
+import './adminDashboard.css';
+import { Hammer, Home } from "lucide-react";
 
-import { Hammer, Home} from 'lucide-react';
-const adminDashboard = () => {
+
+const AdminDashboard = () => {
+
   return (
-    <div className="dashboard">
+     <div className="dashboard">
     
 
       <main className="main">
@@ -20,11 +21,11 @@ const adminDashboard = () => {
             <div className="toggle-tabs">
           <button className="tab inactive">
             <Hammer size={16} />
-            <span>Builder</span>
+            <span>Post a Job</span>
           </button>
           <button className="tab active">
             <Home size={16} />
-            <span>Home Seeker</span>
+            <span>List Housing</span>
           </button>
         </div>
             <div className='dynamic-sec' id='job-sec'>
@@ -42,11 +43,11 @@ const adminDashboard = () => {
             </div>
           </div>
           <div className="form-group">
-            <label>Username</label>
+            <label>Job Description</label>
             <input type="text" name="username"  />
           </div>
           <div className="form-group">
-            <label>Username</label>
+            <label>Job Type </label>
             <input type="text" name="username" />
 
           </div>
@@ -68,4 +69,4 @@ const adminDashboard = () => {
   )
 }
 
-export default adminDashboard
+export default AdminDashboard;
