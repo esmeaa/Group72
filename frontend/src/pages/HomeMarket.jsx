@@ -1,7 +1,6 @@
 import { React, useState } from 'react'
 import styles from "./HomeMarket.module.css";
-import { Hammer, Check, Wallet } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+
 // Create an Action bar to use for all pages
 
 function HomeMarket() {

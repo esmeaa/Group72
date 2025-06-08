@@ -1,9 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import styles from './tempNav.module.css'; // We'll define styles here
+import styles from './Navigation.module.css'; // We'll define styles here
 
 
-const tempNav = () => {
+const Navigation = () => {
   return (
     <nav className={styles.tempNav}>
         <ul className={styles.nav_links}>
@@ -23,4 +23,4 @@ const tempNav = () => {
   );
 }
 
-export default tempNav;
+export default Navigation;

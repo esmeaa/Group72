@@ -2,7 +2,7 @@
 import React from 'react';
 import styles from './App.module.css';
 import {Routes, Route} from "react-router-dom"; 
-import TempNav from './tempNav';
+import Navigation from './components/Navigation';
 import LoginPage from './pages/LoginPage';
 import Launch from './pages/launch';
 import Admin from './pages/adminDashboard';
@@ -18,7 +18,7 @@ function App() {
   return (
     <div className={styles.App}>
       <header className={styles.App_header}>
-        <TempNav />
+        <Navigation />
       </header>
       <Routes>
         <Route path='/launch' element={<Launch/>}/>
