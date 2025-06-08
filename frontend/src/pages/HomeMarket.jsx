@@ -1,10 +1,28 @@
 import { React, useState } from 'react'
 import styles from "./HomeMarket.module.css";
-import { Hammer, Check, Wallet } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+
 // Create an Action bar to use for all pages
 
 function HomeMarket() {
+  // A 'false' form that is never submitted but the values are used for filtering
+  const [formData, setFormData] = useState({
+    search: "",
+    location: "",
+    cost: 0,
+    beds: 0,
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   const listing1 = {
     title: "Modern Apartment",
@@ -19,9 +37,34 @@ function HomeMarket() {
     ],
   }
 
+  const listFilter = (listing) => {
+    const formSearch = formData.search
+    if(formSearch) {
+      var used = listing.title.toLowerCase();
+      if(!used.includes(formSearch.toLowerCase())) {
+        return false;
+      }
+    }
+    const formLocation = formData.location
+    if(formLocation) {
+      if(formLocation.toLowerCase() !== listing?.location.toLowerCase()) {
+        return false;
+      }
+    }
+    const formBeds = formData.beds
+    if(formBeds && (listing.beds !== formBeds)) {
+      return false;
+    }
+    const formCost = formData.cost;
+    if(formCost && (formCost < listing.cost)) {
+      return false;
+    }
+    return true;
+  }
+
   const getListings = () => {
     var listings = [listing1];
-    return listings;
+    return listings.filter(listFilter);
   }
   
   const getListingsContent = () => {
@@ -80,24 +123,44 @@ function HomeMarket() {
           <p>Find quality, affordable housing in makers valley</p>
         </div>
         <div className={`${styles.holder} ${styles.search}`}>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div>
               <p>Search and Filter Housing</p>
-              <input type="text" />
+                <input 
+                  type="text"
+                  name="search"
+                  value={formData.search}
+                  onChange={handleChange}
+                />
               <button>Clear Filters</button>
             </div>
             <div>
               <span>
                 <p>Location</p>
-                <input type="text" />
+                <input 
+                  type="text"
+                  name="location"
+                  value={formData.location}
+                  onChange={handleChange}
+                />
               </span>
               <span>
-                <p>Price Range</p>
-                <input type="text" />
+                <p>Max Price</p>
+                <input 
+                  type="text"
+                  name="cost"
+                  value={formData.cost}
+                  onChange={handleChange}
+                />
               </span>
               <span>
                 <p>Bedrooms</p>
-                <input type="text" />
+                <input 
+                  type="text"
+                  name="beds"
+                  value={formData.beds}
+                  onChange={handleChange}
+                />
               </span>
             </div>
           </form>
