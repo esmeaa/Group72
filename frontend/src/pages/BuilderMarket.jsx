@@ -80,12 +80,19 @@ function BuilderMarket() {
     return true;
   }
 
+  // const getListings = async () => {
+  //   const response = await (fetch("http://localhost:3001/api/joblistings"));
+  //   const data = await response.json();
+  //   return data.listings.filter(listFilter);
+  // }
+
   const getListings = () => {
     var listings = [listing1, listing2];
     return listings.filter(listFilter);
   }
   
-  const getListingsContent = () => {
+  const getListingsContent = async () => {
+    //const listings = await getListings();
     const listings = getListings();
     if(!listings.length) {
       return (
