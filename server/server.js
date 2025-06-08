@@ -73,36 +73,68 @@ app.post("/api/register", async (req, res) => {
     }
 });
 
+// app.post("/api/login", async (req, res) => {
+//     const { username, password } = req.body;
+//     console.log("Received login data:", req.body);
+
+//     try {
+//         const result = await db.query(
+//             "SELECT id, user_name, role FROM users WHERE user_name = $1 AND user_password = $2",
+//             [username, password]
+//         );
+
+//         if (result.rows.length > 0) {
+//             const user = result.rows[0];
+
+//             res.status(200).json({
+//                 message: "Login successful",
+//                 user: {
+//                     id: user.id,
+//                     username: user.user_name,
+//                     role: user.role
+//                 }
+//             });
+//         } else {
+//             res.status(401).json({ message: "Invalid username or password" });
+//         }
+//     } catch (err) {
+//         console.error("Login error:", err);
+//         res.status(500).json({ error: "Internal server error" });
+//     }
+// });
+
+
 app.post("/api/login", async (req, res) => {
     const { username, password } = req.body;
     console.log("Received login data:", req.body);
 
     try {
         const result = await db.query(
-            "SELECT id, user_name, role FROM users WHERE user_name = $1 AND user_password = $2",
+            "SELECT id, first_name, last_name, user_name, role FROM users WHERE user_name = $1 AND user_password = $2",
             [username, password]
         );
 
         if (result.rows.length > 0) {
             const user = result.rows[0];
-
             res.status(200).json({
                 message: "Login successful",
                 user: {
                     id: user.id,
                     username: user.user_name,
-                    role: user.role
+                    role: user.role,
+                    firstName: user.first_name,
+                    lastName: user.last_name
                 }
             });
         } else {
-            res.status(401).json({ message: "Invalid username or password" });
+            res.status(401).json({ message: "Invalid credentials" });
         }
     } catch (err) {
         console.error("Login error:", err);
         res.status(500).json({ error: "Internal server error" });
     }
 });
-  
+
 
 
 app.listen(port, () => {

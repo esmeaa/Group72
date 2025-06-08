@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-
 import styles from "./AdminRegister.module.css";
 import { useNavigate } from "react-router-dom";
-
 import logo from "../images/logo_1.png";
 import { Eye, EyeOff } from "lucide-react";
 
