@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage';
 import Launch from './pages/launch';
 import Admin from './pages/adminDashboard';
 import BuilderDash from './pages/builderDashboard';
+import HomeSeekerDashboard from './pages/HomeSeekerDashboard'
 import BuilderMarket from './pages/BuilderMarket';
 import HomeMarket from './pages/HomeMarket';
 import HomeSeekerRegister from './pages/HomeSeekerRegister';
@@ -24,6 +25,7 @@ function App() {
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/admin' element={<Admin/>}/>
         <Route path='/builderDashboard' element={<BuilderDash/>}/>
+        <Route path='/HomeSeekerDashboard' element={<HomeSeekerDashboard/>}/>
         <Route path='/BuilderMarket' element={<BuilderMarket/>}/>
         <Route path='/HomeMarket' element={<HomeMarket/>}/>
         <Route path='/HomeSeekerRegister' element={<HomeSeekerRegister/>}/>
