@@ -48,9 +48,24 @@ function BuilderDash() {
     payment: "24000",
   }
 
-  const addSkill = (skill) => {
-    return;
-  };
+  
+  // async function getPayments() {
+  //   const response = await (fetch("http://localhost:3001/api/payments"));
+  //   const data = await response.json();
+  //   return data.payments;
+  // }
+
+  // Add skill to builder user
+  async function addSkill(skill) {
+    await fetch("http://localhost:3001/api/skill", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(skill),
+    });
+  }
 
   const getPayments = () => {
     var payments = [payment];
@@ -89,6 +104,12 @@ function BuilderDash() {
       </div>
     )
   }
+
+  // async function getApplications() {
+  //   const response = await (fetch("http://localhost:3001/api/applications"));
+  //   const data = await response.json();
+  //   return data.applications;
+  // }
 
   const getApplications = () => {
     var apps = [application1, application2, application3, application4];
