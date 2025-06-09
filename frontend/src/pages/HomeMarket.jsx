@@ -73,7 +73,7 @@ function HomeMarket() {
     return listings.filter(listFilter);
   }
   
-  const getListingsContent = async () => {
+  const getListingsContent = () => {
     //const listings = await getListings();
     const listings = getListings();
     if(!listings.length) {
