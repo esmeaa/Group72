@@ -1,43 +1,48 @@
+.hs_dashboard {
+  padding: 1rem;
+  padding-bottom: 4rem; /* allow room for bottom nav */
+  background-color: #f0f4ff;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Profile Section */
 .profile_section {
   background-color: #fff;
   margin-bottom: 1rem;
-  padding: 1.5rem;
+  padding: 1.2rem;
   border-radius: 16px;
 }
 
 .top_info {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
   margin-bottom: 1rem;
 }
 
 .avatar_default {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   background-color: #e5e7eb;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
 }
 
-.profile_text_block {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
+.details {
+  flex: 1;
 }
 
 .details h2 {
-  font-size: 1.2rem;
   margin: 0;
+  font-size: 1.3rem;
 }
 
 .details p {
-  font-size: 0.9rem;
   margin: 2px 0;
+  font-size: 0.9rem;
   color: #444;
 }
 
@@ -48,7 +53,7 @@
   padding: 0.5rem 1rem;
   border-radius: 8px;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -56,145 +61,101 @@
   white-space: nowrap;
 }
 
-/* --- STATS BELOW PROFILE --- */
+/* Stats Tiles */
 .stats {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 1rem;
-  gap: 10px;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
 }
 
 .stat {
-  background: #eee;
-  border-radius: 12px;
   flex: 1;
-  text-align: center;
+  min-width: 100px;
   padding: 1rem;
-  min-width: 150px;
-  font-size: 0.85rem;
+  border-radius: 12px;
+  text-align: center;
 }
 
 .stat h3 {
+  margin: 0;
   font-size: 1.4rem;
-  margin-top: 6px;
 }
 
-.green {
-  background-color: #d1f3db;
-  color: #027a48;
+.stat p {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
-.pink {
-  background-color: #fce7f3;
-  color: #9f1239;
-}
+.green { background-color: #d1f3db; color: #027a48; }
+.pink { background-color: #fce7f3; color: #9f1239; }
+.purple { background-color: #ede9fe; color: #6b21a8; }
 
-.purple {
-  background-color: #ede9fe;
-  color: #6b21a8;
-}
-
-/* ---------------- STATS ---------------- */
-.stats {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 1rem;
-  gap: 10px;
-}
-
-.stat {
-  background: #eee;
-  border-radius: 12px;
-  flex: 1;
-  text-align: center;
-  padding: 1rem;
-  min-width: 150px;
-  font-size: 0.85rem;
-}
-
-.stat h3 {
-  font-size: 1.4rem;
-  margin-top: 6px;
-}
-
-.green {
-  background-color: #d1f3db;
-  color: #027a48;
-}
-
-.pink {
-  background-color: #fce7f3;
-  color: #9f1239;
-}
-
-.purple {
-  background-color: #ede9fe;
-  color: #6b21a8;
-}
-
-/* ---------------- TOGGLE ---------------- */
+/* Toggle Buttons */
 .toggle_section {
   display: flex;
-  justify-content: space-between;
-  background: #eef2ff;
+  gap: 0.5rem;
+  background-color: #eef2ff;
+  padding: 0.5rem;
   border-radius: 12px;
-  padding: 0.4rem;
   margin-bottom: 1rem;
 }
 
 .toggle_tab {
   flex: 1;
-  padding: 0.7rem;
-  font-weight: 600;
-  border: none;
   background: none;
+  padding: 0.7rem;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
   border-radius: 10px;
-  color: black;
-  font-size: 0.9rem;
   cursor: pointer;
   text-align: center;
+  color: #000;
 }
 
 .toggle_tab.active {
   background-color: #4e7fff;
-  color: white;
+  color: #fff;
 }
 
-/* ---------------- VIEW SECTION ---------------- */
+/* Listings Area */
 .view_section {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
 }
 
 .view_header {
   display: flex;
   justify-content: space-between;
-  font-size: 1rem;
+  align-items: center;
+}
+
+.view_header h3 {
+  margin: 0;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
 }
 
 .view_header a {
+  font-size: 0.9rem;
   color: #4e7fff;
   text-decoration: underline;
-  font-size: 0.9rem;
 }
 
-/* ---------------- LISTING CARDS ---------------- */
+/* Card Layout */
 .listing_card {
-  background: white;
+  background: #fff;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .listing_card img {
   width: 100%;
-  height: 220px;
+  height: 200px;
   object-fit: cover;
 }
 
@@ -213,99 +174,106 @@
   font-size: 1.1rem;
 }
 
-.listing_title .price {
-  font-weight: 600;
-  font-size: 0.95rem;
+.price {
   color: #4e7fff;
+  font-weight: 600;
 }
 
 .listing_info p {
+  margin: 0.8rem 0;
   font-size: 0.9rem;
-  margin: 6px 0;
-  color: black;
+  line-height: 1.4;
+  color: #333;
 }
 
+/* Tags Row */
 .listing_tags {
   display: flex;
-  gap: 10px;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
   flex-wrap: wrap;
-  font-size: 0.8rem;
-  margin-top: 6px;
 }
 
 .listing_tags span {
   display: flex;
   align-items: center;
   gap: 4px;
-  background-color: #f3f4f6;
-  padding: 2px 6px;
+  background: #f3f4f6;
+  padding: 4px 8px;
   border-radius: 8px;
-  color: black;
+  font-size: 0.8rem;
+  color: #333;
 }
 
+/* Status & Action Buttons */
 .listing_status {
   display: flex;
-  gap: 10px;
+  gap: 0.8rem;
   margin-top: 1rem;
   flex-wrap: wrap;
 }
 
 .accepted {
+  flex: 1;
   background-color: #dcfce7;
   color: #22c55e;
   padding: 0.6rem;
   border-radius: 8px;
-  font-size: 0.85rem;
-  font-weight: bold;
-  flex: 1;
+  font-weight: 600;
   text-align: center;
 }
 
 .pay_btn,
-.apply_btn,
-.contact_btn {
-  flex: 1;
-  padding: 0.6rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.pay_btn {
-  background-color: #facc15;
-  color: black;
-}
-
-.contact_btn {
-  background-color: #d1f3db;
-  color: #065f46;
-}
-
+.contact_btn,
 .apply_btn {
-  background-color: #a7f3d0;
-  color: #065f46;
-  border: none;
+  flex: 1;
   padding: 0.6rem;
   border-radius: 8px;
-  font-size: 0.85rem;
   font-weight: 600;
+  font-size: 0.9rem;
   cursor: pointer;
-  flex: 1;
-  text-align: center;
+  border: none;
 }
 
-/* ---------------- BOTTOM NAV ---------------- */
+.pay_btn { background-color: #facc15; color: #000; }
+.contact_btn { background-color: #d1f3db; color: #065f46; }
+.apply_btn { background-color: #4e7fff; color: #fff; }
+
+/* Bottom Navigation */
 .bottom_nav {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #ffffff;
-  padding: 0.75rem 1rem;
+  background: #fff;
+  padding: 0.8rem 0;
   display: flex;
   justify-content: space-around;
-  border-top: 1px solid #ccc;
-  z-index: 10;
+  border-top: 1px solid #ddd;
+  z-index: 20;
+}
+
+.bottom_nav svg {
+  cursor: pointer;
+  color: #444;
+}
+
+/* Spacer so content isn't hidden behind nav */
+.hs_dashboard {
+  padding-bottom: 5rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 576px) {
+  .top_info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .edit_btn {
+    align-self: flex-start;
+  }
+  .stats {
+    flex-direction: column;
+  }
 }
