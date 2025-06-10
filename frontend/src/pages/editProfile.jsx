@@ -76,7 +76,11 @@ const EditProfile = ({ userId, onProfileUpdate }) => {
       job_title: formData.job_title,
       skills: formData.skills,
       disability: formData.disability,
-      disability_details: formData.disability ? formData.disability_details : ''
+      disability_details: formData.disability ? formData.disability_details : '',
+      accessibility: formData.accessibility || false,
+      fontsize: formData.fontsize,
+      language: formData.language,
+      darkmode: formData.darkmode,
     };
 
     fetch(`/api/profile/${userId}`, {

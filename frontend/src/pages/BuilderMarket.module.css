@@ -8,12 +8,12 @@
 }
 
 .builder_inner {
-  background-color: #dbe8ff;
+  background-color: var(--background);
   padding-top: 0.8rem;
   border-radius: 16px;
   max-width: 400px;
   width: 100%;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px var(--shadow);
 }
 
 .holder {
@@ -261,7 +261,7 @@ div .pending {
   z-index: 1;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.28);
+  background-color: var(--shadow);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -274,7 +274,7 @@ div .pending {
   border-radius: 16px;
   max-width: 630px;
   width: 100%;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px var(--shadow);
 }
 
 .modal_content button {
@@ -312,15 +312,19 @@ div .pending {
 } */
 
 .page {
-  background-color: #e2efff;
+  min-height: 100vh;
+  background-color: var(--background);
   padding: 2rem 1rem;
-  font-family: 'Segoe UI', sans-serif;
+}
+
+.page > h2 {
+  color: var(--text);
 }
 
 .subtitle {
   font-size: 0.9rem;
   margin-bottom: 1rem;
-  color: #444;
+  color: var(--text-grey);
 }
 
 .filters {
@@ -335,13 +339,14 @@ div .pending {
 .filters select,
 .filters button {
   padding: 0.6rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
   border-radius: 8px;
   font-size: 0.9rem;
 }
 .label {
   font-weight: bold;
   margin: 1rem 0 0.5rem;
+  color: var(--text);
 }
 
 .list {
@@ -351,17 +356,18 @@ div .pending {
 }
 
 .card {
-  background: white;
+  background: var(--background-element);
   padding: 1rem;
   border-radius: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px var(--shadow);
 }
 
 .text {
   flex: 2;
+  color: var(--text);
 }
 
 .rightSection {
@@ -372,7 +378,13 @@ div .pending {
 
 .pay {
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--text);
+  background-color: var(--accent-blue);
+  padding: 3px;
+  margin: 4px;
+  border-radius: 5px;
+  text-transform: capitalize;
 }
 
 .tags {
@@ -390,7 +402,7 @@ div .pending {
 }
 
 .apply {
-  background-color: #4e7fff;
+  background-color: var(--accent-blue);
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -403,17 +415,17 @@ div .pending {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
-  background-color: white;
-  border-top: 1px solid #ddd;
+  right: 0;
+  background-color: var(--background-element);
+  color: var(--text);
+  padding: 0.75rem 1rem;
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  padding: 12px 0;
-  z-index: 999;
+  border-top: 1px solid var(--border);
+  z-index: 10;
 }
 
 .bottom_nav svg {
   cursor: pointer;
-  color: #4e7fff;
+  color: var(--text);
 }

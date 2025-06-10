@@ -6,6 +6,7 @@
 
 body, html {
   font-family: 'Segoe UI', sans-serif;
+  background-color: var(--background);
 }
 
 body {
@@ -16,4 +17,33 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:root {
+  --background: var(--background);
+  --background-element: white;
+  --background-header: #b9c4f3;
+  --background-darker: #f3f4f6;
+  --text: black;
+  --text-inverse: white;
+  --text-grey: #333;
+  --border: #ccc;
+  --toggle: #ddd;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --accent-blue: #4e7fff;
+}
+
+[data-theme='dark'] {
+  --background: rgb(37, 43, 44);
+  --background-element: rgb(48, 48, 56);
+  --background-header: #495174;
+  --background-darker: #3f4147;
+  --background-input: #2f2f2f;
+  --text: white;
+  --text-inverse: black;
+  --text-grey: #ddd;
+  --border: #5d5757;
+  --toggle: #222;
+  --shadow: rgb(255, 255, 255, 0.3);
+  --accent-blue: #314986;
 }

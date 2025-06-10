@@ -15,10 +15,22 @@ import BuilderRegister from './pages/BuilderRegister';
 import AdminRegister from './pages/AdminRegister';
 import EditProfile from './pages/editProfile';  
 import ViewPayslip from './pages/ViewPayslip';
-import ChatBox from './ChatBox'; 
+import ChatBox from './ChatBox';
+
+import useLocalStorage from 'use-local-storage';
+
 function App() {
+  const used_theme = 'dark';
+  const [theme, setTheme] = useLocalStorage('theme', used_theme);
+
+  const changeTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+  }
+
   return (
-    <div className={styles.App}>
+    <div className={styles.App} data-theme={theme}>
+      <button onClick={changeTheme}>Theme</button>
       <header className={styles.App_header}>
         <Navigation />
       </header>

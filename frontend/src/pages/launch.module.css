@@ -30,7 +30,7 @@
 }
 
 .launch_container {
-  background-color: #dbe8ff;
+  background-color: var(--background);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
