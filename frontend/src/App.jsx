@@ -20,6 +20,7 @@ import ChatBox from './ChatBox';
 import useLocalStorage from 'use-local-storage';
 
 function App() {
+  ////////////// REMOVE THIS WHEN POSSIBLE
   const used_theme = 'dark';
   const [theme, setTheme] = useLocalStorage('theme', used_theme);
 
