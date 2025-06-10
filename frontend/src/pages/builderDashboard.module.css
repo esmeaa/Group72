@@ -230,6 +230,20 @@ body {
   color: #065f46;
 }
 
+.popup {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4caf50;
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 8px;
+  z-index: 1000;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
 /* ---------------- BOTTOM NAV ---------------- */
 .bottom_nav {
   position: fixed;
