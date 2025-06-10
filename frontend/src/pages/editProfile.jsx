@@ -341,7 +341,7 @@ const EditProfile = ({ userId, onProfileUpdate }) => {
             name="disability_details"
             value={formData.disability_details}
             onChange={handleChange}
-            placeholder="Describe disability"
+            placeholder="Please describe your disability"
           />
         )}
 
