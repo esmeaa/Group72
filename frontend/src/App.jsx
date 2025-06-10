@@ -31,7 +31,7 @@ function App() {
 
   return (
     <div className={styles.App} data-theme={theme}>
-      <button onClick={changeTheme}>Theme</button>
+      <button onClick={changeTheme}>Theme (PLACEHOLDER)</button>
       <header className={styles.App_header}>
         <Navigation />
       </header>
