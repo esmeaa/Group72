@@ -15,7 +15,7 @@ import BuilderRegister from './pages/BuilderRegister';
 import AdminRegister from './pages/AdminRegister';
 import EditProfile from './pages/editProfile';  
 import ViewPayslip from './pages/ViewPayslip';
-
+import ChatBox from './ChatBox'; 
 function App() {
   return (
     <div className={styles.App}>
@@ -35,6 +35,7 @@ function App() {
         <Route path='/AdminRegister' element={<AdminRegister/>}/> 
         <Route path='/Profile' element={<EditProfile/>}/>
         <Route path='/ViewPayslip' element={<ViewPayslip/>}/>
+        <Route path='/ChatBox' element={<ChatBox/>}/>
       </Routes> 
     </div>
   );
