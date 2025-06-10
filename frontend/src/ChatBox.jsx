@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 function ChatBox({ user1, user2 }) {
+    const location = useLocation();
+    const draft = location.state?.draft || "";
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
+
+    // Initialize input with draft message if available
+    useEffect(() => {
+        if (draft) {
+            setInput(draft);
+        }
+    }, [draft]);
 
     // Poll messages every 3 seconds
     useEffect(() => {
