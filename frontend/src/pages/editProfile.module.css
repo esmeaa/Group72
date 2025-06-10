@@ -1,142 +1,135 @@
-/* .edit_profile_page {
-    background-color: #dbe8ff;
-    padding: 2rem 1rem 100px;
-    max-width: 600px;
-    margin: auto;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 1rem;
+.edit_profile_page {
+  background-color: #dbe8ff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px;
 }
 
 .form {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
 }
 
-.field_group {
-    margin-bottom: 1rem;
+.heading {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.field_group label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: 600;
+.flex_row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="email"],
+.flex_row label {
+  flex: 1;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin: 1rem 0 0.5rem;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+input,
 select,
 textarea {
-    width: 100%;
-    padding: 0.6rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
+  margin-top: 0.35rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
 }
 
 textarea {
-    min-height: 80px;
+  width: 100%;
+  resize: vertical;
+  min-height: 60px;
 }
 
-.flex_row {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.skills_input {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-.skills_input input {
-    flex: 1;
-}
-
-.skills_list {
-    margin-top: 0.5rem;
-}
-
-.skill_tag {
-    display: inline-block;
-    background-color: #eef2ff;
-    color: #1e40af;
-    padding: 4px 8px;
-    border-radius: 8px;
-    margin: 4px 4px 0 0;
-    cursor: pointer;
-    font-size: 0.85rem;
-}
-
-.submit_btn {
-    margin-top: 1rem;
-    background-color: #4e7fff;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    width: 100%;
-} */
-
-
-.edit_profile_page {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background: #fff;
-    border-radius: 8px;
-}
-
-.form label {
-    display: block;
-    margin-bottom: 12px;
-}
-
-.flex_row {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 12px;
-}
-
-.field_group {
-    margin-bottom: 12px;
+.full_field {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
 }
 
 .skills_input {
-    display: flex;
-    gap: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.full_input {
+  flex: 1;
 }
 
 .skills_list {
-    margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .skill_tag {
-    display: inline-block;
-    padding: 4px 8px;
-    background: #eee;
-    border-radius: 4px;
-    margin-right: 4px;
-    cursor: pointer;
+  background-color: #eee;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.checkbox_label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .submit_btn {
-    margin-top: 16px;
-    padding: 8px 16px;
-    background: #4e7fff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  display: block;
+  width: 100%;
+  background-color: #4a7cff;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit_btn:hover {
+  background-color: #3a6be0;
+}
+
+.add_btn {
+  background-color: #4a7cff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  height: 38px;
+}
+
+.add_btn:hover {
+  background-color: #3a6be0;
 }

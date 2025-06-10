@@ -18,7 +18,6 @@
 
 // // export default launch;
 
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import hands from '../images/logo/hands.png';

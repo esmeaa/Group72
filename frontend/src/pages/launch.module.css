@@ -1,88 +1,95 @@
 @keyframes fadeDown {
-    from{
-        opacity: 0;
-        transform: translateY(-50px);
-
-    }
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
 @keyframes fadeUp {
-    from{
-        opacity: 0;
-        transform: translateY(100px);
-
-    }
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
 @keyframes fadeIn {
-    from{
-        opacity: 0;
-    
-
-    }
-    to{
-        opacity: 1;
-        
-    }
-    
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-
-
-
-#title{
-    display: block;
-    width:790px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    top: 100px;
-    animation: fadeDown 0.7s ease-out forwards;
-    
-   
+.launch_container {
+  background-color: #dbe8ff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
-#house{
+.title {
+  width: 70%;
+  max-width: 700px;
+  animation: fadeDown 0.7s ease-out forwards;
+  margin-top: 2rem;
+}
+
+.house {
     display: block;
     position: relative;
-    top: 120px;
+    top: 12px;
     width: 355px;
     margin-left: auto;
     margin-right: auto;
-    animation: fadeIn 0.95s ease-in ; 
-
-   
-   
+    animation: fadeIn 0.95s ease-in ;
 }
 
-#hands{
+.hands {
 position: relative;
 
-top: -27px;
+top: -140px;
 animation: fadeUp 0.9s ease-in ;  
+right: 8px;
+}
+
+@media (max-width: 768px) {
+  .title {
+    width: 80%;
+    margin-top: 1rem;
+  }
+
+  .house {
+    width: 120px;
+  }
+
+  .hands {
+    width: 180px;
+  }
 }
 
 @media (max-width: 480px) {
-  #title {
+  .title {
     width: 90%;
-    top: 80px;
+    margin-top: 1rem;
   }
 
-  #house {
-    width: 80%;
-    top: 100px;
+  .house {
+    width: 100px;
   }
 
-  #hands {
-    width: 85%;
-    top: 13px;
+  .hands {
+    width: 160px;
   }
 }
