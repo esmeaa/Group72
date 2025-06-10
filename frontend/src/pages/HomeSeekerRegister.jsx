@@ -70,7 +70,7 @@ function HomeSeekerRegister() {
 
       if (response.ok) {
         alert("Account created successfully!");
-        navigate("/LoginPage"); // or wherever you want to redirect
+        navigate("/login"); // or wherever you want to redirect
       } else {
         alert(data.message || "Home Seeker Registration failed");
       }
@@ -100,7 +100,7 @@ function HomeSeekerRegister() {
       <div className={styles.form_box}>
         <div className={styles.logo}><img src={logo} alt="Logo" /></div>
         <h1 className={styles.heading}>Join <span>Ubuntu</span>Homes</h1>
-        <p className={styles.subheading}>Create your account and start looking for homes</p>
+        <p className={styles.subheading}>Create your account and view your dream home.</p>
 
         <div className={styles.toggle_tabs}>
           <button className={`${styles.tab} ${styles.inactive}`} onClick={() => navigate("/BuilderRegister")}>

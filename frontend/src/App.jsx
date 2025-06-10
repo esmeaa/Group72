@@ -13,6 +13,8 @@ import HomeMarket from './pages/HomeMarket';
 import HomeSeekerRegister from './pages/HomeSeekerRegister';
 import BuilderRegister from './pages/BuilderRegister';
 import AdminRegister from './pages/AdminRegister';
+import EditProfile from './pages/editProfile';  
+import ViewPayslip from './pages/ViewPayslip';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
         <Route path='/HomeSeekerRegister' element={<HomeSeekerRegister/>}/>
         <Route path='/BuilderRegister' element={<BuilderRegister/>}/>
         <Route path='/AdminRegister' element={<AdminRegister/>}/> 
+        <Route path='/Profile' element={<EditProfile/>}/>
+        <Route path='/ViewPayslip' element={<ViewPayslip/>}/>
       </Routes> 
     </div>
   );

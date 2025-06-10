@@ -39,6 +39,53 @@ function LoginPage() {
   //   navigate("/launch");
   // };
 
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+  //   if (!validateForm()) return;
+
+  //   try {
+  //     const response = await fetch("http://localhost:3001/api/login", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         username: formData.username,
+  //         password: formData.password,
+  //       }),
+  //     });
+
+  //     const data = await response.json();
+
+  //     if (response.ok && data.user) {
+  //       const { id, username, role } = data.user;
+
+  //       // alert(`Login successful as ${role}!`);
+
+  //       // Save to localStorage
+  //       localStorage.setItem("user", JSON.stringify({ id, username, role }));
+  //       localStorage.setItem("role", role);
+
+  //       // Redirect by role
+  //       if (role === "admin") {
+  //         navigate("/admin");
+  //       } else if (role === "builder") {
+  //         navigate("/builderDashboard");
+  //       } else if (role === "homeSeeker") {
+  //         navigate("/HomeSeekerDashboard");
+  //       } else 
+  //         alert("Unknown role.");
+  //         navigate("/login");
+  //       }
+  //     } else {
+  //       alert(data.message || "Invalid username or password");
+  //     }
+  //   } catch (err) {
+  //     console.error("Login error:", err);
+  //     alert("Something went wrong. Please try again later.");
+  //   }
+  // };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -60,21 +107,18 @@ function LoginPage() {
       if (response.ok && data.user) {
         const { id, username, role } = data.user;
 
-        // alert(`Login successful as ${role}!`);
-
-        // Save to localStorage
         localStorage.setItem("user", JSON.stringify({ id, username, role }));
         localStorage.setItem("role", role);
 
-        // Redirect by role
         if (role === "admin") {
-          navigate("/admin-dashboard");
+          navigate("/admin");
         } else if (role === "builder") {
-          navigate("/builder-dashboard");
+          navigate("/builderDashboard");
         } else if (role === "homeSeeker") {
-          navigate("/home-dashboard");
+          navigate("/HomeSeekerDashboard");
         } else {
-          navigate("/login"); 
+          alert("Unknown role");
+          navigate("/login");
         }
       } else {
         alert(data.message || "Invalid username or password");
@@ -84,6 +128,7 @@ function LoginPage() {
       alert("Something went wrong. Please try again later.");
     }
   };
+  
 
 
   return (
@@ -91,7 +136,7 @@ function LoginPage() {
       <div className={styles.login_card}>
         <img src={logo} alt="logo" className={styles.login_logo} />
         <h2 className={styles.login_heading}>Welcome Back</h2>
-        <p className={styles.login_subheading}>Sign in to your UbuntuHomes account</p>
+        <p className={styles.login_subheading}>Sign in to your UbuntuHomes account.</p>
 
         <form className={styles.login_form} onSubmit={handleLogin}>
           <div className={styles.form_group}>
@@ -127,7 +172,7 @@ function LoginPage() {
 
         <div className={styles.register_redirect}>
           Don’t have an account?{" "}
-          <Link to="/BuilderRegister" className={styles.link}>Sign up here</Link>
+          <Link to="/BuilderRegister" className={styles.link}>Register here</Link>
         </div>
       </div>
     </div>

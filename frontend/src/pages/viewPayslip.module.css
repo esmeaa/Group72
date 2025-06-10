@@ -1,0 +1,96 @@
+.container {
+    background: #4E7FFF;
+    padding: 1.5rem;
+    border-radius: 16px;
+    color: white;
+    max-width: 500px;
+    margin: 2rem auto;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.avatar {
+    background: white;
+    border-radius: 50%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.info h2 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.info p {
+    margin: 4px 0;
+    font-size: 0.9rem;
+}
+
+.info span {
+    font-weight: bold;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.payments h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.paymentCard {
+    background: #FFFFFF;
+    color: #000;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.textGroup {
+    flex: 1;
+}
+
+.subtle {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.amount {
+    font-weight: bold;
+    margin: 0 1rem;
+}
+
+.actions button {
+    background: #4E7FFF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 0.8rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.actions button:first-child {
+    background: #FACC15;
+    color: black;
+}

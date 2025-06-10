@@ -17,6 +17,8 @@ const Navigation = () => {
             <li><NavLink to="/HomeSeekerRegister" className={styles.nav_link}>Home Seeker Register</NavLink></li>
             <li><NavLink to="/BuilderRegister" className={styles.nav_link}>Builder Register</NavLink></li>
             <li><NavLink to="/AdminRegister" className={styles.nav_link}>Admin Register</NavLink></li>
+            <li><NavLink to="/Profile" className={styles.nav_link}>Profile</NavLink></li>
+            <li><NavLink to="/ViewPayslip" className={styles.nav_link}>View Payslip</NavLink></li>
         </ul>
     </nav>
 

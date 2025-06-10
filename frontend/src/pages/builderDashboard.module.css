@@ -1,4 +1,4 @@
-.builder_dash {
+/* .builder_dash {
   min-height: 100vh;
   font-size: 11px;
   display: flex;
@@ -310,4 +310,250 @@ div .pending {
 
 .subtle {
   color: darkgray;
+} */
+
+/* General Layout */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #dbe8ff;
+  margin: 0;
+}
+
+.hs_dashboard,
+.builder_dash {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem 100px;
+}
+
+/* ---------------- PROFILE SECTION ---------------- */
+.profile_section {
+  background-color: #fff;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+}
+
+.top_info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 1rem;
+}
+
+.avatar_default {
+  width: 70px;
+  height: 70px;
+  background-color: #e5e7eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details h2 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.details p {
+  font-size: 0.9rem;
+  margin: 2px 0;
+  color: #444;
+}
+
+.edit_btn {
+  margin-left: auto;
+  background-color: #4e7fff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---------------- STATS ---------------- */
+.stats {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  gap: 10px;
+}
+
+.stat {
+  background: #eee;
+  border-radius: 12px;
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+  min-width: 150px;
+  font-size: 0.85rem;
+}
+
+.stat h3 {
+  font-size: 1.4rem;
+  margin-top: 6px;
+}
+
+.green {
+  background-color: #d1f3db;
+  color: #027a48;
+}
+
+.pink {
+  background-color: #fce7f3;
+  color: #9f1239;
+}
+
+.purple {
+  background-color: #ede9fe;
+  color: #6b21a8;
+}
+
+.blue {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+/* ---------------- TOGGLE ---------------- */
+.toggle_section {
+  display: flex;
+  justify-content: space-between;
+  background: #eef2ff;
+  border-radius: 12px;
+  padding: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.toggle_tab {
+  flex: 1;
+  padding: 0.7rem;
+  font-weight: 600;
+  border: none;
+  background: none;
+  border-radius: 10px;
+  color: black;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.toggle_tab.active {
+  background-color: #4e7fff;
+  color: white;
+}
+
+/* ---------------- VIEW SECTION ---------------- */
+.view_section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  color: black;
+}
+
+.view_header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.view_header a {
+  color: #4e7fff;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+/* ---------------- LISTING CARDS ---------------- */
+.listing_card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.listing_info {
+  padding: 1.2rem;
+}
+
+.listing_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.listing_title h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #4e7fff;
+  text-transform: capitalize;
+}
+
+/* ---------------- STATUS STYLES ---------------- */
+.pending {
+  color: #b45309;
+}
+
+.approved {
+  color: #059669;
+}
+
+.rejected {
+  color: #dc2626;
+}
+
+/* ---------------- LISTING ACTIONS ---------------- */
+.listing_status {
+  display: flex;
+  gap: 10px;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.pay_btn,
+.contact_btn {
+  flex: 1;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
+.pay_btn {
+  background-color: #facc15;
+  color: black;
+}
+
+.contact_btn {
+  background-color: #d1f3db;
+  color: #065f46;
+}
+
+/* ---------------- BOTTOM NAV ---------------- */
+.bottom_nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #ccc;
+  z-index: 10;
 }

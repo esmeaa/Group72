@@ -91,7 +91,7 @@ function AdminRegister() {
       <div className={styles.form_box}>
         <div className={styles.logo}><img src={logo} alt="Logo" /></div>
         <h1 className={styles.heading}>Admin <span>Registration</span></h1>
-        <p className={styles.subheading}>Create an administrator account</p>
+        <p className={styles.subheading}>Create an administrator account.</p>
 
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.row}>
