@@ -104,7 +104,6 @@
 
 // export default HomeSeekerDashboard;
 
-
 import React, { useState } from 'react';
 import styles from './HomeSeekerDashboard.module.css';
 import {
@@ -130,7 +129,10 @@ const HomeSeekerDashboard = () => {
             <p>Home Seeker</p>
             <p>johndoe@example.com</p>
           </div>
-          <button className={styles.edit_btn}>
+          <button
+            className={styles.edit_btn}
+            onClick={() => navigate('/Profile')}
+          >
             <Edit size={16} /> Edit Details
           </button>
         </div>
@@ -155,13 +157,13 @@ const HomeSeekerDashboard = () => {
       {/* Tabs */}
       <div className={styles.toggle_section}>
         <button
-          className={`toggle-tab ${activeTab === 'applications' ? 'active' : ''}`}
+          className={`${styles.toggle_tab} ${activeTab === 'applications' ? styles.active : ''}`}
           onClick={() => setActiveTab('applications')}
         >
           My House Applications
         </button>
         <button
-          className={`toggle-tab ${activeTab === 'saved' ? 'active' : ''}`}
+          className={`${styles.toggle_tab} ${activeTab === 'saved' ? styles.active : ''}`}
           onClick={() => setActiveTab('saved')}
         >
           Saved Listings

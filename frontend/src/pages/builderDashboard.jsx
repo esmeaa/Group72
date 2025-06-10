@@ -218,7 +218,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './builderDashboard.module.css';
 import {
-  Hammer, Check, Wallet,
   Home, Bookmark, User, Settings, Edit
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -231,7 +230,7 @@ const BuilderDashboard = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Replace with real data calls
+    // Mock data (replace with real API later)
     const mockApps = [
       { id: 1, title: 'Kitchen Remodel', status: 'pending' },
       { id: 2, title: 'Roof Fix', status: 'approved' },
@@ -251,10 +250,10 @@ const BuilderDashboard = () => {
   }, []);
 
   const handleCashOut = (id) => {
-    setPayments(p => p.filter(pay => pay.id !== id));
+    setPayments(prev => prev.filter(pay => pay.id !== id));
     const removed = payments.find(pay => pay.id === id);
     if (removed) {
-      setStats(s => ({ ...s, earnings: s.earnings - removed.amount }));
+      setStats(prev => ({ ...prev, earnings: prev.earnings - removed.amount }));
     }
   };
 
@@ -271,11 +270,12 @@ const BuilderDashboard = () => {
             <p>Builder</p>
             <p>johndoe@example.com</p>
           </div>
-          <Link to="/Profile">
-            <button className={styles.edit_btn}>
-              <Edit size={16} /> Edit Details
-            </button>
-          </Link>
+          <button
+            className={styles.edit_btn}
+            onClick={() => navigate('/Profile')}
+          >
+            <Edit size={16} /> Edit Details
+          </button>
         </div>
 
         {/* Stats Section */}
@@ -298,13 +298,13 @@ const BuilderDashboard = () => {
       {/* Toggle Buttons */}
       <div className={styles.toggle_section}>
         <button
-          className={`toggle-tab ${activeTab === 'applications' ? 'active' : ''}`}
+          className={`${styles.toggle_tab} ${activeTab === 'applications' ? styles.active : ''}`}
           onClick={() => setActiveTab('applications')}
         >
           My Job Applications
         </button>
         <button
-          className={`toggle-tab ${activeTab === 'payments' ? 'active' : ''}`}
+          className={`${styles.toggle_tab} ${activeTab === 'payments' ? styles.active : ''}`}
           onClick={() => setActiveTab('payments')}
         >
           Payslips
@@ -324,7 +324,7 @@ const BuilderDashboard = () => {
               <div className={styles.listing_info}>
                 <div className={styles.listing_title}>
                   <h4>{app.title}</h4>
-                  <span className={`price ${styles[app.status]}`}>{app.status}</span>
+                  <span className={`${styles.price} ${styles[app.status]}`}>{app.status}</span>
                 </div>
               </div>
             </div>
