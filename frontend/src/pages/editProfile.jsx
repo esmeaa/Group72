@@ -167,33 +167,40 @@
 // export default EditProfile;
 
 
-
 import React, { useState, useEffect } from 'react';
 import styles from './editProfile.module.css';
 
 const EditProfile = ({ userId, onProfileUpdate }) => {
   const [formData, setFormData] = useState({
-    age: '', sex: '', marital_status: '', kids: '', pets: false,
-    religion: '', job_title: '', skills: [], newSkill: '',
-    disability: false, disability_details: ''
+    age: '',
+    sex: '',
+    marital_status: '',
+    kids: '',
+    pets: false,
+    religion: '',
+    job_title: '',
+    skills: [],
+    newSkill: '',
+    disability: false,
+    disability_details: ''
   });
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-  fetch(`/api/profile/${userId}`)
-    .then(res => res.ok ? res.json() : null)
-    .then(profile => {
-      if (profile) {
-        setFormData(prev => ({ ...prev, ...profile, newSkill: '' }));
-      }
-      setLoading(false);
-    })
-    .catch(err => {
-      console.error(err);
-      setLoading(false);
-    });
-}, [userId]);
-
+    fetch(`/api/profile/${userId}`)
+      .then(res => res.ok ? res.json() : null)
+      .then(profile => {
+        if (profile) {
+          setFormData(prev => ({ ...prev, ...profile, newSkill: '' }));
+        }
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error(err);
+        setLoading(false);
+      });
+  }, [userId]);
 
   const handleChange = e => {
     const { name, value, type, checked } = e.target;
@@ -257,36 +264,60 @@ const EditProfile = ({ userId, onProfileUpdate }) => {
   return (
     <div className={styles.edit_profile_page}>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <h2 className={styles.form_heading}>Edit Your Profile</h2>
+        <h2 className={styles.heading}>Edit Your Profile</h2>
 
         <div className={styles.flex_row}>
-          <label>Age<input name="age" type="number" value={formData.age} onChange={handleChange} /></label>
-          <label>Sex
+          <label>
+            Age
+            <input name="age" type="number" value={formData.age} onChange={handleChange} />
+          </label>
+          <label>
+            Sex
             <select name="sex" value={formData.sex} onChange={handleChange}>
-              <option value="">Select</option><option>Male</option><option>Female</option><option>Other</option>
+              <option value="">Select</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
             </select>
           </label>
-          <label>Marital Status
+          <label>
+            Marital Status
             <select name="marital_status" value={formData.marital_status} onChange={handleChange}>
-              <option value="">Select</option><option>Single</option><option>Married</option><option>Divorced</option><option>Widowed</option>
+              <option value="">Select</option>
+              <option>Single</option>
+              <option>Married</option>
+              <option>Divorced</option>
+              <option>Widowed</option>
             </select>
           </label>
         </div>
 
-        <label>Number of Kids<input name="kids" type="number" value={formData.kids} onChange={handleChange} /></label>
-        <label className={styles.checkbox}>
-          <input name="pets" type="checkbox" checked={formData.pets} onChange={handleChange} />
-          Own Pets?
-        </label>
+        <div className={styles.full_field}>
+          <label className={styles.label}>Number of Kids</label>
+          <input name="kids" type="number" value={formData.kids} onChange={handleChange} />
+        </div>
 
-        <label>Religion<input name="religion" type="text" value={formData.religion} onChange={handleChange} /></label>
-        <label>Job Title<input name="job_title" type="text" value={formData.job_title} onChange={handleChange} /></label>
+        <div className={styles.full_field}>
+          <label className={styles.label}>Religion</label>
+          <input name="religion" type="text" value={formData.religion} onChange={handleChange} />
+        </div>
 
-        <div className={styles.field_group}>
-          <label>Skills:</label>
+        <div className={styles.full_field}>
+          <label className={styles.label}>Job Title</label>
+          <input name="job_title" type="text" value={formData.job_title} onChange={handleChange} />
+        </div>
+
+        <div className={styles.full_field}>
+          <label className={styles.label}>Skills:</label>
           <div className={styles.skills_input}>
-            <input name="newSkill" value={formData.newSkill} onChange={handleChange} placeholder="Add skill" />
-            <button type="button" onClick={addSkill} className={styles.add_btn}>Add</button>
+            <input
+              name="newSkill"
+              value={formData.newSkill}
+              onChange={handleChange}
+              placeholder="Add skill"
+              className={styles.full_input}
+            />
+            <button type="button" className={styles.add_btn} onClick={addSkill}>Add</button>
           </div>
           <div className={styles.skills_list}>
             {formData.skills.map(s => (
@@ -295,19 +326,34 @@ const EditProfile = ({ userId, onProfileUpdate }) => {
           </div>
         </div>
 
-        <label className={styles.checkbox}>
-          <input name="disability" type="checkbox" checked={formData.disability} onChange={handleChange} />
+        <label className={styles.checkbox_label}>
+          <input
+            name="disability"
+            type="checkbox"
+            checked={formData.disability}
+            onChange={handleChange}
+          />
           Disability?
         </label>
+
         {formData.disability && (
           <textarea
             name="disability_details"
             value={formData.disability_details}
             onChange={handleChange}
             placeholder="Describe disability"
-            className={styles.textarea}
           />
         )}
+
+        <label className={styles.checkbox_label}>
+          <input
+            name="pets"
+            type="checkbox"
+            checked={formData.pets}
+            onChange={handleChange}
+          />
+          Own Pets?
+        </label>
 
         <button type="submit" className={styles.submit_btn}>Save Changes</button>
       </form>
