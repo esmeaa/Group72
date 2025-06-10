@@ -10,6 +10,8 @@ const BuilderDashboard = () => {
   const [applications, setApplications] = useState([]);
   const [payments, setPayments] = useState([]);
   const [stats, setStats] = useState({ active: 0, completed: 0, earnings: 0 });
+  const [rentCredit, setRentCredit] = useState(0);
+  const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -37,6 +39,17 @@ const BuilderDashboard = () => {
     const removed = payments.find(pay => pay.id === id);
     if (removed) {
       setStats(prev => ({ ...prev, earnings: prev.earnings - removed.amount }));
+    }
+    //setTimeout(() => {navigate('/ChatBox', { state: { draft: "I would like to cashout my due payment..." } });}, 2000);
+    navigate('/ChatBox', { state: { draft: "I would like to cashout my due payment..." } })
+  };
+  const handleAddRentCredits = (id) => {
+        const removed = payments.find(pay => pay.id === id);
+    setPayments(prev => prev.filter(pay => pay.id !== id));
+    if (removed) {
+      setRentCredit(prev => prev + removed.amount);
+      setShowPopup(true);
+      setTimeout(() => setShowPopup(false), 2000); // Hide popup after 2 seconds
     }
   };
 
@@ -94,6 +107,12 @@ const BuilderDashboard = () => {
         </button>
       </div>
 
+      {/* Popup Notification */}
+      {showPopup && (
+        <div className={styles.popup}>
+          Rent credit successfully updated!
+        </div>
+      )}
       {/* View Section */}
       <div className={styles.view_section}>
         <div className={styles.view_header}>
@@ -122,7 +141,7 @@ const BuilderDashboard = () => {
                 </div>
                 <div className={styles.listing_status}>
                   <button className={styles.pay_btn} onClick={() => handleCashOut(pay.id)}>Cash Out</button>
-                  <button className={styles.contact_btn}>Add to Rent Credit</button>
+                  <button className={styles.contact_btn} onClick={() => handleAddRentCredits(pay.id)}>Add to Rent Credit</button>
                 </div>
               </div>
             </div>
@@ -132,7 +151,7 @@ const BuilderDashboard = () => {
 
       {/* Bottom Navigation */}
       <div className={styles.bottom_nav}>
-        <Home size={24} onClick={() => navigate('/builder')} />
+        <Home size={24} onClick={() => navigate('/builderDashboard')} />
         <Bookmark size={24} onClick={() => navigate('/builder/applications')} />
         <User size={24} onClick={() => navigate('/profile')} />
         <Settings size={24} onClick={() => navigate('/settings')} />
