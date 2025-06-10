@@ -1,20 +1,13 @@
-/* General Layout */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #dbe8ff;
-  margin: 0;
-}
-
-.hs_dashboard,
 .builder_dash {
-  max-width: 1200px;
+  background-color: var(--background);
+  min-height: 100vh;
   margin: 0 auto;
   padding: 2rem 1rem 100px;
 }
 
 /* ---------------- PROFILE SECTION ---------------- */
 .profile_section {
-  background-color: #fff;
+  background-color: var(--background-element);
   margin-bottom: 1rem;
   padding: 1.5rem;
   border-radius: 16px;
@@ -40,17 +33,18 @@ body {
 .details h2 {
   font-size: 1.2rem;
   margin: 0;
+  color: var(--text)
 }
 
 .details p {
   font-size: 0.9rem;
   margin: 2px 0;
-  color: #444;
+  color: var(--text-grey);
 }
 
 .edit_btn {
   margin-left: auto;
-  background-color: #4e7fff;
+  background-color: var(--accent-blue);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -111,7 +105,7 @@ body {
 .toggle_section {
   display: flex;
   justify-content: space-between;
-  background: #eef2ff;
+  background: var(--toggle);
   border-radius: 12px;
   padding: 0.4rem;
   margin-bottom: 1rem;
@@ -124,14 +118,14 @@ body {
   border: none;
   background: none;
   border-radius: 10px;
-  color: black;
+  color: #999;
   font-size: 0.9rem;
   cursor: pointer;
   text-align: center;
 }
 
 .toggle_tab.active {
-  background-color: #4e7fff;
+  background-color: var(--accent-blue);
   color: white;
 }
 
@@ -140,7 +134,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
-  color: black;
+  color: var(--text);
 }
 
 .view_header {
@@ -152,17 +146,17 @@ body {
 }
 
 .view_header a {
-  color: #4e7fff;
+  color: var(--text);
   text-decoration: underline;
   font-size: 0.9rem;
 }
 
 /* ---------------- LISTING CARDS ---------------- */
 .listing_card {
-  background: white;
+  background: var(--background-element);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px var(--shadow);
 }
 
 .listing_info {
@@ -181,9 +175,12 @@ body {
 }
 
 .price {
-  font-weight: 600;
+  font-weight: bold;
   font-size: 0.95rem;
-  color: #4e7fff;
+  color: var(--text);
+  background-color: var(--accent-blue);
+  padding: 3px;
+  border-radius: 5px;
   text-transform: capitalize;
 }
 
@@ -250,10 +247,11 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #ffffff;
+  background-color: var(--background-element);
+  color: var(--text);
   padding: 0.75rem 1rem;
   display: flex;
   justify-content: space-around;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid var(--border);
   z-index: 10;
 }

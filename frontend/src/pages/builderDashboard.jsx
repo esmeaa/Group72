@@ -54,7 +54,7 @@ const BuilderDashboard = () => {
   };
 
   return (
-    <div className={styles.hs_dashboard}>
+    <div className={styles.builder_dash}>
       {/* Profile Section */}
       <div className={styles.profile_section}>
         <div className={styles.top_info}>
