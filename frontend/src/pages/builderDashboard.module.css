@@ -255,3 +255,8 @@
   border-top: 1px solid var(--border);
   z-index: 10;
 }
+
+.bottom_nav svg {
+  cursor: pointer;
+  color: var(--text);
+}

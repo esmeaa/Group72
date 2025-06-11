@@ -12,15 +12,18 @@
   border-radius: 12px;
   box-shadow: 0 2px 4px var(--shadow);
 }
+
 .title{
  text-align: left;
+ color: var(--text);
 }
 
 .border{
-  border:  rgba(0, 0, 0, 0.15)solid ;
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 10px;
 }
+
 .jobDesc{
   height: 150px;
 }
@@ -155,10 +158,10 @@
   background: var(--accent-blue);
   color: #fff;
 }
+
 .form label{
   text-align: left;
 }
-
 
 .form_group {
   margin-bottom: 1rem;
@@ -169,30 +172,31 @@ label {
   font-weight: 600;
   font-size: 0.85rem;
   margin-bottom: 0.4rem;
-  color: #333;
+  color: var(--text);
 }
+
 .chip {
   padding: 6px 12px;
   margin: 4px;
-  border: 1px solid #aaa;
+  border: 1px solid var(--border);
   border-radius: 20px;
-  background-color: white;
+  background-color: var(--background-element);
+  color: var(--text);
   cursor: pointer;
   transition: 0.3s;
   font-weight: bold;
 }
 
 .selected {
-  background-color: #5271FF;
+  background: var(--accent-blue);
   color: white;
-  border-color: #5271FF;
 }
 
 .form_group input {
   width: 100%;
   padding: 0.6rem;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
   font-size: 0.95rem;
 }
 
@@ -208,7 +212,7 @@ label {
 
 .submit_btn {
   padding: .6rem;
-  background: #5271FF;
+  background: var(--accent-blue);
   color: white;
   border: none;
   border-radius: 10px;
@@ -223,10 +227,17 @@ label {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
-  background: #fff;
+  right: 0;
+  background-color: var(--background-element);
+  color: var(--text);
+  padding: 0.75rem 1rem;
   display: flex;
   justify-content: space-around;
-  padding: .8rem 0;
-  box-shadow: 0 -2px 4px var(--shadow);
+  border-top: 1px solid var(--border);
+  z-index: 10;
+}
+
+.bottom_nav svg {
+  cursor: pointer;
+  color: var(--text);
 }
