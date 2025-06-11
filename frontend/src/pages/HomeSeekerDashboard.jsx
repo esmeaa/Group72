@@ -111,89 +111,156 @@
 
 
 
+
 import React, { useEffect, useState } from 'react';
 import styles from './HomeSeekerDashboard.module.css';
 import {
-  Heart, Clipboard, DollarSign, Edit, User, Bookmark, Settings, Home
+  Edit,
+  Home as HomeIcon,
+  Bookmark,
+  Heart,
+  Clipboard,
+  DollarSign,
+  User,
+  Settings,
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import houseImage from '../images/makers_valley_house.jpg';
 
 const HomeSeekerDashboard = () => {
+  const [activeTab, setActiveTab] = useState('applications');
+  const [applications, setApplications] = useState([]);
+  const [savedListings, setSavedListings] = useState([]);
+  const [budget, setBudget] = useState(5000); // placeholder for backend
   const navigate = useNavigate();
-
-  // Dynamic state
-  const [savedCount, setSavedCount] = useState(0);
-  const [applicationsCount, setApplicationsCount] = useState(0);
-  const [budget, setBudget] = useState('R0');
-
-  const userId = 1; // Replace with real user ID logic
+  const userId = 1; // placeholder for backend
 
   useEffect(() => {
-    // 🔌 API Placeholder: Get saved listings count
-    fetch(`/api/homeSeeker/${userId}/saved-listings`)
+    fetch(`/api/seeker/${userId}/applications`)
       .then(res => res.json())
-      .then(data => setSavedCount(data.count || 0))
-      .catch(err => console.error("Saved Listings Error:", err));
-
-    // 🔌 API Placeholder: Get applications count
-    fetch(`/api/homeSeeker/${userId}/applications`)
+      .then(data => setApplications(data))
+      .catch(console.error);
+    fetch(`/api/seeker/${userId}/saved`)
       .then(res => res.json())
-      .then(data => setApplicationsCount(data.count || 0))
-      .catch(err => console.error("Applications Error:", err));
-
-    // 🔌 API Placeholder: Get budget info
-    fetch(`/api/homeSeeker/${userId}/budget`)
-      .then(res => res.json())
-      .then(data => setBudget(data.budget ? `R${data.budget}` : 'R0'))
-      .catch(err => console.error("Budget Error:", err));
+      .then(data => setSavedListings(data))
+      .catch(console.error);
   }, [userId]);
 
+  const handleApply = async listing => {
+    const res = await fetch(`/api/seeker/${userId}/apply`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ listingId: listing.id }),
+    });
+    if (res.ok) {
+      setApplications(prev => [...prev, { ...listing, status: 'pending' }]);
+      setSavedListings(prev => prev.filter(item => item.id !== listing.id));
+      setActiveTab('applications');
+    }
+  };
+
   return (
-    <div className={styles.container}>
-      <div className={styles.profileRow}>
-        <div className={styles.profileInfo}>
-          <div className={styles.avatar}><User size={30} /></div>
-          <div>
-            <h2>Hi John Doe!</h2>
-            <p className={styles.subtitle}>Home Seeker • john.doe@email.com</p>
+    <div className={styles.hs_dashboard}>
+      {/* Profile Stats */}
+      <div className={styles.profile_section}>
+        <div className={styles.top_info}>
+          <div className={styles.avatar_default}><User size={30} /></div>
+          <div className={styles.details}>
+            <h2>John Doe</h2>
+            <p>Home Seeker</p>
+            <p>johndoe@example.com</p>
           </div>
+          <button className={styles.edit_btn} onClick={() => navigate('/profile')}>
+            <Edit size={16} /> Edit Details
+          </button>
         </div>
 
-        <button className={styles.editBtn} onClick={() => navigate('/Profile')}>
-          <Edit size={16} /> Edit Details
+        {/* Home Seeker Application Stats */}
+        <div className={styles.stats}>
+          <div className={`${styles.stat} ${styles.green}`}>
+            <Heart size={24} />
+            <span className={styles.statText}>
+              <span className={styles.statLabel}>Saved Listings</span>
+              <span className={styles.statNumber}>{savedListings.length.toString().padStart(2, '0')}</span>
+            </span>
+          </div>
+          <div className={`${styles.stat} ${styles.pink}`}>
+            <Clipboard size={24} />
+            <span className={styles.statText}>
+              <span className={styles.statLabel}>Applications</span>
+              <span className={styles.statNumber}>{applications.length.toString().padStart(2, '0')}</span>
+            </span>
+          </div>
+          <div className={`${styles.stat} ${styles.purple}`}>
+            <DollarSign size={24} />
+            <span className={styles.statText}>
+              <span className={styles.statLabel}>Budget</span>
+              <span className={styles.statNumber}>{`R ${budget.toLocaleString()}`}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Toggle Tabs Between 'My House Applications' and 'Saved Listings' */}
+      <div className={styles.toggle_section}>
+        <button
+          className={`${styles.toggle_tab} ${activeTab === 'applications' ? styles.active : ''}`}
+          onClick={() => setActiveTab('applications')}
+        >
+          My House Applications
+        </button>
+        <button
+          className={`${styles.toggle_tab} ${activeTab === 'saved' ? styles.active : ''}`}
+          onClick={() => setActiveTab('saved')}
+        >
+          Saved Listings
         </button>
       </div>
 
-      <div className={styles.statsRow}>
-        <div className={styles.statCard + ' ' + styles.green}>
-          <Heart size={20} />
-          <div className={styles.statText}>
-            <span className={styles.statNumber}>{String(savedCount).padStart(2, '0')}</span>
-            <span>Saved Listings</span>
-          </div>
+      {/* House Listings */}
+      <div className={styles.view_section}>
+        <div className={styles.view_header}>
+          <h3>{activeTab === 'applications' ? 'Applications' : 'Saved Listings'}</h3>
         </div>
-        <div className={styles.statCard + ' ' + styles.pink}>
-          <Clipboard size={20} />
-          <div className={styles.statText}>
-            <span className={styles.statNumber}>{String(applicationsCount).padStart(2, '0')}</span>
-            <span>Applications</span>
+
+        {(activeTab === 'applications' ? applications : savedListings).map(listing => (
+          <div key={listing.id} className={styles.listing_card}>
+            <img src={houseImage} alt={listing.title} />
+            <div className={styles.listing_info}>
+              <div className={styles.listing_title}>
+                <h4>{listing.title}</h4>
+                <span className={styles.price}>R{listing.price}/mo</span>
+              </div>
+              <p>{listing.description}</p>
+              <div className={styles.listing_tags}>
+                <span><HomeIcon size={14} /> {listing.beds} Bed</span>
+                <span><Bookmark size={14} /> {listing.baths} Bath</span>
+                <span><Settings size={14} /> {listing.size} sq ft</span>
+              </div>
+              <div className={styles.listing_status}>
+                {activeTab === 'saved' ? (
+                  <button className={styles.apply_btn} onClick={() => handleApply(listing)}>
+                    Apply Now
+                  </button>
+                ) : listing.status === 'accepted' ? (
+                  <>
+                    <span className={styles.accepted}>Accepted</span>
+                    <button className={styles.pay_btn}>Pay</button>
+                    <button className={styles.contact_btn}>Contact Admin</button>
+                  </>
+                ) : (
+                  <span className={styles.accepted}>Pending</span>
+                )}
+              </div>
+            </div>
           </div>
-        </div>
-        <div className={styles.statCard + ' ' + styles.purple}>
-          <DollarSign size={20} />
-          <div className={styles.statText}>
-            <span className={styles.statNumber}>{budget}</span>
-            <span>Budget Range</span>
-          </div>
-        </div>
+        ))}
       </div>
 
-      {/* Listings would appear here */}
-      <div className={styles.listings}></div>
-
-      <div className={styles.bottomNav}>
-        <Home size={24} onClick={() => navigate('/seeker')} />
-        <Bookmark size={24} onClick={() => navigate('/seeker/saved')} />
+      {/* Bottom Navigation Bar */}
+      <div className={styles.bottom_nav}>
+        <HomeIcon size={24} onClick={() => navigate('/launch')} />
+        <Bookmark size={24} onClick={() => setActiveTab('saved')} />
         <User size={24} onClick={() => navigate('/profile')} />
         <Settings size={24} onClick={() => navigate('/settings')} />
       </div>
