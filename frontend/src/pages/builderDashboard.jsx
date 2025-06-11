@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './builderDashboard.module.css';
-import {
-  Home, Bookmark, User, Settings, Edit
-} from 'lucide-react';
+import { Home, Bookmark, User, Settings, Edit, X } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import ViewPayslip from './ViewPayslip';
 
 const BuilderDashboard = () => {
   const [activeTab, setActiveTab] = useState('applications');
@@ -20,13 +17,13 @@ const BuilderDashboard = () => {
   useEffect(() => {
     // Mock data (replace with real API later)
     const mockApps = [
-      { id: 1, title: 'Kitchen Remodel', status: 'pending' },
-      { id: 2, title: 'Roof Fix', status: 'approved' },
-      { id: 3, title: 'Wall Paint', status: 'rejected' }
+      { id: 'A8716ZJA', title: 'Kitchen Remodel', status: 'pending' },
+      { id: 'B9823XYZ', title: 'Roof Fix', status: 'approved' },
+      { id: 'C1075QWE', title: 'Wall Paint', status: 'rejected' }
     ];
     const mockPays = [
-      { id: 1, jobInfo: 'Kitchen Remodel', amount: 24000 },
-      { id: 2, jobInfo: 'Roof Fix', amount: 18000 }
+      { id: 'F13D1F3G', jobInfo: 'Kitchen Remodel', amount: 24000 },
+      { id: '5FD1D46F', jobInfo: 'Roof Fix', amount: 18000 }
     ];
     setApplications(mockApps);
     setPayments(mockPays);
@@ -63,8 +60,7 @@ const BuilderDashboard = () => {
   };
 
   const getApplicationContent = (all = false) => {
-    var list = applications;
-    if(!all) list.slice(0, 3);
+    var list = applications.slice(0, 3);
     return (
       list.length ? (
       applications.map(app => (
@@ -89,8 +85,7 @@ const BuilderDashboard = () => {
   }
 
   const getPaymentsContent = (all = false) => {
-    var list = payments;
-    if(!all) list.slice(0, 3);
+    var list = payments.slice(0, 3);;
     return (
       list.length ? (
       payments.map(pay => (
@@ -118,6 +113,79 @@ const BuilderDashboard = () => {
     ))
   }
 
+  // edited from ayshas mock page
+  const payslipPopup = () => {
+    const total = payments.reduce((sum, p) => sum + p.amount, 0);
+    const rentCredit = total; // For demo
+
+    return (
+      <div className={styles.playslip_page}>
+        <div className={styles.header}>
+          <div className={styles.avatar}>
+            <User size={36} />
+          </div>
+          <div className={styles.info}>
+            <h2>John Doe</h2>
+            <p>Total Payout: <span>R {total.toLocaleString()}</span></p>
+            <p>Rent Credit: <span>R {rentCredit.toLocaleString()}</span></p>
+          </div>
+          
+          </div>
+
+          <div className={styles.payments}>
+          <h3>My Due Payments ({payments.length})</h3>
+          {payments.map(p => (
+            <div key={p.id} className={styles.paymentCard}>
+              <div className={styles.textGroup}>
+                <p className={styles.subtle}>Job ID: {p.id}</p>
+                <p>{p.info}</p>
+              </div>
+              <p className={styles.amount}>R {p.amount.toLocaleString()}</p>
+              <div className={styles.actions}>
+                <button>Cash Out</button>
+                <button>Add to Rent Credit</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  const applicationsPopup = () => {
+    return (
+      <div className={styles.playslip_page}>
+        <div className={styles.header}>
+          <div className={styles.avatar}>
+            <User size={36} />
+          </div>
+          <div className={styles.info}>
+            <h2>John Doe</h2>
+            <p>Active Applications: <span>R {stats.active}</span></p>
+            <p>Complete Applications: <span>R {stats.completed}</span></p>
+          </div>
+          
+          </div>
+
+          <div className={styles.payments}>
+          <h3>My Applications ({applications.length})</h3>
+          {applications.map(p => (
+            <div key={p.id} className={styles.paymentCard}>
+              <div className={styles.textGroup}>
+                <p className={styles.subtle}>Application ID: {p.id}</p>
+                <p>{p.info}</p>
+              </div>
+              <p className={styles.amount}>Status: {p.status}</p>
+              <div className={styles.actions}>
+                <button>Contact</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   // Get a list of applications or payments
   const getListContent = (type) => {
     if(type === 'applications') return getApplicationContent();
@@ -130,7 +198,7 @@ const BuilderDashboard = () => {
       <div className={styles.popup_holder}>
         <div className={styles.popup}>
           {!timeout && (
-            <button onClick={() => closePopup()}>Close</button>
+            <button className={styles.closeBtn} onClick={() => closePopup()}><X size={20} /></button>
           )}
           {element}
         </div>
@@ -212,10 +280,10 @@ const BuilderDashboard = () => {
           <button onClick={() => {
             switch(activeTab) {
               case 'applications':
-                //createPopup(null);
+                createPopup((applicationsPopup()));
                 break;
               case 'payments':
-                createPopup((<ViewPayslip/>));
+                createPopup((payslipPopup()));
                 break;
               default:
                 break;

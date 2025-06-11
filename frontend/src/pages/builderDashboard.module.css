@@ -245,6 +245,85 @@
   margin: 20% auto;
 }
 
+.closeBtn {
+  float: right;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.avatar {
+  background: var(--text-inverse);
+  border-radius: 50%;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.info h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.info p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+}
+
+.info span {
+  font-weight: bold;
+}
+
+.payments h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.paymentCard {
+  background: var(--background-element);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.textGroup {
+  flex: 1;
+}
+
+.amount {
+  font-weight: bold;
+  margin: 0 1rem;
+}
+
+.actions button {
+  background: var(--accent-blue);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.actions button:first-child {
+  background: #FACC15;
+  color: black;
+}
+
 /* ---------------- BOTTOM NAV ---------------- */
 .bottom_nav {
   position: fixed;
