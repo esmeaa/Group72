@@ -16,7 +16,6 @@ import AdminRegister from './pages/AdminRegister';
 import EditProfile from './pages/editProfile';  
 import ViewPayslip from './pages/ViewPayslip';
 import ChatBox from './ChatBox';
-
 import useLocalStorage from 'use-local-storage';
 
 function App() {
