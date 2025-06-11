@@ -4,6 +4,7 @@ import {
   Home, Bookmark, User, Settings, Edit
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import ViewPayslip from './ViewPayslip';
 
 const BuilderDashboard = () => {
   const [activeTab, setActiveTab] = useState('applications');
@@ -13,6 +14,7 @@ const BuilderDashboard = () => {
   const [rentCredit, setRentCredit] = useState(0);
   const [viewAll, setViewAll] = useState(true);
   const [showPopup, setShowPopup] = useState(false);
+  const [popup, setPopup] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -51,16 +53,17 @@ const BuilderDashboard = () => {
     setPayments(prev => prev.filter(pay => pay.id !== id));
     if (removed) {
       setRentCredit(prev => prev + removed.amount);
-      setShowPopup(true);
-      setTimeout(() => setShowPopup(false), 2000); // Hide popup after 2 seconds
+      const content = (
+      <div>
+        Rent credit successfully updated!
+      </div>
+      )
+      createPopup(content, 2)
     }
   };
 
   const getApplicationContent = () => {
-    var list = applications
-    if(!viewAll) {
-      list.slice(0, 3);
-    }
+    var list = applications.slice(0, 3);
     return (
       list.length ? (
       applications.map(app => (
@@ -85,10 +88,7 @@ const BuilderDashboard = () => {
   }
 
   const getPaymentsContent = () => {
-    var list = applications
-    if(!viewAll) {
-      list.slice(0, 3);
-    }
+    var list = applications.slice(0, 3);
     return (
       list.length ? (
       payments.map(pay => (
@@ -120,6 +120,33 @@ const BuilderDashboard = () => {
   const getListContent = (type) => {
     if(type === 'applications') return getApplicationContent();
     else if(type === 'payments') return getPaymentsContent();
+  }
+
+  // Create a popup that lasts for timeout in seconds or until closed
+  const createPopup = (element, timeout = null) => {
+    const popup = (
+      <div className={styles.popup_holder}>
+        <div className={styles.popup}>
+          {!timeout && (
+            <button onClick={() => closePopup()}>Close</button>
+          )}
+          {element}
+        </div>
+      </div>
+    )
+    setPopup(popup);
+    setShowPopup(true);
+    if(timeout) {
+      setTimeout(() => {
+        closePopup();
+        }, timeout * 1000); // Hide popup after 2 seconds
+    }
+  }
+
+  // Remove popup
+  const closePopup = () => {
+    setPopup(null);
+    setShowPopup(false); 
   }
 
   return (
@@ -176,17 +203,22 @@ const BuilderDashboard = () => {
         </button>
       </div>
 
-      {/* Popup Notification */}
-      {showPopup && (
-        <div className={styles.popup}>
-          Rent credit successfully updated!
-        </div>
-      )}
       {/* View Section */}
       <div className={styles.view_section}>
         <div className={styles.view_header}>
           <h3>{activeTab === 'applications' ? 'Applications' : 'Payslips'}</h3>
-          <button onClick={() => setViewAll(!viewAll)}>View All</button>
+          <button onClick={() => {
+            switch(activeTab) {
+              case 'applications':
+                //createPopup(null);
+                break;
+              case 'payments':
+                createPopup((<ViewPayslip/>));
+                break;
+              default:
+                break;
+            }
+          }}>View All</button>
         </div>
 
         {getListContent(activeTab)}
@@ -200,6 +232,9 @@ const BuilderDashboard = () => {
         <User size={24} onClick={() => navigate('/profile')} />
         <Settings size={24} onClick={() => navigate('/settings')} />
       </div>
+
+      {showPopup && popup}
+
     </div>
   );
 };
