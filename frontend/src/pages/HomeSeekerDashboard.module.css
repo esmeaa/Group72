@@ -1,14 +1,16 @@
 .hs_dashboard {
   padding: 1rem;
   padding-bottom: 5rem;
-  background-color: #f0f4ff;
+  background: #f0f4ff;
+  background: var(--background);
   min-height: 100vh;
   box-sizing: border-box;
 }
 
 /* Profile */
 .profile_section {
-  background-color: #fff;
+  background: #fff;
+  background: var(--background-element);
   margin-bottom: 1rem;
   padding: 1.2rem;
   border-radius: 16px;
@@ -35,17 +37,21 @@
 
 .details h2 { 
   margin: 0; 
-  font-size: 1.3rem; 
+  font-size: 1.3rem;
+  color: #000;
+  color: var(--text);
 }
 
 .details p {
   margin: 2px 0; 
   font-size: 0.9rem; 
   color: #444;
+  color: var(--text-grey);
 }
 
 .edit_btn {
-  background-color: #4e7fff;
+  background: #4e7fff;
+  background: var(--accent-blue);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -115,7 +121,8 @@
 .toggle_section {
   display: flex;
   gap: 0.5rem;
-  background-color: #eef2ff;
+  background: #eef2ff;
+  background: var(--toggle);
   padding: 0.5rem;
   border-radius: 12px;
   margin-bottom: 1rem;
@@ -130,11 +137,12 @@
   font-weight: 600;
   border-radius: 10px;
   cursor: pointer;
-  color: #000;
+  color: #999;
 }
 
 .toggle_tab.active {
-  background-color: #4e7fff;
+  background: #4e7fff;
+  background: var(--accent-blue);
   color: #fff;
 }
 
@@ -154,11 +162,15 @@
 .view_header h3 { 
   margin: 0; 
   font-size: 1.1rem; 
-  font-weight: 600; }
+  font-weight: 600; 
+  color: #000;
+  color: var(--text);
+}
 
 /* Listing Cards */
 .listing_card {
   background: #fff;
+  background: var(--background-element);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -187,6 +199,7 @@
 
 .price {
   color: #4e7fff;
+  color: var(--accent-blue);
   font-weight: 600;
 }
 
@@ -196,6 +209,7 @@
   font-size: 0.9rem;
   line-height: 1.4;
   color: #333;
+  color: var(--text-grey);
 }
 
 /* Tags */
@@ -267,16 +281,19 @@
   left: 0;
   right: 0;
   background: #fff;
+  background: var(--background-element);
+  color: #444;
+  color: var(--text);
   padding: 0.8rem 0;
   display: flex;
   justify-content: space-around;
   border-top: 1px solid #ddd;
+  border-top: 1px solid var(--border);
   z-index: 20;
 }
 
 .bottom_nav svg {
   cursor: pointer;
-  color: #444;
 }
 
 /* Media Query */
