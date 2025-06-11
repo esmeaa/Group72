@@ -150,8 +150,7 @@ const AdminDashboard = () => {
         console.error('Failed to fetch housing applications:', error);
       }
     };
-  
-    fetchHousingApplications();
+
   }, []);
 
 
