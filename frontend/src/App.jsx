@@ -16,6 +16,7 @@ import EditProfile from './pages/editProfile';
 import ViewPayslip from './pages/ViewPayslip';
 import ChatBox from './ChatBox';
 import useLocalStorage from 'use-local-storage';
+import ReviewApps from './pages/ReviewApps';
 
 function App() {
   const [theme] = useLocalStorage('theme');
@@ -40,6 +41,7 @@ function App() {
         <Route path='/Profile' element={<EditProfile/>}/>
         <Route path='/ViewPayslip' element={<ViewPayslip/>}/>
         <Route path='/ChatBox' element={<ChatBox/>}/>
+        <Route path='/ReviewApps' element={<ReviewApps/>}/>
         <Route path="*" element={<p>404 - Page Not Found</p>} />
       </Routes> 
     </div>

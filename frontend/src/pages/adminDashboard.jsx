@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styles from './adminDashboard.module.css';
-import { Home, User, Settings, Edit, Hammer, Bookmark } from 'lucide-react';
+import { Home, User, Settings, Edit, Hammer, Bookmark, MapPin} from 'lucide-react';
 import { Link } from 'react-router-dom';
+import sampleHouseImg from '../images/makers_valley_house.jpg';
 
 
 const AdminDashboard = () => {
@@ -276,22 +277,40 @@ function HousingForm({ onSubmit })
 }
 
 // This function contains all of the HTML for building the Job Applications section
-function JobApplications() 
+function JobApplications({applications}) 
 { 
-  return <div  className={styles.border}>
+  return (<div  className={styles.border}>
     <h2 className={styles.title}> <Hammer size={22} /> Job Applications</h2>
-  </div>;
-}
-function HouseApplications({applications}) 
-{ 
-  return (
-  <div className={styles.border}>
-     <h2 className={styles.title}> <Home size={22} /> Housing Applications</h2>
-     {houses.length === 0 ? (
+    {houses.length === 0 ? (
       <div>
         <p>No housing applications found.</p>
         {/* this bit is just for testing how the css will look*/}
+        <div className={styles.cardWrapper}>
         <div className={styles.card}>
+            <div className={styles.text}>
+              <h4>Residential Renovation - Kitchen Remodel</h4>
+              <p>Valley Construction Co </p>
+              <p>
+                <MapPin size={12} /> Downtown District
+              </p>
+              <div className={styles.tags}>
+                
+                  <span >Construction</span>
+                
+              </div>
+            </div>
+            <div className={styles.rightSection}>
+              <button className={styles.reviewJob}>Review Applications</button>
+            </div>
+          </div>
+
+          </div>
+          </div>
+
+        
+      ) : (
+        applications.map(app => (
+          <div  className={styles.card}>
             <div className={styles.imgWrap}>
               <img  />
               <div className={styles.priceTag}>R </div>
@@ -307,9 +326,48 @@ function HouseApplications({applications})
                 <span><Settings size={14} />  sq ft</span>
               </div>
               <div className={styles.actions}>
+                <button className={styles.contact}>Review Applications</button>
+            
+              </div>
+            </div>
+          </div>
+        ))
+      )}
+
+    
+  </div>
+  );
+}
+function HouseApplications({applications}) 
+{ 
+  return (
+  <div className={styles.border}>
+     <h2 className={styles.title}> <Home size={22} /> Housing Applications</h2>
+     {houses.length === 0 ? (
+      <div>
+        <p>No housing applications found.</p>
+        {/* this bit is just for testing how the css will look*/}
+        <div className={styles.cardWrapper}>
+        <div className={styles.card}>
+            <div className={styles.imgWrap}>
+              <img src={sampleHouseImg} alt='image'/>
+              <div className={styles.priceTag}>R 1400 </div>
+              
+            </div>
+            <div className={styles.details}>
+              <h3>Spacious 2BR Home</h3>
+              <p className={styles.location}>West Valley</p>
+              <p className={styles.description}>Close to shopping centers and schools.</p>
+              <div className={styles.tags}>
+                <span><Home size={14} /> 4 Bed</span>
+                <span><Bookmark size={14} />  2Bath</span>
+                <span><Settings size={14} /> 650 sq ft</span>
+              </div>
+              <div className={styles.actions}>
               <button className={styles.review}>Review Applications</button>
               </div>
             </div>
+          </div>
           </div>
           </div>
 
@@ -364,7 +422,9 @@ function HouseApplications({applications})
             </div>
           </div>
 
-          <div className={styles.stats}>
+        
+        </div>
+        <div className={styles.stats}>
             <div className={`${styles.stat} ${styles.green}`}>
               <h3>{jobs.length}</h3><p>Jobs Posted</p>
             </div>
@@ -374,16 +434,15 @@ function HouseApplications({applications})
             <div className={`${styles.stat} ${styles.purple}`}>
               <h3>{jobs.length + houses.length}</h3><p>Total Listings</p>
             </div>
-          </div>
         </div>
 
         {/* Tabs */}
-        <div className={styles.toggle_section}>
+        <div className={styles.actions}>
           <button
             className={`${styles.toggle_tab} ${activeView === 'manage' ? styles.active : ''}`}
             onClick={() => setActiveView('manage')}
           >
-            Manage Apps
+            Manage all Applications
           </button>
           <button
             className={`${styles.toggle_tab} ${activeView === 'postProject' ? styles.active : ''}`}
@@ -395,8 +454,13 @@ function HouseApplications({applications})
 
         {/* Content */}
         <div className={styles.application_holder}>
+
           {activeView === 'postProject' ? (
             <>
+            <div className={styles.intro}>
+            <h2>Post a Project</h2>
+            <p>Create job opportunities or list housing for the Makers Valley community</p>
+            </div>
               <div className={styles.tabBar}>
                 <button
                   className={`${styles.tab} ${projectTab === 'job' ? styles.activeTab : ''}`}
@@ -418,6 +482,10 @@ function HouseApplications({applications})
             </>
           ) : (
             <div className={styles.mock_view}>
+              <div className={styles.intro}>
+            <h2>Manage Applications</h2>
+            <p>Manage and review all applications and accept or reject.</p>
+            </div>
               <div className={styles.tabBar}>
               <button
                   className={`${styles.tab} ${projectTab === 'job' ? styles.activeTab : ''}`}

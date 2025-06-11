@@ -80,6 +80,7 @@
 .stats {
   display: flex;
   gap: 10px;
+  padding: 20px;
 }
 
 .stat {
@@ -89,6 +90,125 @@
   border-radius: 8px;
   font-size: .9rem;
 }
+.actions{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+.intro h2{
+  text-align: left;
+  padding-left: 10px;
+}
+.intro p{
+  text-align: left;
+  padding: 10px;
+  color: #5A5959;
+}
+
+.card {
+  background: var(--background-element);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px var(--shadow);
+  overflow: hidden;
+  width: 87%;
+
+}
+.cardWrapper {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  text-align: center;
+
+}
+
+.imgWrap {
+  position: relative;
+}
+
+.imgWrap img {
+  width: 100%;
+  display: block;
+  height:50%;
+}
+.details {
+  padding: 1rem;
+  color: var(--text);
+}
+
+.details h3 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.location {
+  font-size: 0.85rem;
+  color: var(--text-grey);
+}
+
+.description {
+  font-size: 0.9rem;
+  color: var(--text-grey);
+  margin: 8px 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.8rem;
+  margin: 10px 0;
+}
+
+.tags span {
+  padding: 6px 12px;
+  margin: 4px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background-color: var(--background-element);
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+.reviewJob{
+  background: #5271FF;
+  color: white;
+  padding: 0.6rem;
+  margin-bottom: 30px;
+  margin-right: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+
+}
+.review{
+  background: #5271FF;
+  color: white;
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+.priceTag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--accent-blue);
+  color: white;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
 
 .green {
   background: #d1f3db;
@@ -166,6 +286,55 @@
 .form_group {
   margin-bottom: 1rem;
 }
+
+
+
+.text {
+  flex: 2;
+  color: var(--text);
+}
+
+.rightSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.pay {
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: var(--text);
+  background-color: var(--accent-blue);
+  padding: 3px;
+  margin: 4px;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  margin-top: 0.5rem;
+}
+
+.tags span {
+  background-color: #eef2ff;
+  color: #1e40af;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+}
+
+.apply {
+  background-color: var(--accent-blue);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 
 label {
   display: block;

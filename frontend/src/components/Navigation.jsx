@@ -19,6 +19,7 @@ const Navigation = () => {
             <li><NavLink to="/AdminRegister" className={styles.nav_link}>Admin Register</NavLink></li>
             <li><NavLink to="/Profile" className={styles.nav_link}>Profile</NavLink></li>
             <li><NavLink to="/ChatBox" className={styles.nav_link}>Chat Box</NavLink></li>
+            <li><NavLink to="/ReviewApps" className={styles.nav_link}>Review Applications</NavLink></li>
         </ul>
     </nav>
 

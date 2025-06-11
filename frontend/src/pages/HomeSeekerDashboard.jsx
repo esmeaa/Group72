@@ -175,8 +175,10 @@ const HomeSeekerDashboard = () => {
           </button>
         </div>
 
-        {/* Home Seeker Application Stats */}
-        <div className={styles.stats}>
+       
+      </div>
+       {/* Home Seeker Application Stats */}
+       <div className={styles.stats}>
           <div className={`${styles.stat} ${styles.green}`}>
             <Heart size={24} />
             <span className={styles.statText}>
@@ -199,7 +201,6 @@ const HomeSeekerDashboard = () => {
             </span>
           </div>
         </div>
-      </div>
 
       {/* Toggle Tabs Between 'My House Applications' and 'Saved Listings' */}
       <div className={styles.toggle_section}>
@@ -216,6 +217,7 @@ const HomeSeekerDashboard = () => {
           Saved Listings
         </button>
       </div>
+
 
       {/* House Listings */}
       <div className={styles.view_section}>
