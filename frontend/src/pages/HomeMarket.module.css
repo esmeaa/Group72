@@ -359,7 +359,8 @@ div .pending {
 
 .list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap:wrap;
   gap: 1rem;
 }
 
@@ -368,6 +369,7 @@ div .pending {
   border-radius: 16px;
   box-shadow: 0 2px 8px var(--shadow);
   overflow: hidden;
+  width: 32.7%;
 }
 
 .imgWrap {
