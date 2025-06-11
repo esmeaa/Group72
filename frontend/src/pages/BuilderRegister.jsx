@@ -15,7 +15,8 @@ function BuilderRegister() {
   });
   const [errors, setErrors] = useState({});
 
-  const handleChange = (e) => {
+  const handleChange = (e) => 
+  {
     const { name, value } = e.target;
 
     let error = "";

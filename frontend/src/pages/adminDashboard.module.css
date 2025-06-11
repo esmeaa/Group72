@@ -12,6 +12,18 @@
   border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
+.title{
+ text-align: left;
+}
+
+.border{
+  border:  rgba(0, 0, 0, 0.15)solid ;
+  border-radius: 20px;
+  padding: 10px;
+}
+.jobDesc{
+  height: 150px;
+}
 
 .top_info {
   display: flex;
@@ -131,6 +143,7 @@
   border-radius: 8px;
   cursor: pointer;
   font-size: .9rem;
+  font-weight: bold;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -141,26 +154,68 @@
   background: #4e7fff;
   color: #fff;
 }
-
-.form {
-  display: grid;
-  gap: 8px;
+.form label{
+  text-align: left;
 }
 
-.form input {
-  padding: .6rem;
-  font-size: .9rem;
+
+.form_group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+  color: #333;
+}
+.chip {
+  padding: 6px 12px;
+  margin: 4px;
+  border: 1px solid #aaa;
+  border-radius: 20px;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.selected {
+  background-color: #5271FF;
+  color: white;
+  border-color: #5271FF;
+}
+
+.form_group input {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  font-size: 0.95rem;
 }
 
-.form button {
+.row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.row .form_group {
+  flex: 1;
+}
+
+.submit_btn {
   padding: .6rem;
-  background: #4e7fff;
+  background: #5271FF;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: bold;
+  height: 50px;
+  width: 300px;
+  font-size: 20px;
 }
 
 .bottom_nav {
