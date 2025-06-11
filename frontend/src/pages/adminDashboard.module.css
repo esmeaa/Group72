@@ -1,16 +1,31 @@
 .admin_dash {
-  max-width: 800px;
-  margin: auto;
-  padding: 1rem;
-  position: relative;
+  background-color: var(--background);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem 1rem 100px;
 }
 
 .profile_section {
-  background: #fff;
+  background: var(--background-element);
   margin-bottom: 1rem;
   padding: 1rem 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px var(--shadow);
+}
+
+.title{
+ text-align: left;
+ color: var(--text);
+}
+
+.border{
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.jobDesc{
+  height: 150px;
 }
 
 .top_info {
@@ -40,16 +55,17 @@
 .details h2 {
   margin: 0;
   font-size: 1.2rem;
+  color: var(--text);
 }
 
 .details p {
   margin: 2px 0;
   font-size: .85rem;
-  color: #555;
+  color: var(--text-grey);
 }
 
 .edit_btn {
-  background: #4e7fff;
+  background: var(--accent-blue);
   color: #fff;
   padding: .4rem .8rem;
   border: none;
@@ -64,6 +80,7 @@
 .stats {
   display: flex;
   gap: 10px;
+  padding: 20px;
 }
 
 .stat {
@@ -73,6 +90,125 @@
   border-radius: 8px;
   font-size: .9rem;
 }
+.actions{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+.intro h2{
+  text-align: left;
+  padding-left: 10px;
+}
+.intro p{
+  text-align: left;
+  padding: 10px;
+  color: #5A5959;
+}
+
+.card {
+  background: var(--background-element);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px var(--shadow);
+  overflow: hidden;
+  width: 87%;
+
+}
+.cardWrapper {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  text-align: center;
+
+}
+
+.imgWrap {
+  position: relative;
+}
+
+.imgWrap img {
+  width: 100%;
+  display: block;
+  height:50%;
+}
+.details {
+  padding: 1rem;
+  color: var(--text);
+}
+
+.details h3 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.location {
+  font-size: 0.85rem;
+  color: var(--text-grey);
+}
+
+.description {
+  font-size: 0.9rem;
+  color: var(--text-grey);
+  margin: 8px 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.8rem;
+  margin: 10px 0;
+}
+
+.tags span {
+  padding: 6px 12px;
+  margin: 4px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background-color: var(--background-element);
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+.reviewJob{
+  background: #5271FF;
+  color: white;
+  padding: 0.6rem;
+  margin-bottom: 30px;
+  margin-right: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+
+}
+.review{
+  background: #5271FF;
+  color: white;
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+.priceTag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--accent-blue);
+  color: white;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
 
 .green {
   background: #d1f3db;
@@ -106,15 +242,15 @@
 }
 
 .toggle_tab.active {
-  background: #4e7fff;
+  background: var(--accent-blue);
   color: #fff;
 }
 
 .application_holder {
-  background: #fff;
+  background: var(--background-element);
   padding: 1rem;
   border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px var(--shadow);
 }
 
 .tabBar {
@@ -131,6 +267,7 @@
   border-radius: 8px;
   cursor: pointer;
   font-size: .9rem;
+  font-weight: bold;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -138,39 +275,138 @@
 }
 
 .activeTab {
-  background: #4e7fff;
+  background: var(--accent-blue);
   color: #fff;
 }
 
-.form {
-  display: grid;
+.form label{
+  text-align: left;
+}
+
+.form_group {
+  margin-bottom: 1rem;
+}
+
+
+
+.text {
+  flex: 2;
+  color: var(--text);
+}
+
+.rightSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.pay {
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: var(--text);
+  background-color: var(--accent-blue);
+  padding: 3px;
+  margin: 4px;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+
+.tags {
+  display: flex;
   gap: 8px;
+  margin-top: 0.5rem;
 }
 
-.form input {
-  padding: .6rem;
-  font-size: .9rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+.tags span {
+  background-color: #eef2ff;
+  color: #1e40af;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 0.8rem;
 }
 
-.form button {
-  padding: .6rem;
-  background: #4e7fff;
+.apply {
+  background-color: var(--accent-blue);
   color: white;
   border: none;
-  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
+}
+
+
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+}
+
+.chip {
+  padding: 6px 12px;
+  margin: 4px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background-color: var(--background-element);
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.selected {
+  background: var(--accent-blue);
+  color: white;
+}
+
+.form_group input {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.row .form_group {
+  flex: 1;
+}
+
+.submit_btn {
+  padding: .6rem;
+  background: var(--accent-blue);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  height: 50px;
+  width: 300px;
+  font-size: 20px;
 }
 
 .bottom_nav {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
-  background: #fff;
+  right: 0;
+  background-color: var(--background-element);
+  color: var(--text);
+  padding: 0.75rem 1rem;
   display: flex;
   justify-content: space-around;
-  padding: .8rem 0;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid var(--border);
+  z-index: 10;
+}
+
+.bottom_nav svg {
+  cursor: pointer;
+  color: var(--text);
 }

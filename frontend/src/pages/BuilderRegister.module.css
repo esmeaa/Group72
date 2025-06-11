@@ -1,5 +1,5 @@
 .builder_page {
-  background-color: #dbe8ff;
+  background-color: var(--background);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -8,13 +8,13 @@
 }
 
 .form_box {
-  background-color: #ffffff;
+  background-color: var(--background-element);
   padding: 2rem;
   border-radius: 16px;
   max-width: 400px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px var(--shadow);
 }
 
 .logo img {
@@ -25,7 +25,7 @@
 .heading {
   font-size: 1.5rem;
   font-weight: 700;
-  color: black;
+  color: var(--text);
 }
 
 .heading span {
@@ -34,14 +34,14 @@
 
 .subheading {
   font-size: 0.9rem;
-  color: #555;
+  color: var(--text-grey);
   margin-bottom: 1.5rem;
 }
 
 .toggle_tabs {
   display: flex;
   justify-content: space-between;
-  background-color: #f1f5ff;
+  background-color: var(--toggle);
   border-radius: 12px;
   padding: 0.25rem;
   margin-bottom: 1.5rem;
@@ -63,7 +63,7 @@
 }
 
 .tab.active {
-  background-color: #4e7fff;
+  background-color: var(--accent-blue);
   color: white;
 }
 
@@ -91,7 +91,7 @@ label {
   width: 100%;
   padding: 0.6rem;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
   font-size: 0.95rem;
 }
 
@@ -104,6 +104,7 @@ label {
 .row .form_group {
   flex: 1;
 }
+
 
 .password_wrapper {
   position: relative;
@@ -153,7 +154,7 @@ input:-webkit-autofill {
   margin-top: 1.2rem;
   width: 100%;
   padding: 0.8rem;
-  background-color: #4e7fff;
+  background-color: var(--accent-blue);
   color: white;
   border: none;
   border-radius: 10px;

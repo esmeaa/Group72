@@ -1,8 +1,17 @@
 
 import React, { useState, useEffect } from 'react';
 import styles from './editProfile.module.css';
+import useLocalStorage from 'use-local-storage';
 
 const EditProfile = ({ userId, onProfileUpdate }) => {
+  const [theme, setTheme] = useLocalStorage('theme');
+
+  const changeTheme = (e) => {
+    handleChange(e);
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+  }
+
   const [formData, setFormData] = useState({
     age: '',
     sex: '',
@@ -14,7 +23,11 @@ const EditProfile = ({ userId, onProfileUpdate }) => {
     skills: [],
     newSkill: '',
     disability: false,
-    disability_details: ''
+    disability_details: '',
+    accessibility: false,
+    fontsize: '',
+    language: '',
+    darkmode: theme,
   });
 
   const [loading, setLoading] = useState(true);
@@ -72,7 +85,11 @@ const EditProfile = ({ userId, onProfileUpdate }) => {
       job_title: formData.job_title,
       skills: formData.skills,
       disability: formData.disability,
-      disability_details: formData.disability ? formData.disability_details : ''
+      disability_details: formData.disability ? formData.disability_details : '',
+      accessibility: formData.accessibility || false,
+      fontsize: formData.fontsize,
+      language: formData.language,
+      darkmode: formData.darkmode,
     };
 
     fetch(`/api/profile/${userId}`, {
@@ -186,6 +203,48 @@ const EditProfile = ({ userId, onProfileUpdate }) => {
           />
           Own Pets?
         </label>
+
+        <label className={styles.checkbox_label}>
+          <input
+            name="accessibility"
+            type="checkbox"
+            checked={formData.accessibility}
+            onChange={handleChange}
+          />
+          Enable Accessibility Options
+        </label>
+
+        {formData.accessibility && (
+          <div>
+            <div className={styles.full_field}>
+              <label className={styles.label}>Font Size:</label>
+              <select name="fontsize" value={formData.fontsize} onChange={handleChange}>
+                <option value="">Select</option>
+                <option value="10">Small</option>
+                <option value="11">Normal</option>
+                <option value="12">large</option>
+                <option value="14">Extra large</option>
+              </select>
+            </div>
+            <div className={styles.full_field}>
+              <label className={styles.label}>Preferred Language:</label>
+              <select name="language" value={formData.language} onChange={handleChange}>
+                <option value="">Select</option>
+                <option value="eng">English</option>
+                <option value="zlu">isiZulu</option>
+              </select>
+            </div>
+            <label className={styles.checkbox_label}>
+              <input
+                name="darkmode"
+                type="checkbox"
+                checked={formData.darkmode}
+                onChange={changeTheme}
+              />
+              Enable Darkmode
+            </label>
+          </div>
+        )}
 
         <button type="submit" className={styles.submit_btn}>Save Changes</button>
       </form>

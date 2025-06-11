@@ -1,0 +1,154 @@
+.page {
+    background-color: #dbe9f6;
+    min-height: 100vh;
+    padding: 1rem;
+    font-family: sans-serif;
+  }
+  
+  .heading {
+    color: gray;
+    margin-bottom: 1rem;
+  }
+  
+  .card {
+    background-color: #5d7eff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    color: white;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .profileHeader {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  .jobId {
+    color: lightgreen;
+    font-weight: bold;
+  }
+  
+  .filterTabs {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1rem 0;
+  }
+  
+  .tab,
+  .tabActive {
+    background: white;
+    color: black;
+    border-radius: 20px;
+    padding: 0.4rem 1rem;
+    border: none;
+    font-weight: bold;
+  }
+  
+  .tabActive {
+    background: black;
+    color: white;
+  }
+  
+  .subheading {
+    font-weight: bold;
+    margin: 1rem 0 0.5rem;
+  }
+  
+  .applicationCard {
+    background-color: white;
+    border-radius: 15px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    color: black;
+  }
+  
+  .cardAccepted {
+    background-color: #ffeceb;
+  }
+  
+  .cardPending {
+    background-color: #d6ffe3;
+  }
+  
+  .cardRejected {
+    background-color: #f4d3f9;
+  }
+  
+  .appId {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .skillTag {
+    display: inline-block;
+    background: #f0f0f0;
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    margin: 0.5rem 0;
+    font-size: 0.85rem;
+  }
+  
+  .actionButtons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+  
+  .acceptBtn,
+  .statusAccepted,
+  .contactBtn,
+  .rejectBtn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .acceptBtn {
+    background-color: #22c55e;
+    color: white;
+  }
+  
+  .statusAccepted {
+    background-color: #22c55e;
+    color: white;
+    cursor: default;
+  }
+  
+  .contactBtn {
+    background-color: #facc15;
+    color: black;
+  }
+  
+  .rejectBtn {
+    background-color: #ef4444;
+    color: white;
+  }
+  
+  .bottomNav {
+    background-color: #5d7eff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: white;
+  }
+  

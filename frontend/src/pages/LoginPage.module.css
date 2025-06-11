@@ -1,5 +1,5 @@
 .login_page {
-  background-color: #dbe8ff;
+  background-color: var(--background);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -8,13 +8,13 @@
 }
 
 .login_card {
-  background: #fff;
+  background: var(--background-element);
   padding: 2rem;
   border-radius: 16px;
   max-width: 400px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px var(--shadow);
 }
 
 .login_logo {
@@ -25,12 +25,12 @@
 .login_heading {
   font-size: 1.5rem;
   font-weight: 700;
-  color: black;
+  color: var(--text);
 }
 
 .login_subheading {
   font-size: 0.9rem;
-  color: #555;
+  color: var(--text-grey);
   margin-bottom: 1.5rem;
 }
 
@@ -47,14 +47,14 @@ label {
   font-weight: 600;
   font-size: 0.85rem;
   margin-bottom: 0.4rem;
-  color: #333;
+  color: var(--text-grey);
 }
 
 .form_group input {
   width: 100%;
   padding: 0.6rem;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
   font-size: 0.95rem;
 }
 
@@ -79,7 +79,7 @@ input.error {
   margin: 1.2rem auto 0 auto;
   width: 100%;
   padding: 0.8rem;
-  background-color: #4e7fff;
+  background-color: var(--accent-blue);
   color: white;
   border: none;
   border-radius: 10px;
@@ -96,11 +96,11 @@ input.error {
 .register_redirect {
   margin-top: 1.5rem;
   font-size: 0.9rem;
-  color: #444;
+  color: var(--text-grey);
 }
 
 .link {
-  color: #4e7fff;
+  color: var(--text);
   text-decoration: underline;
   font-weight: 600;
   cursor: pointer;

@@ -1,4 +1,4 @@
-@keyframes fadeDown {
+/* @keyframes fadeDown {
   from {
     opacity: 0;
     transform: translateY(-50px);
@@ -30,7 +30,7 @@
 }
 
 .launch_container {
-  background-color: #dbe8ff;
+  background-color: var(--background);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -91,5 +91,99 @@ right: 8px;
 
   .hands {
     width: 160px;
+  }
+} */
+
+/* Animations */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Base Layout */
+.launch_container {
+  background-color: var(--background, #dbeafe);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Title Animation */
+.title {
+  width: 70%;
+  max-width: 700px;
+  margin-top: 2rem;
+  animation: fadeDown 0.7s ease-out forwards;
+}
+
+/* House Icon */
+.house {
+  display: block;
+  position: relative;
+  width: 300px;
+  max-width: 80%;
+  margin: 0 auto;
+  animation: fadeIn 0.95s ease-in;
+  z-index: 1;
+}
+
+/* Hands Icon */
+.hands {
+  position: relative;
+  top: -80px;
+  right: 8px;
+  width: 300px;
+  max-width: 80%;
+  animation: fadeUp 0.9s ease-in;
+  z-index: 2;
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .title {
+    width: 90%;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  .house {
+    width: 130px;
+    right: 5px;
+  }
+
+  .hands {
+    width: 130px;
+    top: -35px;
   }
 }

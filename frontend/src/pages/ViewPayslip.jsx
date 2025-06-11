@@ -13,7 +13,7 @@ const ViewPayslip = ({ onClose }) => {
     const rentCredit = total; // For demo
 
     return (
-        <div className={styles.container}>
+        <div className={styles.playslip_page}>
             <div className={styles.header}>
                 <div className={styles.avatar}>
                     <User size={36} />
