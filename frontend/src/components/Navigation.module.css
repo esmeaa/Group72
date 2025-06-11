@@ -20,15 +20,15 @@
 }
 
 .nav_link {
-    color: black;
+    color: var(--text);
     text-decoration: none;
     font-weight: 500;
     font-size: 1rem;
-    transition: color 0.3s ease;
 }
 
 .nav_link:hover {
     color: #ed4f37;
+    transition: color 0.3s ease;
 }
 
 .nav_link.active {

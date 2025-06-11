@@ -1,16 +1,16 @@
 .admin_dash {
-  max-width: 800px;
-  margin: auto;
-  padding: 1rem;
-  position: relative;
+  background-color: var(--background);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem 1rem 100px;
 }
 
 .profile_section {
-  background: #fff;
+  background: var(--background-element);
   margin-bottom: 1rem;
   padding: 1rem 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px var(--shadow);
 }
 .title{
  text-align: left;
@@ -52,16 +52,17 @@
 .details h2 {
   margin: 0;
   font-size: 1.2rem;
+  color: var(--text);
 }
 
 .details p {
   margin: 2px 0;
   font-size: .85rem;
-  color: #555;
+  color: var(--text-grey);
 }
 
 .edit_btn {
-  background: #4e7fff;
+  background: var(--accent-blue);
   color: #fff;
   padding: .4rem .8rem;
   border: none;
@@ -118,15 +119,15 @@
 }
 
 .toggle_tab.active {
-  background: #4e7fff;
+  background: var(--accent-blue);
   color: #fff;
 }
 
 .application_holder {
-  background: #fff;
+  background: var(--background-element);
   padding: 1rem;
   border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px var(--shadow);
 }
 
 .tabBar {
@@ -151,7 +152,7 @@
 }
 
 .activeTab {
-  background: #4e7fff;
+  background: var(--accent-blue);
   color: #fff;
 }
 .form label{
@@ -227,5 +228,5 @@ label {
   display: flex;
   justify-content: space-around;
   padding: .8rem 0;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -2px 4px var(--shadow);
 }

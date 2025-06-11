@@ -1,14 +1,14 @@
 .hs_dashboard {
   padding: 1rem;
   padding-bottom: 4rem; /* allow room for bottom nav */
-  background-color: #f0f4ff;
+  background-color: var(--background);
   min-height: 100vh;
   box-sizing: border-box;
 }
 
 /* Profile Section */
 .profile_section {
-  background-color: #fff;
+  background-color: var(--background-element);
   margin-bottom: 1rem;
   padding: 1.2rem;
   border-radius: 16px;
@@ -38,16 +38,17 @@
 .details h2 {
   margin: 0;
   font-size: 1.3rem;
+  color: var(--text);
 }
 
 .details p {
   margin: 2px 0;
   font-size: 0.9rem;
-  color: #444;
+  color: var(--text-grey);
 }
 
 .edit_btn {
-  background-color: #4e7fff;
+  background-color: var(--accent-blue);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -96,7 +97,7 @@
 .toggle_section {
   display: flex;
   gap: 0.5rem;
-  background-color: #eef2ff;
+  background-color: var(--toggle);
   padding: 0.5rem;
   border-radius: 12px;
   margin-bottom: 1rem;
@@ -112,11 +113,11 @@
   border-radius: 10px;
   cursor: pointer;
   text-align: center;
-  color: #000;
+  color: #999;
 }
 
 .toggle_tab.active {
-  background-color: #4e7fff;
+  background-color: var(--accent-blue);
   color: #fff;
 }
 
@@ -131,6 +132,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: var(--text);
 }
 
 .view_header h3 {
@@ -147,7 +149,7 @@
 
 /* Card Layout */
 .listing_card {
-  background: #fff;
+  background: var(--background-element);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -245,17 +247,17 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: #fff;
-  padding: 0.8rem 0;
+  background-color: var(--background-element);
+  color: var(--text);
+  padding: 0.75rem 1rem;
   display: flex;
   justify-content: space-around;
-  border-top: 1px solid #ddd;
-  z-index: 20;
+  border-top: 1px solid var(--border);
+  z-index: 10;
 }
 
 .bottom_nav svg {
   cursor: pointer;
-  color: #444;
 }
 
 /* Spacer so content isn't hidden behind nav */

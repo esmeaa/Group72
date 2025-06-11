@@ -8,12 +8,12 @@
 }
 
 .builder_inner {
-  background-color: #dbe8ff;
+  background-color: var(--background);
   padding-top: 0.8rem;
   border-radius: 16px;
   max-width: 400px;
   width: 100%;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px var(--shadow);
 }
 
 .holder {
@@ -261,7 +261,7 @@ div .pending {
   z-index: 1;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.28);
+  background-color: var(--shadow);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -274,7 +274,7 @@ div .pending {
   border-radius: 16px;
   max-width: 630px;
   width: 100%;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px var(--shadow);
 }
 
 .modal_content button {
@@ -312,13 +312,17 @@ div .pending {
 } */
 
 .page {
-  background: #E2EFFF;
+  min-height: 100vh;
+  background-color: var(--background);
   padding: 2rem 1rem;
-  font-family: 'Segoe UI', sans-serif;
+}
+
+.page h2 {
+  color: var(--text);
 }
 
 .subtitle {
-  color: #444;
+  color: var(--text-grey);
   margin-bottom: 1rem;
   font-size: 0.9rem;
 }
@@ -334,7 +338,7 @@ div .pending {
 .filters select,
 .filters button {
   padding: 0.6rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
   border-radius: 8px;
   font-size: 0.9rem;
 }
@@ -350,6 +354,7 @@ div .pending {
 .count {
   margin-bottom: 1rem;
   font-weight: 600;
+  color: var(--text);
 }
 
 .list {
@@ -359,9 +364,9 @@ div .pending {
 }
 
 .card {
-  background: #ffffff;
+  background: var(--background-element);
   border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px var(--shadow);
   overflow: hidden;
 }
 
@@ -378,7 +383,7 @@ div .pending {
   position: absolute;
   top: 12px;
   right: 12px;
-  background: #4E7FFF;
+  background: var(--accent-blue);
   color: white;
   padding: 6px 12px;
   font-size: 0.9rem;
@@ -398,6 +403,7 @@ div .pending {
 
 .details {
   padding: 1rem;
+  color: var(--text);
 }
 
 .details h3 {
@@ -407,12 +413,12 @@ div .pending {
 
 .location {
   font-size: 0.85rem;
-  color: #666;
+  color: var(--text-grey);
 }
 
 .description {
   font-size: 0.9rem;
-  color: #333;
+  color: var(--text-grey);
   margin: 8px 0;
 }
 
@@ -428,7 +434,8 @@ div .pending {
   display: flex;
   align-items: center;
   gap: 4px;
-  background: #f3f4f6;
+  background-color: var(--background-darker);
+  color: var(--text);
   padding: 4px 8px;
   border-radius: 8px;
 }
@@ -452,7 +459,7 @@ div .pending {
 
 .apply {
   flex: 1;
-  background: #4e7fff;
+  background: var(--accent-blue);
   color: white;
   padding: 0.6rem;
   border-radius: 8px;
@@ -466,17 +473,17 @@ div .pending {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
+  right: 0;
+  background-color: var(--background-element);
+  color: var(--text);
+  padding: 0.75rem 1rem;
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  padding: 12px 0;
-  background-color: white;
-  border-top: 1px solid #ddd;
-  z-index: 999;
+  border-top: 1px solid var(--border);
+  z-index: 10;
 }
 
 .bottom_nav svg {
   cursor: pointer;
-  color: #4e7fff;
+  color: var(--text);
 }

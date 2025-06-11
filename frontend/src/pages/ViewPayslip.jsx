@@ -13,34 +13,36 @@ const ViewPayslip = ({ onClose }) => {
     const rentCredit = total; // For demo
 
     return (
-        <div className={styles.container}>
-            <div className={styles.header}>
-                <div className={styles.avatar}>
-                    <User size={36} />
-                </div>
-                <div className={styles.info}>
-                    <h2>John Doe</h2>
-                    <p>Total Payout: <span>R {total.toLocaleString()}</span></p>
-                    <p>Rent Credit: <span>R {rentCredit.toLocaleString()}</span></p>
-                </div>
-                <button className={styles.closeBtn} onClick={onClose}><X size={20} /></button>
-            </div>
-
-            <div className={styles.payments}>
-                <h3>My Due Payments ({paymentsMock.length})</h3>
-                {paymentsMock.map(p => (
-                    <div key={p.id} className={styles.paymentCard}>
-                        <div className={styles.textGroup}>
-                            <p className={styles.subtle}>Job ID: {p.id}</p>
-                            <p>{p.info}</p>
-                        </div>
-                        <p className={styles.amount}>R {p.amount.toLocaleString()}</p>
-                        <div className={styles.actions}>
-                            <button>Cash Out</button>
-                            <button>Add to Rent Credit</button>
-                        </div>
+        <div className={styles.payslip_page}>
+            <div className={styles.container}>
+                <div className={styles.header}>
+                    <div className={styles.avatar}>
+                        <User size={36} />
                     </div>
-                ))}
+                    <div className={styles.info}>
+                        <h2>John Doe</h2>
+                        <p>Total Payout: <span>R {total.toLocaleString()}</span></p>
+                        <p>Rent Credit: <span>R {rentCredit.toLocaleString()}</span></p>
+                    </div>
+                    <button className={styles.closeBtn} onClick={onClose}><X size={20} /></button>
+                </div>
+
+                <div className={styles.payments}>
+                    <h3>My Due Payments ({paymentsMock.length})</h3>
+                    {paymentsMock.map(p => (
+                        <div key={p.id} className={styles.paymentCard}>
+                            <div className={styles.textGroup}>
+                                <p className={styles.subtle}>Job ID: {p.id}</p>
+                                <p>{p.info}</p>
+                            </div>
+                            <p className={styles.amount}>R {p.amount.toLocaleString()}</p>
+                            <div className={styles.actions}>
+                                <button>Cash Out</button>
+                                <button>Add to Rent Credit</button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
