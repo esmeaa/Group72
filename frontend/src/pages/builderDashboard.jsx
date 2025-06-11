@@ -62,8 +62,9 @@ const BuilderDashboard = () => {
     }
   };
 
-  const getApplicationContent = () => {
-    var list = applications.slice(0, 3);
+  const getApplicationContent = (all = false) => {
+    var list = applications;
+    if(!all) list.slice(0, 3);
     return (
       list.length ? (
       applications.map(app => (
@@ -87,8 +88,9 @@ const BuilderDashboard = () => {
     ))
   }
 
-  const getPaymentsContent = () => {
-    var list = applications.slice(0, 3);
+  const getPaymentsContent = (all = false) => {
+    var list = payments;
+    if(!all) list.slice(0, 3);
     return (
       list.length ? (
       payments.map(pay => (
@@ -109,7 +111,7 @@ const BuilderDashboard = () => {
         <div className={styles.listing_card}>
           <div className={styles.listing_info}>
             <div className={styles.listing_title}>
-              <h4>No Paylips</h4>
+              <h4>No Payslips</h4>
             </div>
           </div>
         </div>

@@ -26,6 +26,7 @@ function App() {
         <Navigation />
       </header>
       <Routes>
+        <Route path='/' element={<Launch/>}/>
         <Route path='/launch' element={<Launch/>}/>
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/admin' element={<Admin/>}/>
