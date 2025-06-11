@@ -34,6 +34,8 @@ const BuilderDashboard = () => {
     });
   }, []);
 
+  // handleCashOut(id)
+  //  This function facilitates the cashing out of credit from a user account
   const handleCashOut = (id) => {
     setPayments(prev => prev.filter(pay => pay.id !== id));
     const removed = payments.find(pay => pay.id === id);

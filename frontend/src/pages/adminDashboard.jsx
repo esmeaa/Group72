@@ -63,6 +63,8 @@ const AdminDashboard = () => {
     }));
   };
 
+  // handleJobSubmit()
+  //  This function facilitates the posting of jobs from the admin dashboard
   const handleJobSubmit = async (e) => 
   {
     e.preventDefault();
@@ -103,6 +105,8 @@ const AdminDashboard = () => {
     }
   };
   
+  // handleHouseSubmit()
+  //  This function facilitates the posting of House Listings from the Admin Dashboard
   const handleHouseSubmit = async (e) => {
     e.preventDefault();
   
@@ -134,6 +138,8 @@ const AdminDashboard = () => {
     }
   };
 
+  // useEffect()
+  //  This function facilitates the fetching of all housing application information
   useEffect(() => {
     const fetchHousingApplications = async () => {
       try {
@@ -155,6 +161,7 @@ const AdminDashboard = () => {
   // const handleHouseSubmit = h => setHouses(prev => [...prev, { id: Date.now(), ...h }]);
 
 // JobForm and HousingForm remain unchanged from your version
+// This function contains all of the information for the Job Submit form
 function JobForm({ onSubmit }) 
 { 
   return(
@@ -199,6 +206,7 @@ function JobForm({ onSubmit })
   );
 }
 
+// This function represents the form for inputting housing information
 function HousingForm({ onSubmit })
  {  
   return(
@@ -268,6 +276,7 @@ function HousingForm({ onSubmit })
    );
 }
 
+// This function contains all of the HTML for building the Job Applications section
 function JobApplications() 
 { 
   return <div  className={styles.border}>
