@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styles from './builderDashboard.module.css';
 import { Home, Bookmark, User, Settings, Edit, X } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import ViewPayslip from './ViewPayslip';
 
 const BuilderDashboard = () => {
   const [activeTab, setActiveTab] = useState('applications');
