@@ -20,7 +20,7 @@ code {
 }
 
 :root {
-  --background: var(--background);
+  --background: #dbe8ff;
   --background-element: white;
   --background-header: #b9c4f3;
   --background-darker: #f3f4f6;
