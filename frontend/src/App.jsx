@@ -12,9 +12,8 @@ import HomeMarket from './pages/HomeMarket';
 import HomeSeekerRegister from './pages/HomeSeekerRegister';
 import BuilderRegister from './pages/BuilderRegister';
 import AdminRegister from './pages/AdminRegister';
-import EditProfile from './pages/editProfile';  
+import EditProfile from './pages/editProfile';
 import ViewPayslip from './pages/ViewPayslip';
-
 import ChatBox from './ChatBox';
 import useLocalStorage from 'use-local-storage';
 import ReviewApps from './pages/ReviewApps';
@@ -27,28 +26,25 @@ function App() {
       <header className={styles.App_header}>
         <Navigation />
       </header>
+
       <Routes>
-        <Route path='/' element={<Launch/>}/>
-        <Route path='/launch' element={<Launch/>}/>
-        <Route path='/login' element={<LoginPage/>}/>
-        <Route path='/admin' element={<Admin/>}/>
-        <Route path='/builderDashboard' element={<BuilderDash/>}/>
-        <Route path='/HomeSeekerDashboard' element={<HomeSeekerDashboard/>}/>
-        <Route path='/BuilderMarket' element={<BuilderMarket/>}/>
-        <Route path='/HomeMarket' element={<HomeMarket/>}/>
-        <Route path='/HomeSeekerRegister' element={<HomeSeekerRegister/>}/>
-        <Route path='/BuilderRegister' element={<BuilderRegister/>}/>
-        <Route path='/AdminRegister' element={<AdminRegister/>}/> 
-        <Route path='/Profile' element={<EditProfile/>}/>
-        <Route path='/ViewPayslip' element={<ViewPayslip/>}/>
-
-        
-
-      </Routes>
-        <Route path='/ChatBox' element={<ChatBox/>}/>
-        <Route path='/ReviewApps' element={<ReviewApps/>}/>
+        <Route path='/' element={<Launch />} />
+        <Route path='/launch' element={<Launch />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/admin' element={<Admin />} />
+        <Route path='/builderDashboard' element={<BuilderDash />} />
+        <Route path='/HomeSeekerDashboard' element={<HomeSeekerDashboard />} />
+        <Route path='/BuilderMarket' element={<BuilderMarket />} />
+        <Route path='/HomeMarket' element={<HomeMarket />} />
+        <Route path='/HomeSeekerRegister' element={<HomeSeekerRegister />} />
+        <Route path='/BuilderRegister' element={<BuilderRegister />} />
+        <Route path='/AdminRegister' element={<AdminRegister />} />
+        <Route path='/Profile' element={<EditProfile />} />
+        <Route path='/ViewPayslip' element={<ViewPayslip />} />
+        <Route path='/ChatBox' element={<ChatBox />} />
+        <Route path='/ReviewApps' element={<ReviewApps />} />
         <Route path="*" element={<p>404 - Page Not Found</p>} />
-      </Routes> 
+      </Routes>
     </div>
   );
 }
