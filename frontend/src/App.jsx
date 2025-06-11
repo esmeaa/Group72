@@ -18,18 +18,10 @@ import ChatBox from './ChatBox';
 import useLocalStorage from 'use-local-storage';
 
 function App() {
-  ////////////// REMOVE THIS WHEN POSSIBLE
-  const used_theme = 'dark';
-  const [theme, setTheme] = useLocalStorage('theme', used_theme);
-
-  const changeTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-  }
+  const [theme] = useLocalStorage('theme');
 
   return (
     <div className={styles.App} data-theme={theme}>
-      <button onClick={changeTheme}>Theme (PLACEHOLDER)</button>
       <header className={styles.App_header}>
         <Navigation />
       </header>
