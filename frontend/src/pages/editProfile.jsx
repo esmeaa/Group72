@@ -1,8 +1,17 @@
 
 import React, { useState, useEffect } from 'react';
 import styles from './editProfile.module.css';
+import useLocalStorage from 'use-local-storage';
 
 const EditProfile = ({ userId, onProfileUpdate }) => {
+  const [theme, setTheme] = useLocalStorage('theme');
+
+  const changeTheme = (e) => {
+    handleChange(e);
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+  }
+
   const [formData, setFormData] = useState({
     age: '',
     sex: '',
@@ -18,7 +27,7 @@ const EditProfile = ({ userId, onProfileUpdate }) => {
     accessibility: false,
     fontsize: '',
     language: '',
-    darkmode: false,
+    darkmode: theme,
   });
 
   const [loading, setLoading] = useState(true);
@@ -230,7 +239,7 @@ const EditProfile = ({ userId, onProfileUpdate }) => {
                 name="darkmode"
                 type="checkbox"
                 checked={formData.darkmode}
-                onChange={handleChange}
+                onChange={changeTheme}
               />
               Enable Darkmode
             </label>
