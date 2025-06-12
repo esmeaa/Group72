@@ -57,7 +57,7 @@ const sample_application_listings = [
   },
 ];
 
-// Local storage keys 
+// Local storage keys
 const storage_key_saved = 'seeker_saved';
 const storage_key_apps = 'seeker_apps';
 
@@ -67,10 +67,6 @@ const HomeSeekerDashboard = () => {
   const [savedListings, setSavedListings] = useState([]);
   const [budget] = useState(5000); // placeholder for budget amount
   const navigate = useNavigate();
-
-  const username = localStorage.getItem("username") || "Guest";
-  const firstName = localStorage.getItem("firstName") || "Guest";
-  const lastName = localStorage.getItem("lastName") || "Guest";
 
   // Initialising local storage samples
   useEffect(() => {
@@ -124,9 +120,9 @@ const HomeSeekerDashboard = () => {
         <div className={styles.top_info}>
           <div className={styles.avatar_default}><User size={30} /></div>
           <div className={styles.details}>
-            <h2>{firstName}{lastName}</h2>
+            <h2>John Doe</h2>
             <p>Home Seeker</p>
-            <p>{username}</p>
+            <p>johndoe@example.com</p>
           </div>
           <button
             className={styles.edit_btn}
