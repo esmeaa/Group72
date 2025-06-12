@@ -14,6 +14,9 @@ function BuilderRegister() {
     password: "",
   });
   const [errors, setErrors] = useState({});
+  localStorage.setItem("firstName", formData.firstName);
+  localStorage.setItem("lastName", formData.lastName);
+  localStorage.setItem("username", formData.username);
 
   const handleChange = (e) => 
   {

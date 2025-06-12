@@ -135,6 +135,10 @@ const HomeSeekerDashboard = () => {
   const navigate = useNavigate();
   const userId = 1; // placeholder for backend
 
+  const username = localStorage.getItem("username") || "Guest";
+  const firstName = localStorage.getItem("firstName") || "Guest";
+  const lastName = localStorage.getItem("lastName") || "Guest";
+
   useEffect(() => {
     fetch(`/api/seeker/${userId}/applications`)
       .then(res => res.json())
@@ -166,9 +170,9 @@ const HomeSeekerDashboard = () => {
         <div className={styles.top_info}>
           <div className={styles.avatar_default}><User size={30} /></div>
           <div className={styles.details}>
-            <h2>John Doe</h2>
+            <h2>{firstName}{lastName}</h2>
             <p>Home Seeker</p>
-            <p>johndoe@example.com</p>
+            <p>{username}</p>
           </div>
           <button className={styles.edit_btn} onClick={() => navigate('/profile')}>
             <Edit size={16} /> Edit Details

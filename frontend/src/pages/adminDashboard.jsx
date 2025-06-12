@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import sampleHouseImg from '../images/makers_valley_house.jpg';
 
 
+
 const AdminDashboard = () => {
   const [jobs, setJobs] = useState([]);
   const [houses, setHouses] = useState([]);
@@ -18,7 +19,9 @@ const AdminDashboard = () => {
   const [selectedAmenities, setSelectedAmenities] = useState([]);
   const allAmenities = ["Laundry", "Heating", "Air Conditioning", "Wifi"];
 
-
+  const username = localStorage.getItem("username") || "Guest";
+  const firstName = localStorage.getItem("firstName") || "Guest";
+  const lastName = localStorage.getItem("lastName") || "Guest";
   const toggleSkill = (skill) => {
     setSelectedSkills(prev =>
       prev.includes(skill) ? prev.filter(s => s !== skill) : [...prev, skill]
@@ -409,9 +412,9 @@ function HouseApplications({applications})
             <div className={styles.avatar_default}><User size={30} /></div>
             <div className={styles.profile_text_block}>
               <div className={styles.details}>
-                <h2>{user.name}</h2>
+                <h2>{firstName} {lastName}</h2>
                 <p>{user.role}</p>
-                <p>{user.email}</p>
+                <p>{username}</p>
               </div>
               {/* <-- Linked button */}
               <Link to="/profile">

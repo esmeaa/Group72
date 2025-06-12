@@ -14,6 +14,11 @@ const BuilderDashboard = () => {
   const [popup, setPopup] = useState(null);
   const navigate = useNavigate();
 
+
+  const username = localStorage.getItem("username") || "Guest";
+  const firstName = localStorage.getItem("firstName") || "Guest";
+  const lastName = localStorage.getItem("lastName") || "Guest";
+
   useEffect(() => {
     // Mock data (replace with real API later)
     const mockApps = [
@@ -228,9 +233,9 @@ const BuilderDashboard = () => {
             <User size={30} />
           </div>
           <div className={styles.details}>
-            <h2>John Doe</h2>
+            <h2>{firstName} {lastName}</h2>
             <p>Builder</p>
-            <p>johndoe@example.com</p>
+            <p>{username}</p>
           </div>
           <button
             className={styles.edit_btn}
