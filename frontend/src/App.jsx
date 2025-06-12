@@ -19,10 +19,10 @@ import useLocalStorage from 'use-local-storage';
 import ReviewApps from './pages/ReviewApps';
 
 function App() {
-  const [theme] = useLocalStorage('theme');
+  // const [theme] = useLocalStorage('theme');
 
   return (
-    <div className={styles.App} data-theme={theme}>
+    <div className={styles.App}> 
       <header className={styles.App_header}>
         <Navigation />
       </header>

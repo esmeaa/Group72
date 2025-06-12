@@ -1,7 +1,6 @@
 const { Pool } = require('pg');
 const express = require('express');
 const cors = require('cors');
-const chatRoutes = require('./routes/chat');
 
 const app = express();
 const port = 3001;
@@ -9,6 +8,7 @@ const port = 3001;
 app.use(cors());
 app.use(express.json());
 
+// PostgreSQL connection
 const db = new Pool({
     host: 'localhost',
     user: 'postgres',
@@ -25,10 +25,12 @@ db.connect(err => {
     }
 });
 
+// Root route
 app.get('/', (req, res) => {
     res.send('Hello from the server!');
 });
 
+// Get all users (for testing)
 app.get('/api', async (req, res) => {
     try {
         const result = await db.query('SELECT * FROM users');
@@ -39,7 +41,7 @@ app.get('/api', async (req, res) => {
     }
 });
 
-
+// Register user
 app.post("/api/register", async (req, res) => {
     const { firstName, lastName, username, password, role } = req.body;
 
@@ -48,10 +50,7 @@ app.post("/api/register", async (req, res) => {
         return res.status(400).json({ message: "Invalid role" });
     }
 
-    console.log("Received registration data:", req.body);
-
     try {
-        // 🔧 Check if username already exists using correct column name
         const existingUser = await db.query(
             "SELECT * FROM users WHERE user_name = $1",
             [username]
@@ -61,7 +60,6 @@ app.post("/api/register", async (req, res) => {
             return res.status(400).json({ message: "Username already exists" });
         }
 
-        // 🔧 Insert user using correct column names
         await db.query(
             "INSERT INTO users (first_name, last_name, user_name, user_password, role) VALUES ($1, $2, $3, $4, $5)",
             [firstName, lastName, username, password, role]
@@ -74,9 +72,9 @@ app.post("/api/register", async (req, res) => {
     }
 });
 
+// Login user
 app.post("/api/login", async (req, res) => {
     const { username, password } = req.body;
-    console.log("Received login data:", req.body);
 
     try {
         const result = await db.query(
@@ -105,8 +103,7 @@ app.post("/api/login", async (req, res) => {
     }
 });
 
-
-// GET user profile
+// Get user profile
 app.get('/api/profile/:userId', async (req, res) => {
     const { userId } = req.params;
     try {
@@ -122,7 +119,7 @@ app.get('/api/profile/:userId', async (req, res) => {
     }
 });
 
-// POST or UPDATE user profile
+// Post/update user profile
 app.post('/api/profile/:userId', async (req, res) => {
     const { userId } = req.params;
     const {
@@ -162,9 +159,40 @@ app.post('/api/profile/:userId', async (req, res) => {
     }
 });
 
+// Send a chat message
+app.post('/api/messages', async (req, res) => {
+    const { sender_id, receiver_id, message } = req.body;
+    try {
+        await db.query(
+            'INSERT INTO messages (sender_id, receiver_id, message) VALUES ($1, $2, $3)',
+            [sender_id, receiver_id, message]
+        );
+        res.status(201).json({ success: true });
+    } catch (err) {
+        console.error("Send message error:", err);
+        res.status(500).json({ error: 'Failed to send message' });
+    }
+});
 
+// Fetch chat messages between two users
+app.get('/api/messages/:user1/:user2', async (req, res) => {
+    const { user1, user2 } = req.params;
+    try {
+        const result = await db.query(
+            `SELECT * FROM messages
+             WHERE (sender_id = $1 AND receiver_id = $2)
+             OR (sender_id = $2 AND receiver_id = $1)
+             ORDER BY created_at ASC`,
+            [user1, user2]
+        );
+        res.json(result.rows);
+    } catch (err) {
+        console.error("Fetch message error:", err);
+        res.status(500).json({ error: 'Failed to fetch messages' });
+    }
+});
+
+// Start server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
-
-

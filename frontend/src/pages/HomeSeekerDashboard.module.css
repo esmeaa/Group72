@@ -1,19 +1,17 @@
 .hs_dashboard {
   padding: 1rem;
-  padding-bottom: 5rem;
-  background: #f0f4ff;
-  background: var(--background);
+  padding-bottom: 5.5rem;
+  background-color: #f0f4ff;
   min-height: 100vh;
   box-sizing: border-box;
 }
 
-/* Profile */
+/* Profile Section */
 .profile_section {
-  background: #fff;
-  background: var(--background-element);
-  margin-bottom: 1rem;
-  padding: 1.2rem;
+  background: white;
   border-radius: 16px;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .top_info {
@@ -23,35 +21,32 @@
 }
 
 .avatar_default {
-  width: 60px; height: 60px;
-  background-color: #e5e7eb;
+  width: 60px;
+  height: 60px;
+  background: #e5e7eb;
   border-radius: 50%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .details {
   flex: 1;
 }
 
-.details h2 { 
-  margin: 0; 
+.details h2 {
+  margin: 0;
   font-size: 1.3rem;
-  color: #000;
-  color: var(--text);
 }
 
 .details p {
-  margin: 2px 0; 
-  font-size: 0.9rem; 
+  margin: 2px 0;
+  font-size: 0.9rem;
   color: #444;
-  color: var(--text-grey);
 }
 
 .edit_btn {
   background: #4e7fff;
-  background: var(--accent-blue);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -64,23 +59,20 @@
   gap: 6px;
 }
 
-/* Stats */
+/* Stats Row */
 .stats {
   display: flex;
   gap: 0.8rem;
-  margin-top: 0.8rem;
-  padding: 20px;
+  margin-bottom: 1.5rem;
 }
 
 .stat {
   flex: 1;
-  min-width: 100px;
-  padding: 1rem;
-  border-radius: 12px;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  position: relative;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
 }
 
 .stat svg {
@@ -89,32 +81,33 @@
 
 .statText {
   flex: 1;
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .statLabel {
-  display: block;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+  opacity: 0.8;
 }
 
 .statNumber {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
-/* Status Colours */
 .green { 
-  background-color: #d1f3db; 
+  background: #dcfce7; 
   color: #027a48; 
 }
 
 .pink { 
-  background-color: #fce7f3; 
+  background: #fee2e2; 
   color: #9f1239; 
 }
 
 .purple { 
-  background-color: #ede9fe; 
+  background: #ede9fe; 
   color: #6b21a8; 
 }
 
@@ -122,8 +115,7 @@
 .toggle_section {
   display: flex;
   gap: 0.5rem;
-  background: #eef2ff;
-  background: var(--toggle);
+  background-color: #eef2ff;
   padding: 0.5rem;
   border-radius: 12px;
   margin-bottom: 1rem;
@@ -132,46 +124,41 @@
 .toggle_tab {
   flex: 1;
   background: none;
-  padding: 0.7rem;
+  padding: 0.6rem;
   border: none;
   font-size: 0.95rem;
   font-weight: 600;
   border-radius: 10px;
   cursor: pointer;
-  color: #999;
+  color: #000;
 }
 
 .toggle_tab.active {
-  background: #4e7fff;
-  background: var(--accent-blue);
-  color: #fff;
+  background-color: #4e7fff;
+  color: white;
 }
 
 /* Listings View */
-.view_section { 
-  display: flex; 
-  flex-direction: column; 
-  gap: 1.4rem; 
+.view_section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
 }
 
 .view_header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-.view_header h3 { 
-  margin: 0; 
-  font-size: 1.1rem; 
-  font-weight: 600; 
-  color: #000;
-  color: var(--text);
+.view_header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
-/* Listing Cards */
+/* Listing House Cards */
 .listing_card {
   background: #fff;
-  background: var(--background-element);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -183,8 +170,8 @@
   object-fit: cover;
 }
 
-.listing_info { 
-  padding: 1.2rem; 
+.listing_info {
+  padding: 1.2rem;
 }
 
 .listing_title {
@@ -193,27 +180,16 @@
   align-items: center;
 }
 
-.listing_title h4 { 
-  margin: 0; 
-  font-size: 1.1rem; 
+.listing_title h4 {
+  margin: 0;
+  font-size: 1.1rem;
 }
 
 .price {
   color: #4e7fff;
-  color: var(--accent-blue);
   font-weight: 600;
 }
 
-/* Listing Text */
-.listing_info p {
-  margin: 0.8rem 0;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  color: #333;
-  color: var(--text-grey);
-}
-
-/* Tags */
 .listing_tags {
   display: flex;
   gap: 0.6rem;
@@ -229,10 +205,8 @@
   padding: 4px 8px;
   border-radius: 8px;
   font-size: 0.8rem;
-  color: #333;
 }
 
-/* Status Buttons */
 .listing_status {
   display: flex;
   gap: 0.8rem;
@@ -256,60 +230,45 @@
   border-radius: 8px;
   font-weight: 600;
   font-size: 0.9rem;
-  cursor: pointer;
   border: none;
+  cursor: pointer;
 }
 
-.pay_btn { 
-  background-color: #facc15; 
-  color: #000; 
+.pay_btn {
+  background: #facc15;
 }
 
-.contact_btn { 
-  background-color: #d1f3db; 
-  color: #065f46; 
+.contact_btn {
+  background: #d1f3db;
+  color: #065f46;
 }
 
-.apply_btn { 
-  background-color: #4e7fff; 
-  color: #fff; 
+.apply_btn {
+  background: #4e7fff;
+  color: #fff;
 }
 
 /* Bottom Navigation */
 .bottom_nav {
   position: fixed;
   bottom: 0;
-  left: 0;
-  right: 0;
-  background: #fff;
-  background: var(--background-element);
-  color: #444;
-  color: var(--text);
+  width: 100%;
+  background: white;
   padding: 0.8rem 0;
   display: flex;
   justify-content: space-around;
   border-top: 1px solid #ddd;
-  border-top: 1px solid var(--border);
   z-index: 20;
 }
 
 .bottom_nav svg {
   cursor: pointer;
+  color: #444;
 }
 
-/* Media Query */
+/* Mobile View */
 @media (max-width: 576px) {
-  .top_info {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .edit_btn {
-    align-self: flex-start;
-  }
-
   .stats {
-    flex-direction: column;
+    overflow-x: auto;
   }
 }
