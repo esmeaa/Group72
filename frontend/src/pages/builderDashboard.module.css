@@ -178,7 +178,7 @@
   font-weight: bold;
   font-size: 0.95rem;
   color: var(--text);
-  background-color: var(--accent-blue);
+  background-color: white;
   padding: 3px;
   border-radius: 5px;
   text-transform: capitalize;

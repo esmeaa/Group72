@@ -68,6 +68,10 @@ const HomeSeekerDashboard = () => {
   const [budget] = useState(5000); // placeholder for budget amount
   const navigate = useNavigate();
 
+  const username = localStorage.getItem("username") || "Guest";
+  const firstName = localStorage.getItem("firstName") || "Guest";
+  const lastName = localStorage.getItem("lastName") || "Guest";
+
   // Initialising local storage samples
   useEffect(() => {
     const rawSaved = localStorage.getItem(storage_key_saved);
@@ -120,9 +124,9 @@ const HomeSeekerDashboard = () => {
         <div className={styles.top_info}>
           <div className={styles.avatar_default}><User size={30} /></div>
           <div className={styles.details}>
-            <h2>John Doe</h2>
+            <h2>{firstName}{lastName}</h2>
             <p>Home Seeker</p>
-            <p>johndoe@example.com</p>
+            <p>{username}</p>
           </div>
           <button
             className={styles.edit_btn}

@@ -7,6 +7,27 @@ const EditProfile = ({ userId, onProfileUpdate }) => {
   const init_theme = 'light';
   const [theme, setTheme] = useLocalStorage('theme', init_theme);
 
+  const init = {
+    age: 5,
+    sex: '',
+    marital_status:'',
+    kids: '',
+    pets: '',
+    religion: '',
+    job_title: '',
+    skills: [],
+    newSkill:'',
+    disability: '',
+    disability_details: '',
+    accessibility: '',
+    fontsize: '',
+    language: '',
+    darkmode: 'light',
+
+  }
+  const [data, setData] = useLocalStorage('data' , init);
+
+
   const changeTheme = (e) => {
     handleChange(e);
     const newTheme = theme === 'light' ? 'dark' : 'light';
@@ -14,22 +35,38 @@ const EditProfile = ({ userId, onProfileUpdate }) => {
   }
 
   const [formData, setFormData] = useState({
-    age: '',
-    sex: '',
-    marital_status: '',
-    kids: '',
-    pets: false,
-    religion: '',
-    job_title: '',
-    skills: [],
-    newSkill: '',
-    disability: false,
-    disability_details: '',
-    accessibility: false,
-    fontsize: '',
-    language: '',
+    age: data.age,
+    sex: data.sex,
+    marital_status: data.marital_status,
+    kids: data.kids,
+    pets: data.pets,
+    religion: data.religion,
+    job_title: data.job_title,
+    skills: data.skills || [],
+    newSkill: data.newSkill,
+    disability: data.disability,
+    disability_details: data.disability_details,
+    accessibility: data.accessibility,
+    fontsize: data.fontsize,
+    language: data.language,
     darkmode: theme,
   });
+  // localStorage.setItem("age", formData.age);
+  // localStorage.setItem("sex", formData.sex);
+  // localStorage.setItem("marital_status", formData.marital_status);
+  // localStorage.setItem("kids", formData.kids);
+  // localStorage.setItem("pets", formData.pets);
+  // localStorage.setItem("religion", formData.religion);
+  // localStorage.setItem("job_title", formData.job_title);
+  // localStorage.setItem("skills", formData.skills);
+  // localStorage.setItem("newSkill", formData.newSkill);
+  // localStorage.setItem("disability", formData.disability);
+  // localStorage.setItem("disability_details", formData.disability_details);
+  // localStorage.setItem("accessibility", formData.accessibility);
+  // localStorage.setItem("fontsize", formData.fontsize);
+  // localStorage.setItem("fontsize", formData.language);
+  // localStorage.setItem("darkmode", formData.darkmode);
+
 
   const [loading, setLoading] = useState(true);
 
@@ -92,21 +129,22 @@ const EditProfile = ({ userId, onProfileUpdate }) => {
       language: formData.language,
       darkmode: formData.darkmode,
     };
+    setData(payload);
 
-    fetch(`/api/profile/${userId}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-      .then(res => res.ok ? res.json() : Promise.reject(res))
-      .then(data => {
-        alert('Profile saved!');
-        onProfileUpdate(data.profile);
-      })
-      .catch(err => {
-        console.error('Save error:', err);
-        alert('Error saving profile');
-      });
+    // fetch(`/api/profile/${userId}`, {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(payload)
+    // })
+    //   .then(res => res.ok ? res.json() : Promise.reject(res))
+    //   .then(data => {
+    //     alert('Profile saved!');
+    //     onProfileUpdate(data.profile);
+    //   })
+    //   .catch(err => {
+    //     console.error('Save error:', err);
+    //     alert('Error saving profile');
+    //   });
   };
 
   if (loading) return <p>Loading...</p>;
