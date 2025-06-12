@@ -1,14 +1,13 @@
 import React from 'react'
 import styles from "./ReviewApps.module.css";
-import {User} from "lucide-react";
+import { User } from "lucide-react";
 
 const ReviewApps = () => {
   return (
     <div className={styles.page}>
-      <h2 className={styles.heading}>Review Home Applications</h2>
       <div className={styles.card}>
         <div className={styles.profileHeader}>
-        <div className={styles.avatar_default}><User size={30} /></div>
+          <div className={styles.avatar_default}><User size={30} /></div>
           <div>
             <h3>John Doe</h3>
             <p><strong>Residential Renovation - Kitchen Remodel</strong></p>
