@@ -3,6 +3,7 @@ import styles from './adminDashboard.module.css';
 import { Home, User, Settings, Edit, Hammer, Bookmark, MapPin} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import sampleHouseImg from '../images/makers_valley_house.jpg';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -22,6 +23,10 @@ const AdminDashboard = () => {
   const username = localStorage.getItem("username") || "Guest";
   const firstName = localStorage.getItem("firstName") || "Guest";
   const lastName = localStorage.getItem("lastName") || "Guest";
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/ReviewApps');
+  };
   const toggleSkill = (skill) => {
     setSelectedSkills(prev =>
       prev.includes(skill) ? prev.filter(s => s !== skill) : [...prev, skill]
@@ -367,7 +372,7 @@ function HouseApplications({applications})
                 <span><Settings size={14} /> 650 sq ft</span>
               </div>
               <div className={styles.actions}>
-              <button className={styles.review}>Review Applications</button>
+              <button className={styles.review} onClick={handleClick}>Review Applications</button>
               </div>
             </div>
           </div>

@@ -3,13 +3,15 @@ import styles from "./ReviewApps.module.css";
 import { User } from "lucide-react";
 
 const ReviewApps = () => {
+  const firstName = localStorage.getItem("firstName") || "Guest";
+  const lastName = localStorage.getItem("lastName") || "Guest";
   return (
     <div className={styles.page}>
       <div className={styles.card}>
         <div className={styles.profileHeader}>
           <div className={styles.avatar_default}><User size={30} /></div>
           <div>
-            <h3>John Doe</h3>
+            <h3>{firstName} {lastName}</h3>
             <p><strong>Residential Renovation - Kitchen Remodel</strong></p>
             <p className={styles.jobId}><span>Job ID -</span> A8716ZJA1</p>
           </div>
