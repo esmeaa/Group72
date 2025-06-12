@@ -96,9 +96,20 @@
   font-weight: bold;
 }
 
-.green { background: #dcfce7; color: #027a48; }
-.pink { background: #fee2e2; color: #9f1239; }
-.purple { background: #ede9fe; color: #6b21a8; }
+.green { 
+  background: #dcfce7; 
+  color: #027a48; 
+}
+
+.pink { 
+  background: #fee2e2; 
+  color: #9f1239; 
+}
+
+.purple { 
+  background: #ede9fe; 
+  color: #6b21a8; 
+}
 
 /* Toggle Tabs */
 .toggle_section {
@@ -145,7 +156,7 @@
   font-weight: 600;
 }
 
-/* Listing Card */
+/* Listing House Cards */
 .listing_card {
   background: #fff;
   border-radius: 16px;
@@ -255,7 +266,7 @@
   color: #444;
 }
 
-/* Mobile Handling */
+/* Mobile View */
 @media (max-width: 576px) {
   .stats {
     overflow-x: auto;
