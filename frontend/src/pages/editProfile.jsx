@@ -4,7 +4,8 @@ import styles from './editProfile.module.css';
 import useLocalStorage from 'use-local-storage';
 
 const EditProfile = ({ userId, onProfileUpdate }) => {
-  const [theme, setTheme] = useLocalStorage('theme');
+  const init_theme = 'light';
+  const [theme, setTheme] = useLocalStorage('theme', init_theme);
 
   const changeTheme = (e) => {
     handleChange(e);
